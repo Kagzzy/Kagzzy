@@ -8,7 +8,7 @@ interface BadgeProps {
 }
 
 /** Small pill-shaped label used for eyebrows and feature tags. */
-export function Badge({ children, tone = 'light', className }: BadgeProps) {
+export function Badge({ children, tone = 'dark', className }: BadgeProps) {
   return (
     <span
       className={clsx(

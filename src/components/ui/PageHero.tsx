@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles } from 'lucide-react'
 
 export interface PageHeroProps {
   badge: string

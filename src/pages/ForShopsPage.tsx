@@ -163,7 +163,7 @@ export function ForShopsPage() {
       </PageHero>
 
       {/* Section 1: Business Benefits for Print Shops */}
-      <section id="shop-benefits" className="section-padding bg-[#090E24]/70 relative overflow-hidden">
+      <section id="shop-benefits" className="section-padding bg-[#070B18] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy relative z-10">
@@ -255,7 +255,7 @@ export function ForShopsPage() {
       </section>
 
       {/* Section 3: Supported Printer Brands */}
-      <section className="py-14 bg-[#090E24]/60 relative overflow-hidden border-t border-white/10 text-center">
+      <section className="py-14 bg-[#070B18] relative overflow-hidden border-t border-white/10 text-center">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div className="container-kagzzy relative z-10">

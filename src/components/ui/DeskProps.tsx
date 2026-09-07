@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Check, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { KagzzyLogo } from './KagzzyLogo'
 

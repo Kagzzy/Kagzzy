@@ -100,7 +100,8 @@ export function Footer() {
             <div className="lg:col-span-5">
               <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
                 <input
-                  type="email"
+                  type="text"
+                  inputMode="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter shop phone or email"

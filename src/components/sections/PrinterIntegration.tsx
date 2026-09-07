@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Cloud,
   MonitorCog,
@@ -9,7 +9,6 @@ import {
   Zap,
   CheckCircle2,
   FileText,
-  Activity,
   Cpu,
   Layers,
 } from 'lucide-react'
@@ -49,8 +48,9 @@ export function PrinterIntegration() {
   }
 
   return (
-    <section className="section-padding relative overflow-hidden bg-bgdark">
-      <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
+    <section className="section-padding relative overflow-hidden bg-[#070B18]">
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
       <div className="pointer-events-none absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-indigo-500/15 blur-[120px]" aria-hidden />
 
       <div className="container-kagzzy relative flex flex-col gap-8 sm:gap-10">
@@ -291,7 +291,7 @@ export function PrinterIntegration() {
                       {step}
                     </button>
                   )}
-                  {i < shopFlowSteps.length - 1 && <span className="text-slate-600 text-xs">&rarr;</span>}
+                  {i < shopFlowSteps.length - 1 && <span className="hidden sm:inline text-slate-600 text-xs">&rarr;</span>}
                 </div>
               )
             })}

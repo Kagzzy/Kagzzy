@@ -56,6 +56,9 @@ export function TiltCard({ children, tiltStrength = 10, glare = true, className,
         rotateX: reducedMotion ? 0 : springRotateX,
         rotateY: reducedMotion ? 0 : springRotateY,
         transformPerspective: 900,
+        transformStyle: 'preserve-3d',
+        WebkitTransformStyle: 'preserve-3d',
+        WebkitBackfaceVisibility: 'hidden',
       }}
       className={clsx('relative will-change-transform', className)}
       {...(props as Record<string, unknown>)}

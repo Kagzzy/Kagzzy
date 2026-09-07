@@ -16,9 +16,10 @@ export function SecuritySection() {
   return (
     <section
       id="security"
-      className="section-padding relative overflow-hidden bg-bgdark bg-[radial-gradient(circle_at_20%_0%,#1a1042,transparent_55%),radial-gradient(circle_at_80%_100%,#0b1a3a,transparent_55%)]"
+      className="section-padding relative overflow-hidden bg-[#070B18] bg-[radial-gradient(circle_at_20%_0%,#1a1042,transparent_55%),radial-gradient(circle_at_80%_100%,#0b1a3a,transparent_55%)]"
     >
-      <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
       <div className="container-kagzzy relative flex flex-col items-center gap-8">
         <SectionHeading tone="dark" eyebrow="Security & Trust" title="Built to protect every document and every order." />
 

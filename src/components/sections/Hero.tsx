@@ -139,32 +139,34 @@ export function Hero() {
               >
                 Our Technology.
               </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 22, filter: 'blur(8px)', scale: 0.98 }}
-                animate={
-                  reducedMotion
-                    ? { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }
-                    : {
-                        opacity: 1,
-                        y: 0,
-                        filter: 'blur(0px)',
-                        scale: 1,
-                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                      }
-                }
-                transition={{
-                  duration: 0.65,
-                  delay: 0.35,
-                  backgroundPosition: {
-                    duration: 7,
-                    repeat: Infinity,
-                    ease: 'linear',
-                  },
-                }}
-                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)]"
-              >
-                A Simpler Way to Print.
-              </motion.span>
+              <span className="block drop-shadow-[0_0_35px_rgba(168,85,247,0.4)]">
+                <motion.span
+                  initial={{ opacity: 0, y: 22, filter: 'blur(8px)', scale: 0.98 }}
+                  animate={
+                    reducedMotion
+                      ? { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }
+                      : {
+                          opacity: 1,
+                          y: 0,
+                          filter: 'blur(0px)',
+                          scale: 1,
+                          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                        }
+                  }
+                  transition={{
+                    duration: 0.65,
+                    delay: 0.35,
+                    backgroundPosition: {
+                      duration: 7,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    },
+                  }}
+                  className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent"
+                >
+                  A Simpler Way to Print.
+                </motion.span>
+              </span>
             </h1>
 
             {/* Subtitle */}
@@ -221,12 +223,12 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.72, duration: 0.5 }}
-              className="flex flex-wrap items-center gap-3.5 pt-1"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1 w-full sm:w-auto"
             >
               <button
                 type="button"
                 onClick={handleScrollToHowItWorks}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
               >
                 Get Started
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -235,7 +237,7 @@ export function Hero() {
               <button
                 type="button"
                 onClick={() => setDemoOpen(true)}
-                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98] w-full sm:w-auto"
               >
                 <span className="grid h-5 w-5 place-items-center rounded-full bg-white/20 text-white group-hover:bg-white group-hover:text-slate-900 transition-colors">
                   <Play className="h-2.5 w-2.5 fill-current ml-0.5" />
@@ -414,7 +416,7 @@ export function Hero() {
                   <span className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-violet-600 font-bold text-white text-xs">3</span>
                   <div>
                     <h4 className="text-sm font-bold text-white">Instant UPI Pay &amp; Pickup</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Pay directly via GPay, PhonePe, or Paytm. The shop printer begins printing automatically with zero wait!</p>
+                    <p className="text-xs text-slate-400 mt-0.5">Pay directly via GPay, PhonePe, or Paytm. The shop operator reviews your file and taps PRINT NOW on their Windows Print Agent.</p>
                   </div>
                 </div>
               </div>

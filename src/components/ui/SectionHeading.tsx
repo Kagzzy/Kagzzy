@@ -21,7 +21,7 @@ export function SectionHeading({
   title,
   description,
   align = 'center',
-  tone = 'light',
+  tone = 'dark',
   className,
 }: SectionHeadingProps) {
   return (

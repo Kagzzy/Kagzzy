@@ -57,18 +57,18 @@ export function FAQ() {
                 <button
                   type="button"
                   onClick={() => toggle(item.id)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6 sm:py-5 transition-colors"
+                  className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left sm:px-6 sm:py-5 transition-colors"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base font-bold text-white sm:text-lg flex items-center gap-3">
-                    <HelpCircle className={clsx('h-5 w-5 flex-shrink-0 transition-colors', isOpen ? 'text-violet-400' : 'text-slate-400')} />
-                    {item.question}
+                  <span className="text-base font-bold text-white sm:text-lg flex items-start gap-3 flex-1">
+                    <HelpCircle className={clsx('h-5 w-5 flex-shrink-0 mt-0.5 transition-colors', isOpen ? 'text-violet-400' : 'text-slate-400')} />
+                    <span>{item.question}</span>
                   </span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.25 }}
                     className={clsx(
-                      'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition-colors',
+                      'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition-colors mt-0.5',
                       isOpen
                         ? 'bg-violet-600 text-white shadow-md shadow-violet-600/40'
                         : 'bg-white/10 text-slate-300',

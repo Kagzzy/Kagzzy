@@ -182,7 +182,7 @@ export function ForCustomersPage() {
       </PageHero>
 
       {/* Section 1: Customer Benefits */}
-      <section id="customer-benefits" className="section-padding bg-[#090E24]/70 relative overflow-hidden">
+      <section id="customer-benefits" className="section-padding bg-[#070B18] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy relative z-10">
@@ -302,7 +302,7 @@ export function ForCustomersPage() {
       </section>
 
       {/* Section 3: Universal File Formats */}
-      <section className="section-padding bg-[#090E24]/60 relative overflow-hidden border-t border-white/10">
+      <section className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div className="container-kagzzy relative z-10">

@@ -36,12 +36,14 @@ export function AnimatedCounter({
     }
 
     let raf: number
-    const start = performance.now()
+    const getNow = () => (typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now())
+    const start = getNow()
     const durationMs = duration * 1000
 
     const tick = (now: number) => {
-      const elapsed = now - start
-      const progress = Math.min(1, elapsed / durationMs)
+      const currentNow = now || getNow()
+      const elapsed = currentNow - start
+      const progress = Math.min(1, Math.max(0, elapsed / durationMs))
       const eased = 1 - Math.pow(1 - progress, 3)
       setDisplay(value * eased)
       if (progress < 1) {

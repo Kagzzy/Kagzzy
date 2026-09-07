@@ -100,7 +100,7 @@ export function PricingPage() {
       </PageHero>
 
       {/* Main 3 Shop Owner Plans */}
-      <section id="plans" className="section-padding bg-[#090E24]/70 relative overflow-hidden">
+      <section id="plans" className="section-padding bg-[#070B18] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy relative z-10">
@@ -223,7 +223,7 @@ export function PricingPage() {
           </div>
 
           {/* Table Container with safe horizontal overflow */}
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-2 sm:mx-0">
+          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-5 px-5 sm:mx-0 sm:px-0">
             <table className="w-full min-w-[620px] text-left text-xs sm:text-sm">
               <thead className="border-b border-white/10 bg-white/[0.04] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
                 <tr>
@@ -249,7 +249,7 @@ export function PricingPage() {
       </section>
 
       {/* Enterprise / College Campus Inquiries */}
-      <section className="section-padding bg-[#090E24]/60 relative overflow-hidden text-center border-t border-white/10">
+      <section className="section-padding bg-[#070B18] relative overflow-hidden text-center border-t border-white/10">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div

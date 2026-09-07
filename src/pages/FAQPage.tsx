@@ -153,7 +153,7 @@ export function FAQPage() {
       </PageHero>
 
       {/* Accordion Content */}
-      <section className="section-padding bg-[#090E24]/70 relative overflow-hidden">
+      <section className="section-padding bg-[#070B18] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy max-w-3xl relative z-10">
@@ -173,11 +173,11 @@ export function FAQPage() {
                     <button
                       type="button"
                       onClick={() => setOpenId(isOpen ? null : faq.id)}
-                      className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-white"
+                      className="w-full flex items-start justify-between p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-white gap-3"
                     >
-                      <span className="pr-4">{faq.question}</span>
+                      <span className="flex-1">{faq.question}</span>
                       <ChevronDown
-                        className={`h-4 w-4 text-violet-400 flex-shrink-0 transition-transform duration-200 ${
+                        className={`h-4 w-4 text-violet-400 flex-shrink-0 mt-1 transition-transform duration-200 ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                       />

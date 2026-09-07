@@ -326,10 +326,10 @@ export function ProductDemo() {
                     <h3 className="text-lg font-bold text-white">Track Your Order</h3>
                     <div className="mt-6 flex flex-col gap-5">
                       {trackingSteps.map((step, i) => (
-                        <div key={step.label} className="flex items-center gap-4">
+                        <div key={step.label} className="flex items-start gap-4">
                           <div
                             className={clsx(
-                              'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold',
+                              'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold mt-0.5',
                               step.done ? 'bg-emerald-500 text-white' : 'bg-white/10 text-slate-400',
                             )}
                           >
@@ -337,7 +337,7 @@ export function ProductDemo() {
                           </div>
                           <span
                             className={clsx(
-                              'text-sm font-medium',
+                              'text-sm font-medium pt-1',
                               step.done ? 'text-white' : 'text-slate-400',
                             )}
                           >
@@ -346,9 +346,9 @@ export function ProductDemo() {
                         </div>
                       ))}
                     </div>
-                    <div className="mt-6 flex items-center gap-2 rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-sm text-violet-200">
-                      <ArrowRight className="h-4 w-4 text-violet-400" />
-                      Shop will tap PRINT NOW once your job is queued on the right printer.
+                    <div className="mt-6 flex items-start gap-2.5 rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-sm text-violet-200">
+                      <ArrowRight className="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5" />
+                      <span>Shop will tap PRINT NOW once your job is queued on the right printer.</span>
                     </div>
                   </motion.div>
                 )}

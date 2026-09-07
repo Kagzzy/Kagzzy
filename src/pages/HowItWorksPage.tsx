@@ -88,7 +88,12 @@ export function HowItWorksPage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-2 sm:mx-0">
+          {/* Mobile Swipe Hint */}
+          <div className="sm:hidden flex items-center justify-center gap-1.5 text-[11px] font-medium text-slate-400 mb-3 bg-white/[0.04] py-1.5 px-3 rounded-lg border border-white/10 w-fit mx-auto">
+            <span className="text-violet-400">↔</span> Swipe horizontally to compare
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-5 px-5 sm:mx-0 sm:px-0">
             <table className="w-full min-w-[540px] text-left text-xs sm:text-sm">
               <thead className="border-b border-white/10 bg-white/[0.04] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
                 <tr>
@@ -101,13 +106,15 @@ export function HowItWorksPage() {
                 {comparisonData.map((row) => (
                   <tr key={row.factor} className="hover:bg-white/[0.02] transition-colors">
                     <td className="p-4 sm:p-5 font-bold text-white">{row.factor}</td>
-                    <td className="p-4 sm:p-5 text-slate-400 flex items-center gap-2">
-                      <XCircle className="h-4 w-4 text-rose-400 flex-shrink-0" />
-                      <span>{row.traditional}</span>
+                    <td className="p-4 sm:p-5 text-slate-400">
+                      <div className="flex items-start gap-2">
+                        <XCircle className="h-4 w-4 text-rose-400 flex-shrink-0 mt-0.5" />
+                        <span>{row.traditional}</span>
+                      </div>
                     </td>
                     <td className="p-4 sm:p-5 text-slate-200 font-medium">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0" />
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                         <span>{row.kagzzy}</span>
                       </div>
                     </td>

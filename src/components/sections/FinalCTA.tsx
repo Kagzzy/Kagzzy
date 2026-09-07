@@ -1,7 +1,5 @@
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Scan, UploadCloud, Wallet, Printer, PackageCheck, ArrowRight, Store } from 'lucide-react'
-import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { Badge } from '../ui/Badge'
 
 const flowSteps = [
@@ -14,7 +12,6 @@ const flowSteps = [
 
 /** High-converting closing CTA banner for the marketing homepage, styled in dark hero theme. */
 export function FinalCTA() {
-  const reducedMotion = useReducedMotion()
 
   return (
     <section className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
@@ -40,10 +37,10 @@ export function FinalCTA() {
             </p>
 
             {/* Action Buttons */}
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto">
               <Link
                 to="/how-it-works"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3.5 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3.5 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
               >
                 <span>Try Printing a Document</span>
                 <ArrowRight className="h-4 w-4" />
@@ -51,7 +48,7 @@ export function FinalCTA() {
 
               <Link
                 to="/for-shops"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-7 py-3.5 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-7 py-3.5 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98] w-full sm:w-auto"
               >
                 <Store className="h-4 w-4 text-violet-400" />
                 <span>Partner Your Print Shop</span>

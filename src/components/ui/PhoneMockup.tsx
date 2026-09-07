@@ -263,7 +263,7 @@ export function PhoneMockup({ className }: PhoneMockupProps) {
               <div className="flex items-baseline justify-between border-t border-dashed border-slate-200 pt-2">
                 <span className="text-[11px] font-bold text-slate-500">Total</span>
                 <span className="text-[25px] font-black text-slate-900 tracking-tight">
-                  ₹24
+                  ₹{total}
                 </span>
               </div>
 
@@ -302,7 +302,7 @@ export function PhoneMockup({ className }: PhoneMockupProps) {
                         className="flex items-center justify-center gap-1.5"
                       >
                         <CheckCircle2 className="h-4 w-4 text-white" />
-                        Paid ₹24! Pickup Code: #782
+                        Paid ₹{total}! PRINT_ID: KAG-82X91
                       </motion.span>
                     ) : (
                       <span key="idle">Pay with UPI</span>

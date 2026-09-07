@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, ArrowRight, Moon, Sun } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import clsx from 'clsx'
 import { KagzzyLogo } from '../ui/KagzzyLogo'
 
@@ -17,7 +17,6 @@ const navTabs = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [isDark, setIsDark] = useState(true)
   const location = useLocation()
 
   useEffect(() => {
@@ -89,18 +88,8 @@ export function Navbar() {
             })}
           </ul>
 
-          {/* Right: Dark toggle, Login & Get Started Buttons */}
+          {/* Right: Login & Get Started Buttons */}
           <div className="hidden items-center gap-3 sm:flex">
-            {/* Dark/Light mode round toggle */}
-            <button
-              type="button"
-              onClick={() => setIsDark((v) => !v)}
-              title="Toggle theme"
-              className="grid h-8 w-8 place-items-center rounded-full border border-white/20 text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4 text-amber-400" />}
-            </button>
-
             {/* Login Button */}
             <Link
               to="/for-shops"
@@ -119,12 +108,12 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Menu Toggle Button (Minimum 44px WCAG touch target) */}
           <button
             type="button"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setMobileOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white lg:hidden active:bg-white/10"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -138,7 +127,7 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-[#070B18]/95 backdrop-blur-2xl lg:hidden flex flex-col justify-between p-6 pt-24 overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#070B18]/98 backdrop-blur-2xl lg:hidden flex flex-col justify-start gap-6 p-6 pt-24 pb-12 overflow-y-auto"
           >
             <div className="flex flex-col gap-2">
               <div className="pb-3 border-b border-white/10 flex items-center justify-between">
@@ -178,14 +167,14 @@ export function Navbar() {
               <Link
                 to="/for-shops"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center rounded-xl border border-white/20 bg-white/[0.05] py-2.5 text-xs font-bold text-white"
+                className="w-full flex items-center justify-center rounded-xl border border-white/20 bg-white/[0.05] py-3 text-sm font-bold text-white"
               >
                 Shop Partner Login
               </Link>
               <Link
                 to="/how-it-works"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 py-2.5 text-xs font-bold text-white shadow-lg shadow-purple-600/30"
+                className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 py-3 text-sm font-bold text-white shadow-lg shadow-purple-600/30"
               >
                 Get Started
                 <ArrowRight className="h-4 w-4" />

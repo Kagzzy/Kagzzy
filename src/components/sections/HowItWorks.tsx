@@ -95,14 +95,14 @@ export function HowItWorks() {
 
         {/* Mobile / tablet vertical timeline */}
         <div className="relative flex w-full flex-col gap-8 lg:hidden">
-          <div className="absolute bottom-0 left-8 top-0 w-[3px] rounded-full bg-white/10" />
+          <div className="absolute bottom-0 left-8 top-0 w-[2px] -translate-x-1/2 rounded-full bg-white/10" />
           <motion.div
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: 'easeInOut' }}
             style={{ transformOrigin: 'top' }}
-            className="absolute bottom-0 left-8 top-0 w-[3px] origin-top rounded-full bg-gradient-to-b from-purple-500 via-violet-500 to-cyan-500"
+            className="absolute bottom-0 left-8 top-0 w-[2px] -translate-x-1/2 origin-top rounded-full bg-gradient-to-b from-purple-500 via-violet-500 to-cyan-500"
           />
           {workflowSteps.map((step, i) => (
             <motion.div
@@ -111,7 +111,7 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="relative flex items-start gap-5 pl-1"
+              className="relative flex items-start gap-5"
             >
               <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border-2 border-white/20 bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-[0_0_25px_rgba(139,92,246,0.4)]">
                 {step.icon}
