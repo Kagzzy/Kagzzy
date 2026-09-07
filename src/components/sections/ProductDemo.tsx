@@ -52,7 +52,7 @@ export function ProductDemo() {
   }
 
   return (
-    <section className="section-padding bg-lightbg">
+    <section id="demo" className="section-padding bg-lightbg">
       <div className="container-kagzzy grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
         <div className="flex flex-col items-start gap-4 lg:sticky lg:top-24 lg:self-start">
           <SectionHeading
