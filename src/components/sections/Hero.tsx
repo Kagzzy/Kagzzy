@@ -48,54 +48,9 @@ const heroStats = [
   { icon: Star, value: 4.9, suffix: '/5', label: 'Shop rating', decimals: 1, star: true },
 ]
 
-const flowWords = ['Scan', 'Upload', 'Pay', 'Print', 'Pickup']
-
 /* ------------------------------------------------------------------ */
 /*  Small inline sub-components                                       */
 /* ------------------------------------------------------------------ */
-
-/** Handwritten step flow — top-right of scene */
-function HandwrittenFlow() {
-  const reducedMotion = useReducedMotion()
-  return (
-    <div className="flex flex-col items-start gap-0.5 font-handwritten text-violet-200/90 drop-shadow-[0_2px_8px_rgba(124,58,237,0.5)]">
-      {flowWords.map((w, i) => (
-        <motion.span
-          key={w}
-          initial={{ opacity: 0, x: -6 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={reducedMotion ? { duration: 0 } : { delay: 0.9 + i * 0.12, duration: 0.35 }}
-          className="text-lg sm:text-xl font-semibold leading-snug tracking-wide"
-        >
-          {w}
-        </motion.span>
-      ))}
-    </div>
-  )
-}
-
-/** Mini potted plant sitting on a small book/wooden base */
-function MiniPlant() {
-  return (
-    <div className="relative flex flex-col items-center select-none">
-      {/* Leaves */}
-      <div className="relative -mb-2 h-16 w-14">
-        <div className="absolute left-1/2 top-0 h-10 w-4 -translate-x-1/2 rounded-full bg-gradient-to-t from-emerald-900 to-emerald-400" />
-        <div className="absolute left-1.5 top-2 h-9 w-3.5 -rotate-25 rounded-full bg-gradient-to-t from-emerald-900 to-emerald-500" />
-        <div className="absolute right-1.5 top-2 h-9 w-3.5 rotate-25 rounded-full bg-gradient-to-t from-emerald-900 to-emerald-500" />
-        <div className="absolute -left-0.5 top-5 h-8 w-3 -rotate-45 rounded-full bg-gradient-to-t from-emerald-800 to-teal-400" />
-        <div className="absolute -right-0.5 top-5 h-8 w-3 rotate-45 rounded-full bg-gradient-to-t from-emerald-800 to-teal-400" />
-      </div>
-      {/* Pot */}
-      <div className="relative z-10 h-7 w-10 overflow-hidden rounded-b-lg rounded-t-sm border border-stone-400/60 bg-gradient-to-r from-stone-300 via-stone-200 to-stone-300 shadow-md">
-        <div className="absolute inset-x-0 top-0 h-1 bg-stone-400/60" />
-      </div>
-      {/* Wooden base / book */}
-      <div className="mt-0.5 h-3 w-14 rounded-sm bg-gradient-to-r from-amber-800 via-amber-700 to-amber-800 border border-amber-900/40 shadow-sm" />
-      <div className="h-2.5 w-[3.6rem] rounded-sm bg-gradient-to-r from-stone-200 via-stone-100 to-stone-200 border border-stone-300/60 shadow-sm" />
-    </div>
-  )
-}
 
 /** "Better Printing Brighter Communities." card */
 function CommunityCard() {
@@ -131,7 +86,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#070B18] pt-24 sm:pt-28 lg:pt-32 pb-0 text-white select-none"
+      className="relative overflow-hidden bg-[#070B18] pt-16 sm:pt-20 lg:pt-22 pb-0 text-white select-none"
     >
       {/* ---- Background: subtle grid + noise + purple glow ---- */}
       <div className="absolute inset-0 bg-grid opacity-15" aria-hidden />
@@ -150,38 +105,73 @@ export function Hero() {
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.5fr] lg:gap-6">
 
           {/* ---------- LEFT COLUMN ---------- */}
-          <div className="flex flex-col items-start gap-5 lg:gap-6 z-20">
+          <div className="flex flex-col items-start gap-4 sm:gap-5 z-20">
 
             {/* Pill Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 12, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-200 backdrop-blur-md"
+              className="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-violet-200 backdrop-blur-md shadow-[0_0_20px_rgba(139,92,246,0.18)] hover:border-violet-400/50 transition-colors"
             >
-              <span className="h-2 w-2 rounded-full bg-violet-400 animate-pulse" />
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
+              </span>
               LOCAL SHOPS &times; SMARTER PRINTING
             </motion.div>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.12, duration: 0.6 }}
-              className="text-3xl font-black leading-[1.1] tracking-tight sm:text-4xl lg:text-[3.2rem]"
-            >
-              <span className="block text-white">Your Documents.</span>
-              <span className="block text-white">Our Technology.</span>
-              <span className="block mt-1 bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            {/* Headline with cinematic line-by-line reveal and animated gradient text */}
+            <h1 className="text-3xl font-black leading-[1.08] tracking-tight sm:text-4xl lg:text-[3.25rem]">
+              <motion.span
+                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{ duration: 0.55, delay: 0.1 }}
+                className="block text-white"
+              >
+                Your Documents.
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{ duration: 0.55, delay: 0.22 }}
+                className="block text-white"
+              >
+                Our Technology.
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 22, filter: 'blur(8px)', scale: 0.98 }}
+                animate={
+                  reducedMotion
+                    ? { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }
+                    : {
+                        opacity: 1,
+                        y: 0,
+                        filter: 'blur(0px)',
+                        scale: 1,
+                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                      }
+                }
+                transition={{
+                  duration: 0.65,
+                  delay: 0.35,
+                  backgroundPosition: {
+                    duration: 7,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  },
+                }}
+                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)]"
+              >
                 A Simpler Way to Print.
-              </span>
-            </motion.h1>
+              </motion.span>
+            </h1>
 
             {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.28, duration: 0.6 }}
+              transition={{ delay: 0.48, duration: 0.55 }}
               className="max-w-md text-sm leading-relaxed text-slate-300/90 sm:text-[15px]"
             >
               Kagzzy connects you with local print shops, making document
@@ -192,34 +182,45 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.42, duration: 0.5 }}
-              className="flex flex-wrap items-center gap-4 text-[13px] font-semibold text-slate-200"
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs sm:text-[13px] font-semibold text-slate-200"
             >
-              <span className="inline-flex items-center gap-1.5">
-                <span className="grid h-5 w-5 place-items-center rounded-md bg-violet-600/50 text-violet-300">
+              <motion.span
+                whileHover={reducedMotion ? undefined : { scale: 1.05, y: -1 }}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md hover:border-violet-500/40 hover:bg-white/[0.08] transition-all shadow-xs"
+              >
+                <span className="grid h-5 w-5 place-items-center rounded-full bg-violet-600/30 text-violet-300 border border-violet-500/30">
                   <Zap className="h-3 w-3 fill-current" />
                 </span>
                 Easy ordering
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="grid h-5 w-5 place-items-center rounded-md bg-indigo-600/40 text-indigo-300">
+              </motion.span>
+
+              <motion.span
+                whileHover={reducedMotion ? undefined : { scale: 1.05, y: -1 }}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md hover:border-indigo-500/40 hover:bg-white/[0.08] transition-all shadow-xs"
+              >
+                <span className="grid h-5 w-5 place-items-center rounded-full bg-indigo-600/30 text-indigo-300 border border-indigo-500/30">
                   <UpiChevronIcon className="h-3 w-3" />
                 </span>
                 UPI payments
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="grid h-5 w-5 place-items-center rounded-md bg-cyan-600/40 text-cyan-300">
+              </motion.span>
+
+              <motion.span
+                whileHover={reducedMotion ? undefined : { scale: 1.05, y: -1 }}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md hover:border-cyan-500/40 hover:bg-white/[0.08] transition-all shadow-xs"
+              >
+                <span className="grid h-5 w-5 place-items-center rounded-full bg-cyan-600/30 text-cyan-300 border border-cyan-500/30">
                   <BarChart2 className="h-3 w-3" />
                 </span>
                 Real-time tracking
-              </span>
+              </motion.span>
             </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.56, duration: 0.5 }}
+              transition={{ delay: 0.72, duration: 0.5 }}
               className="flex flex-wrap items-center gap-3.5 pt-1"
             >
               <button
@@ -247,7 +248,7 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
+              transition={{ delay: 0.85, duration: 0.6 }}
               className="flex items-center gap-3 pt-1"
             >
               <div className="flex -space-x-2 overflow-hidden">
