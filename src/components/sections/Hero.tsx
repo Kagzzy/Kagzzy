@@ -122,12 +122,12 @@ export function Hero() {
             </motion.div>
 
             {/* Headline with cinematic line-by-line reveal, generous line spacing, and animated gradient text */}
-            <h1 className="flex flex-col gap-2 sm:gap-2.5 lg:gap-3 text-3xl font-black leading-[1.2] tracking-tight sm:text-4xl lg:text-[3.25rem] xl:text-[3.5rem]">
+            <h1 className="flex flex-col gap-4 sm:gap-5 lg:gap-6 text-3xl font-black leading-[1.3] sm:leading-[1.35] tracking-normal sm:text-4xl lg:text-[3.25rem] xl:text-[3.5rem]">
               <motion.span
                 initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ duration: 0.55, delay: 0.1 }}
-                className="block text-white"
+                className="block text-white pb-1 sm:pb-1.5"
               >
                 Your Documents.
               </motion.span>
@@ -135,7 +135,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ duration: 0.55, delay: 0.22 }}
-                className="block text-white"
+                className="block text-white pb-1 sm:pb-1.5"
               >
                 Our Technology.
               </motion.span>
@@ -161,7 +161,7 @@ export function Hero() {
                     ease: 'linear',
                   },
                 }}
-                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)] leading-[1.2]"
+                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)] leading-[1.3] sm:leading-[1.35] py-1"
               >
                 A Simpler Way to Print.
               </motion.span>
