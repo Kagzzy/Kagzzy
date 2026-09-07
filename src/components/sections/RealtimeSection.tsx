@@ -6,12 +6,14 @@ import { useReducedMotion } from '../../hooks/useReducedMotion'
 import type { RealtimeEvent } from '../../types'
 
 const eventStream: (RealtimeEvent & { customerStatus: string; shopStatus: string })[] = [
-  { id: 'e1', type: 'ORDER_CREATED', label: 'ORDER_CREATED', customerStatus: 'Order placed', shopStatus: 'New order queued' },
-  { id: 'e2', type: 'PAYMENT_CAPTURED', label: 'PAYMENT_CAPTURED', customerStatus: 'Payment received', shopStatus: 'Payment verified' },
-  { id: 'e3', type: 'SHOP_ACCEPTED', label: 'SHOP_ACCEPTED', customerStatus: 'Shop accepted', shopStatus: 'Order accepted' },
-  { id: 'e4', type: 'PRINTING_STARTED', label: 'PRINTING_STARTED', customerStatus: 'Printing', shopStatus: 'Printer running' },
-  { id: 'e5', type: 'PRINT_COMPLETED', label: 'PRINT_COMPLETED', customerStatus: 'Print completed', shopStatus: 'Preparing order' },
-  { id: 'e6', type: 'ORDER_READY_FOR_PICKUP', label: 'ORDER_READY_FOR_PICKUP', customerStatus: 'Ready for pickup', shopStatus: 'Awaiting pickup' },
+  { id: 'e1', type: 'ORDER_CREATED', label: 'ORDER_CREATED', customerStatus: 'Order placed via WebApp', shopStatus: 'New order queued' },
+  { id: 'e2', type: 'PAYMENT_CAPTURED', label: 'PAYMENT_CAPTURED', customerStatus: 'UPI payment webhook verified', shopStatus: 'Escrow locked & verified' },
+  { id: 'e3', type: 'SHOP_ACCEPTED', label: 'SHOP_ACCEPTED', customerStatus: 'Shop accepted order', shopStatus: 'Compatible printer auto-matched' },
+  { id: 'e4', type: 'PRINT_JOB_ASSIGNED', label: 'PRINT_JOB_ASSIGNED', customerStatus: 'Routed to Print Agent', shopStatus: 'Operator clicked PRINT NOW' },
+  { id: 'e5', type: 'PRINTING_STARTED', label: 'PRINTING_STARTED', customerStatus: 'Laser printing in progress', shopStatus: 'Driver spooling at hardware speed' },
+  { id: 'e6', type: 'PRINT_COMPLETED', label: 'PRINT_COMPLETED', customerStatus: 'Printing complete', shopStatus: 'Shop collation & stapling' },
+  { id: 'e7', type: 'ORDER_READY_FOR_PICKUP', label: 'ORDER_READY_FOR_PICKUP', customerStatus: 'PRINT_ID: KAG-82X91 ready', shopStatus: 'Awaiting counter handshake' },
+  { id: 'e8', type: 'ORDER_COLLECTED', label: 'ORDER_COLLECTED', customerStatus: 'Order collected', shopStatus: 'Temporary files auto-shredded' },
 ]
 
 /**
@@ -33,9 +35,18 @@ export function RealtimeSection() {
   const current = eventStream[index]
 
   return (
-    <section id="realtime" className="section-padding relative overflow-hidden bg-bgdark2">
-      <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
-      <div className="container-kagzzy relative flex flex-col items-center gap-8 sm:gap-10">
+    <section id="realtime" className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
+      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" aria-hidden />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-1/3 h-[35rem] w-[35rem] rounded-full bg-indigo-700/15 blur-[160px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 bottom-0 h-[30rem] w-[30rem] rounded-full bg-purple-700/15 blur-[140px]"
+      />
+      <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8 sm:gap-10">
         <SectionHeading
           tone="dark"
           eyebrow="Real-Time Experience"

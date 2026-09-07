@@ -82,11 +82,11 @@ const shopFeatures = [
   },
   {
     icon: Zap,
-    title: '1-Click Counter Dispatch',
-    subtitle: 'Total Operator Control',
+    title: 'Explicit Operator "PRINT NOW" Control',
+    subtitle: 'Zero Blind Auto-Printing',
     description:
-      'You maintain total authority at the counter. Review document page counts on your operator screen and trigger physical printing with a single click.',
-    tags: ['Operator Approval', 'Real-Time Spooling', 'Hardware Speed'],
+      'You maintain total authority at the counter. Review document page counts and pricing, select printers automatically or manually, and trigger physical output only when you click "PRINT NOW". Zero wasted paper from unattended jobs.',
+    tags: ['Operator "PRINT NOW" Trigger', 'Auto / Manual Printer Select', 'Anti-Waste Lock'],
   },
   {
     icon: SlidersHorizontal,
@@ -98,11 +98,11 @@ const shopFeatures = [
   },
   {
     icon: LayoutDashboard,
-    title: 'Live Order Management Dashboard',
-    subtitle: 'Real-Time Queue Transparency',
+    title: 'Dual-Tier Operations & Shop Availability',
+    subtitle: 'Open, Busy & Closed Modes',
     description:
-      'A sleek, responsive dashboard showing all incoming customer orders with statuses: Queued, Printing, Ready for Handover, and Collected.',
-    tags: ['Audible Chime Alerts', 'Token Verification', 'Quick Search'],
+      'Toggle availability between OPEN, BUSY (queue throttling during exam rush), and CLOSED. Separate machine-level Print Agent status from high-level business analytics.',
+    tags: ['Open / Busy / Closed States', 'Queue Throttling', 'Dual-Tier Dashboard'],
   },
   {
     icon: Lock,

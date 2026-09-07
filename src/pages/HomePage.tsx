@@ -4,6 +4,7 @@ import { StepByStepArchitecture } from '../components/sections/StepByStepArchite
 import { ProductDemo } from '../components/sections/ProductDemo'
 import { Testimonials } from '../components/sections/Testimonials'
 import { FAQ } from '../components/sections/FAQ'
+import { FinalCTA } from '../components/sections/FinalCTA'
 
 export function HomePage() {
   return (
@@ -14,6 +15,7 @@ export function HomePage() {
       <ProductDemo />
       <Testimonials />
       <FAQ />
+      <FinalCTA />
     </div>
   )
 }

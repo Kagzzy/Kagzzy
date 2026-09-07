@@ -82,12 +82,13 @@ export function StepByStepArchitecture({
     <section
       id={id}
       className={clsx(
-        'section-padding relative overflow-hidden bg-[#080D22] text-white',
+        'section-padding relative overflow-hidden bg-[#070B18] text-white',
         className,
       )}
     >
       {/* Background ambient lighting and grid pattern */}
-      <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
       <div
         className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[32rem] w-[50rem] rounded-full bg-violet-600/10 blur-[130px]"
         aria-hidden

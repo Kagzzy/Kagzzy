@@ -1,5 +1,4 @@
 import { HowItWorks } from '../components/sections/HowItWorks'
-import { StepByStepArchitecture } from '../components/sections/StepByStepArchitecture'
 import { PrinterIntegration } from '../components/sections/PrinterIntegration'
 import { PageHero } from '../components/ui/PageHero'
 import { Badge } from '../components/ui/Badge'
@@ -58,19 +57,16 @@ export function HowItWorksPage() {
             Try Printing a Document
           </Link>
           <a
-            href="#architecture"
+            href="#printers"
             className="rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
           >
-            Explore Tech Architecture
+            Explore Windows Agent
           </a>
         </div>
       </PageHero>
 
       {/* Main 6-Step Visual Timeline */}
       <HowItWorks />
-
-      {/* Deep-Dive Phase Breakdown */}
-      <StepByStepArchitecture />
 
       {/* Printer Integration Terminal Component */}
       <PrinterIntegration />

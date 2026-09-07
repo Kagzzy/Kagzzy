@@ -49,16 +49,16 @@ const customerBenefits = [
   },
   {
     icon: CheckCircle2,
-    badge: '1-TAP UPI',
-    title: 'Effortless UPI Payments',
-    desc: 'Pay securely via Google Pay, PhonePe, Paytm, or BHIM. No more hunting for ₹2 coins or waiting for the shopkeeper to verify screenshots.',
+    badge: '1-TAP UPI & QR',
+    title: 'UPI Intent & Dynamic QR',
+    desc: 'Pay in 1 tap with UPI Intent (Google Pay, PhonePe, Paytm, CRED) on mobile or scan the order-specific Dynamic QR on desktop. Zero manual screenshot verification.',
     accent: 'cyan',
   },
   {
     icon: Sparkles,
     badge: 'REAL-TIME STATUS',
     title: 'Live Order Tracking',
-    desc: 'Watch your order move smoothly from "Payment Verified" to "Printing" to "Ready for Counter Pickup" in real time.',
+    desc: 'Watch your order move smoothly from "Payment Verified" to "Shop Accepted", "Printing", "Collation" and "Ready for Counter Pickup" in real time.',
     accent: 'violet',
   },
 ]
@@ -82,11 +82,11 @@ const customerFeatures = [
   },
   {
     icon: QrCode,
-    title: 'Token-Based Handshake Pickup',
+    title: 'PRINT_ID & Pickup QR Handshake',
     subtitle: 'Orderly Counter Collection',
     description:
-      'Receive a distinct 4-digit pickup token upon payment. Walk up to the counter, flash your token or pickup QR code, and collect your organized pages.',
-    tags: ['4-Digit Token', 'Order Code QR', 'No Misplaced Prints'],
+      'Receive an official PRINT_ID (e.g. KAG-82X91) and secure pickup QR token upon payment. Walk up to the counter, flash your token or pickup QR code, and collect your organized pages. Supports optional OTP for sensitive prints.',
+    tags: ['PRINT_ID (e.g. KAG-82X91)', 'Pickup QR Token', 'Optional OTP Security'],
   },
   {
     icon: Receipt,

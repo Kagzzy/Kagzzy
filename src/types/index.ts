@@ -78,9 +78,11 @@ export type RealtimeEventType =
   | 'ORDER_CREATED'
   | 'PAYMENT_CAPTURED'
   | 'SHOP_ACCEPTED'
+  | 'PRINT_JOB_ASSIGNED'
   | 'PRINTING_STARTED'
   | 'PRINT_COMPLETED'
   | 'ORDER_READY_FOR_PICKUP'
+  | 'ORDER_COLLECTED'
 
 export interface RealtimeEvent {
   id: string

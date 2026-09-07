@@ -24,10 +24,12 @@ const tabs: { id: DemoTab; label: string; icon: typeof UploadCloud }[] = [
 ]
 
 const trackingSteps = [
-  { label: 'Payment received', done: true },
-  { label: 'Shop accepted', done: true },
-  { label: 'Printing', done: false },
-  { label: 'Ready for pickup', done: false },
+  { label: 'Payment captured (Webhook verified)', done: true },
+  { label: 'Shop accepted order', done: true },
+  { label: 'Printer selected & operator approved', done: true },
+  { label: 'Printing in progress', done: true },
+  { label: 'Shop preparing & collation', done: false },
+  { label: 'Ready for pickup (PRINT_ID: KAG-82X91)', done: false },
 ]
 
 /**
@@ -249,44 +251,64 @@ export function ProductDemo() {
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-lg font-bold text-white">Pay with UPI</h3>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-bold text-white">Choose Payment Method</h3>
+                      <span className="rounded-full bg-violet-500/10 border border-violet-500/30 px-2.5 py-0.5 text-[11px] font-mono text-violet-300">
+                        Ref: KAG-82X91
+                      </span>
+                    </div>
+
                     <div className="mt-5 flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-                      <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-slate-900 border border-white/15 shadow-inner">
+                      {/* Dynamic QR for Desktop/Fallback */}
+                      <div className="relative flex h-32 w-32 items-center justify-center rounded-2xl bg-slate-900 border border-white/15 shadow-inner">
                         <QrCode className="h-20 w-20 text-white" />
+                        <span className="absolute bottom-1 text-[9px] font-mono text-violet-300 uppercase tracking-widest">
+                          Dynamic QR
+                        </span>
                       </div>
-                      <p className="text-sm text-slate-400">Scan with any UPI app</p>
+                      <p className="text-xs text-slate-400">Dynamic QR generated for order <span className="font-mono text-white">#KAG-82X91</span></p>
                       <p className="text-2xl font-extrabold text-white">₹{total}</p>
 
-                      <div className="flex min-h-[2rem] items-center gap-2 text-sm font-medium">
-                        {paymentStage === 'idle' && <span className="text-slate-400">Waiting to start payment…</span>}
+                      <div className="flex min-h-[2rem] items-center gap-2 text-xs sm:text-sm font-medium">
+                        {paymentStage === 'idle' && <span className="text-slate-400">Authoritative webhook awaiting verification…</span>}
                         {paymentStage === 'initiated' && (
                           <span className="flex items-center gap-2 text-amber-400">
-                            <Loader2 className="h-4 w-4 animate-spin" /> Payment initiated…
+                            <Loader2 className="h-4 w-4 animate-spin" /> UPI Intent launching app / scanning…
                           </span>
                         )}
                         {paymentStage === 'verifying' && (
                           <span className="flex items-center gap-2 text-amber-400">
-                            <Loader2 className="h-4 w-4 animate-spin" /> Verifying payment…
+                            <Loader2 className="h-4 w-4 animate-spin" /> Verifying gateway signature &amp; amount…
                           </span>
                         )}
                         {paymentStage === 'confirmed' && (
                           <span className="flex items-center gap-2 text-emerald-400">
-                            <CheckCircle2 className="h-4 w-4" /> Payment confirmed — order unlocked
+                            <CheckCircle2 className="h-4 w-4" /> Webhook verified — Order PAID (KAG-82X91)
                           </span>
                         )}
                       </div>
 
                       {paymentStage !== 'confirmed' ? (
-                        <Button
-                          variant="primary"
-                          onClick={runPaymentFlow}
-                          disabled={paymentStage !== 'idle'}
-                        >
-                          Pay with UPI
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-2.5 w-full justify-center">
+                          <Button
+                            variant="primary"
+                            onClick={runPaymentFlow}
+                            disabled={paymentStage !== 'idle'}
+                          >
+                            Pay via UPI Intent (Mobile)
+                          </Button>
+                          <button
+                            type="button"
+                            onClick={runPaymentFlow}
+                            disabled={paymentStage !== 'idle'}
+                            className="rounded-full border border-white/20 bg-white/[0.05] px-5 py-2.5 text-xs font-bold text-white hover:bg-white/10 transition-colors"
+                          >
+                            Scan Dynamic QR (Desktop)
+                          </button>
+                        </div>
                       ) : (
                         <Button variant="primary" showArrow onClick={() => setActiveTab('tracking')}>
-                          View Order Tracking
+                          View Order Tracking (PRINT_ID: KAG-82X91)
                         </Button>
                       )}
                     </div>
