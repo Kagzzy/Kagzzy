@@ -52,12 +52,25 @@ export function ProductDemo() {
   }
 
   return (
-    <section id="demo" className="section-padding bg-lightbg">
-      <div className="container-kagzzy grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+    <section id="demo" className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
+      {/* Background: subtle grid + noise + ambient purple/indigo glow matching Hero */}
+      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" aria-hidden />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-1/4 top-0 h-[35rem] w-[35rem] rounded-full bg-purple-700/15 blur-[160px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 bottom-10 h-[30rem] w-[30rem] rounded-full bg-indigo-700/15 blur-[150px]"
+      />
+
+      <div className="container-kagzzy relative z-10 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
         <div className="flex flex-col items-start gap-4 lg:sticky lg:top-24 lg:self-start">
           <SectionHeading
             eyebrow="Live Demo"
             align="left"
+            tone="dark"
             title="See Kagzzy in action."
             description="This is a real, interactive walkthrough of the customer experience — click through the tabs to try uploading, configuring, paying and tracking a print order."
           />
@@ -71,10 +84,10 @@ export function ProductDemo() {
           </Button>
         </div>
 
-        <div className="elevated-card overflow-hidden rounded-xl4">
+        <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-2xl">
           <div className="flex flex-col sm:flex-row">
             {/* Sidebar */}
-            <div className="flex gap-2 overflow-x-auto border-b border-slate-100 bg-slate-50/70 p-3 sm:w-48 sm:flex-col sm:overflow-visible sm:border-b-0 sm:border-r sm:p-4">
+            <div className="flex gap-2 overflow-x-auto border-b border-white/10 bg-white/[0.02] p-3 sm:w-48 sm:flex-col sm:overflow-visible sm:border-b-0 sm:border-r sm:p-4">
               {tabs.map((tab) => {
                 const isActive = activeTab === tab.id
                 return (
@@ -83,8 +96,10 @@ export function ProductDemo() {
                     type="button"
                     onClick={() => setActiveTab(tab.id)}
                     className={clsx(
-                      'focus-ring relative flex flex-shrink-0 items-center gap-2.5 rounded-xl2 px-3.5 py-2.5 text-sm font-semibold transition-colors',
-                      isActive ? 'bg-white text-violet-600 shadow-card' : 'text-muted hover:bg-white/60',
+                      'focus-ring relative flex flex-shrink-0 items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-all',
+                      isActive
+                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-600/30'
+                        : 'text-slate-400 hover:bg-white/5 hover:text-white',
                     )}
                   >
                     <tab.icon className="h-4 w-4" />
@@ -95,7 +110,7 @@ export function ProductDemo() {
             </div>
 
             {/* Main panel */}
-            <div className="min-h-[420px] flex-1 p-6 sm:p-8">
+            <div className="min-h-[420px] flex-1 p-6 sm:p-8 bg-white/[0.01]">
               <AnimatePresence mode="wait">
                 {activeTab === 'upload' && (
                   <motion.div
@@ -105,21 +120,21 @@ export function ProductDemo() {
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-lg font-bold text-textdark">Upload Your Document</h3>
-                    <div className="mt-5 flex flex-col items-center justify-center gap-3 rounded-xl3 border-2 border-dashed border-violet-200 bg-violet-50/50 px-6 py-10 text-center">
+                    <h3 className="text-lg font-bold text-white">Upload Your Document</h3>
+                    <div className="mt-5 flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-violet-500/30 bg-violet-950/20 px-6 py-10 text-center hover:border-violet-400/50 transition-colors">
                       <UploadCloud className="h-9 w-9 text-violet-400" />
-                      <p className="text-sm font-medium text-textdark">Drag & drop your file here</p>
-                      <p className="text-xs text-muted">or click to browse (PDF, DOCX, JPG)</p>
+                      <p className="text-sm font-medium text-white">Drag & drop your file here</p>
+                      <p className="text-xs text-slate-400">or click to browse (PDF, DOCX, JPG)</p>
                     </div>
-                    <div className="mt-4 flex items-center gap-3 rounded-xl2 border border-slate-200 bg-white p-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl2 bg-rose-100 text-rose-600">
+                    <div className="mt-4 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/30">
                         <FileText className="h-5 w-5" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-semibold text-textdark">Resume.pdf</p>
-                        <p className="text-xs text-muted">2.4 MB • 12 pages</p>
+                        <p className="text-sm font-semibold text-white">Resume.pdf</p>
+                        <p className="text-xs text-slate-400">2.4 MB • 12 pages</p>
                       </div>
-                      <CheckCircle2 className="h-5 w-5 text-mint-500" />
+                      <CheckCircle2 className="h-5 w-5 text-emerald-400" />
                     </div>
                     <Button
                       className="mt-6"
@@ -140,20 +155,20 @@ export function ProductDemo() {
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-lg font-bold text-textdark">Configure Your Print</h3>
+                    <h3 className="text-lg font-bold text-white">Configure Your Print</h3>
                     <div className="mt-5 space-y-5">
                       <div>
-                        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Paper size</p>
+                        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">Paper size</p>
                         <div className="flex gap-2">
                           {(['A4', 'A3', 'Letter'] as const).map((size) => (
                             <button
                               key={size}
                               onClick={() => setPaperSize(size)}
                               className={clsx(
-                                'focus-ring rounded-xl2 border px-4 py-2 text-sm font-medium transition-colors',
+                                'focus-ring rounded-xl border px-4 py-2 text-sm font-medium transition-colors',
                                 paperSize === size
-                                  ? 'border-violet-500 bg-violet-500 text-white'
-                                  : 'border-slate-200 text-muted hover:border-violet-300',
+                                  ? 'border-violet-500 bg-violet-600 text-white'
+                                  : 'border-white/10 text-slate-300 hover:border-violet-400 bg-white/[0.03]',
                               )}
                             >
                               {size}
@@ -162,17 +177,17 @@ export function ProductDemo() {
                         </div>
                       </div>
                       <div>
-                        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Color</p>
+                        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">Color</p>
                         <div className="flex gap-2">
                           {(['B&W', 'Color'] as const).map((mode) => (
                             <button
                               key={mode}
                               onClick={() => setColorMode(mode)}
                               className={clsx(
-                                'focus-ring rounded-xl2 border px-4 py-2 text-sm font-medium transition-colors',
+                                'focus-ring rounded-xl border px-4 py-2 text-sm font-medium transition-colors',
                                 colorMode === mode
-                                  ? 'border-violet-500 bg-violet-500 text-white'
-                                  : 'border-slate-200 text-muted hover:border-violet-300',
+                                  ? 'border-violet-500 bg-violet-600 text-white'
+                                  : 'border-white/10 text-slate-300 hover:border-violet-400 bg-white/[0.03]',
                               )}
                             >
                               {mode}
@@ -180,32 +195,32 @@ export function ProductDemo() {
                           ))}
                         </div>
                       </div>
-                      <div className="flex items-center justify-between rounded-xl2 border border-slate-200 px-4 py-3">
-                        <span className="text-sm font-medium text-textdark">Copies</span>
+                      <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                        <span className="text-sm font-medium text-white">Copies</span>
                         <div className="flex items-center gap-3">
                           <button
                             onClick={() => setCopies((c) => Math.max(1, c - 1))}
-                            className="focus-ring flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-textdark hover:bg-slate-200"
+                            className="focus-ring flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
                           >
                             −
                           </button>
-                          <span className="w-4 text-center text-sm font-bold">{copies}</span>
+                          <span className="w-4 text-center text-sm font-bold text-white">{copies}</span>
                           <button
                             onClick={() => setCopies((c) => Math.min(20, c + 1))}
-                            className="focus-ring flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-textdark hover:bg-slate-200"
+                            className="focus-ring flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
                           >
                             +
                           </button>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between rounded-xl2 border border-slate-200 px-4 py-3">
-                        <span className="text-sm font-medium text-textdark">Duplex printing</span>
+                      <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                        <span className="text-sm font-medium text-white">Duplex printing</span>
                         <button
                           onClick={() => setDuplex((d) => !d)}
                           aria-pressed={duplex}
                           className={clsx(
                             'focus-ring relative h-6 w-11 rounded-full transition-colors',
-                            duplex ? 'bg-violet-500' : 'bg-slate-300',
+                            duplex ? 'bg-violet-600' : 'bg-white/20',
                           )}
                         >
                           <motion.span
@@ -216,9 +231,9 @@ export function ProductDemo() {
                         </button>
                       </div>
                     </div>
-                    <div className="mt-6 flex items-center justify-between rounded-xl2 bg-slate-50 px-4 py-3">
-                      <span className="text-sm font-semibold text-textdark">Total</span>
-                      <span className="text-lg font-extrabold text-violet-600">₹{total}</span>
+                    <div className="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                      <span className="text-sm font-semibold text-white">Total</span>
+                      <span className="text-lg font-extrabold text-violet-400">₹{total}</span>
                     </div>
                     <Button className="mt-6" variant="primary" showArrow onClick={() => setActiveTab('payment')}>
                       Continue to Payment
@@ -234,28 +249,28 @@ export function ProductDemo() {
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-lg font-bold text-textdark">Pay with UPI</h3>
-                    <div className="mt-5 flex flex-col items-center gap-4 rounded-xl3 border border-slate-200 bg-white p-6">
-                      <div className="flex h-32 w-32 items-center justify-center rounded-xl2 bg-slate-900">
+                    <h3 className="text-lg font-bold text-white">Pay with UPI</h3>
+                    <div className="mt-5 flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                      <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-slate-900 border border-white/15 shadow-inner">
                         <QrCode className="h-20 w-20 text-white" />
                       </div>
-                      <p className="text-sm text-muted">Scan with any UPI app</p>
-                      <p className="text-2xl font-extrabold text-textdark">₹{total}</p>
+                      <p className="text-sm text-slate-400">Scan with any UPI app</p>
+                      <p className="text-2xl font-extrabold text-white">₹{total}</p>
 
                       <div className="flex min-h-[2rem] items-center gap-2 text-sm font-medium">
-                        {paymentStage === 'idle' && <span className="text-muted">Waiting to start payment…</span>}
+                        {paymentStage === 'idle' && <span className="text-slate-400">Waiting to start payment…</span>}
                         {paymentStage === 'initiated' && (
-                          <span className="flex items-center gap-2 text-amber-600">
+                          <span className="flex items-center gap-2 text-amber-400">
                             <Loader2 className="h-4 w-4 animate-spin" /> Payment initiated…
                           </span>
                         )}
                         {paymentStage === 'verifying' && (
-                          <span className="flex items-center gap-2 text-amber-600">
+                          <span className="flex items-center gap-2 text-amber-400">
                             <Loader2 className="h-4 w-4 animate-spin" /> Verifying payment…
                           </span>
                         )}
                         {paymentStage === 'confirmed' && (
-                          <span className="flex items-center gap-2 text-mint-600">
+                          <span className="flex items-center gap-2 text-emerald-400">
                             <CheckCircle2 className="h-4 w-4" /> Payment confirmed — order unlocked
                           </span>
                         )}
@@ -286,14 +301,14 @@ export function ProductDemo() {
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-lg font-bold text-textdark">Track Your Order</h3>
+                    <h3 className="text-lg font-bold text-white">Track Your Order</h3>
                     <div className="mt-6 flex flex-col gap-5">
                       {trackingSteps.map((step, i) => (
                         <div key={step.label} className="flex items-center gap-4">
                           <div
                             className={clsx(
                               'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold',
-                              step.done ? 'bg-mint-500 text-white' : 'bg-slate-200 text-slate-500',
+                              step.done ? 'bg-emerald-500 text-white' : 'bg-white/10 text-slate-400',
                             )}
                           >
                             {step.done ? <CheckCircle2 className="h-4 w-4" /> : i + 1}
@@ -301,7 +316,7 @@ export function ProductDemo() {
                           <span
                             className={clsx(
                               'text-sm font-medium',
-                              step.done ? 'text-textdark' : 'text-muted',
+                              step.done ? 'text-white' : 'text-slate-400',
                             )}
                           >
                             {step.label}
@@ -309,8 +324,8 @@ export function ProductDemo() {
                         </div>
                       ))}
                     </div>
-                    <div className="mt-6 flex items-center gap-2 rounded-xl2 bg-violet-50 px-4 py-3 text-sm text-violet-700">
-                      <ArrowRight className="h-4 w-4" />
+                    <div className="mt-6 flex items-center gap-2 rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-sm text-violet-200">
+                      <ArrowRight className="h-4 w-4 text-violet-400" />
                       Shop will tap PRINT NOW once your job is queued on the right printer.
                     </div>
                   </motion.div>

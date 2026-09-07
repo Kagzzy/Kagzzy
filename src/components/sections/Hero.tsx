@@ -86,7 +86,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#070B18] pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 text-white select-none min-h-screen flex flex-col justify-between"
+      className="relative overflow-hidden bg-[#070B18] pt-16 sm:pt-18 lg:pt-20 pb-4 sm:pb-6 text-white select-none min-h-screen flex flex-col justify-between"
     >
       {/* ---- Background: subtle grid + noise + purple glow ---- */}
       <div className="absolute inset-0 bg-grid opacity-15" aria-hidden />
@@ -102,7 +102,7 @@ export function Hero() {
 
       <div className="container-kagzzy relative z-10 flex-1 flex flex-col justify-between w-full">
         {/* ============ Two-Column Grid ============ */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12 w-full my-auto py-6 sm:py-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12 w-full pt-2 sm:pt-4 pb-6 sm:pb-8">
 
           {/* ---------- LEFT COLUMN ---------- */}
           <div className="flex flex-col items-start gap-5 sm:gap-6 lg:gap-7 z-20 w-full">

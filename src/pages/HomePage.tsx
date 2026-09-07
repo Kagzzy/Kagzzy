@@ -3,6 +3,7 @@ import { ProblemSection } from '../components/sections/ProblemSection'
 import { StepByStepArchitecture } from '../components/sections/StepByStepArchitecture'
 import { ProductDemo } from '../components/sections/ProductDemo'
 import { Testimonials } from '../components/sections/Testimonials'
+import { FAQ } from '../components/sections/FAQ'
 
 export function HomePage() {
   return (
@@ -12,6 +13,7 @@ export function HomePage() {
       <StepByStepArchitecture />
       <ProductDemo />
       <Testimonials />
+      <FAQ />
     </div>
   )
 }

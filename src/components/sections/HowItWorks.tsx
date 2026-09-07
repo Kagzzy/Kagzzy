@@ -43,9 +43,18 @@ export function HowItWorks() {
   }, [reducedMotion])
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="section-padding relative overflow-hidden bg-white">
-      <div className="container-kagzzy flex flex-col items-center gap-8 sm:gap-10">
+    <section id="how-it-works" ref={sectionRef} className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
+      {/* Background: subtle grid + noise + ambient purple/indigo glow matching Hero */}
+      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" aria-hidden />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/3 top-0 h-[35rem] w-[35rem] rounded-full bg-purple-700/15 blur-[160px]"
+      />
+
+      <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8 sm:gap-10">
         <SectionHeading
+          tone="dark"
           eyebrow="How Kagzzy Works"
           title="From scan to pickup — just a few simple steps."
           description="Six simple steps take you from a shop’s QR code to a finished, ready-to-collect print."
@@ -53,7 +62,7 @@ export function HowItWorks() {
 
         {/* Desktop horizontal timeline */}
         <div className="relative hidden w-full lg:block">
-          <div className="absolute left-0 right-0 top-8 h-[3px] rounded-full bg-slate-200" />
+          <div className="absolute left-0 right-0 top-8 h-[3px] rounded-full bg-white/10" />
           <div
             ref={lineRef}
             className="absolute left-0 right-0 top-8 h-[3px] origin-left rounded-full bg-gradient-to-r from-purple-500 via-violet-500 to-cyan-500"
@@ -70,15 +79,15 @@ export function HowItWorks() {
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 4 }}
-                  className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-purple-500 to-bluebrand-500 text-white shadow-glow"
+                  className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/20 bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-[0_0_25px_rgba(139,92,246,0.4)]"
                 >
                   {step.icon}
-                  <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-violet-600 shadow">
+                  <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-violet-900 shadow">
                     {step.id}
                   </span>
                 </motion.div>
-                <h3 className="text-sm font-bold text-textdark">{step.title}</h3>
-                <p className="text-xs leading-relaxed text-muted">{step.description}</p>
+                <h3 className="text-sm font-bold text-white">{step.title}</h3>
+                <p className="text-xs leading-relaxed text-slate-300/80">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -86,7 +95,7 @@ export function HowItWorks() {
 
         {/* Mobile / tablet vertical timeline */}
         <div className="relative flex w-full flex-col gap-8 lg:hidden">
-          <div className="absolute bottom-0 left-8 top-0 w-[3px] rounded-full bg-slate-200" />
+          <div className="absolute bottom-0 left-8 top-0 w-[3px] rounded-full bg-white/10" />
           <motion.div
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
@@ -104,15 +113,15 @@ export function HowItWorks() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
               className="relative flex items-start gap-5 pl-1"
             >
-              <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-purple-500 to-bluebrand-500 text-white shadow-glow">
+              <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border-2 border-white/20 bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-[0_0_25px_rgba(139,92,246,0.4)]">
                 {step.icon}
-                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-violet-600 shadow">
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-violet-900 shadow">
                   {step.id}
                 </span>
               </div>
               <div className="pt-3">
-                <h3 className="text-base font-bold text-textdark">{step.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{step.description}</p>
+                <h3 className="text-base font-bold text-white">{step.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-slate-300/80">{step.description}</p>
               </div>
             </motion.div>
           ))}
@@ -123,7 +132,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="font-handwritten text-2xl text-violet-500"
+          className="font-handwritten text-2xl text-violet-400"
         >
           Simple steps. A big difference.
         </motion.p>

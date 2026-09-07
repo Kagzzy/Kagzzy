@@ -25,9 +25,18 @@ export function Testimonials() {
   const current = testimonials[index]
 
   return (
-    <section id="testimonials" className="section-padding bg-lightbg">
-      <div className="container-kagzzy flex flex-col items-center gap-8">
+    <section id="testimonials" className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
+      {/* Background: subtle grid + noise + ambient purple/indigo glow matching Hero */}
+      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" aria-hidden />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 h-[35rem] w-[35rem] -translate-x-1/2 rounded-full bg-purple-700/15 blur-[160px]"
+      />
+
+      <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8">
         <SectionHeading
+          tone="dark"
           eyebrow="Testimonials"
           title={
             <>
@@ -48,27 +57,27 @@ export function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction > 0 ? -60 : 60 }}
                 transition={{ duration: 0.45, ease: 'easeInOut' }}
-                className="elevated-card flex flex-col items-center gap-5 p-8 text-center sm:p-10"
+                className="flex flex-col items-center gap-5 p-8 text-center sm:p-10 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-2xl"
               >
-                <Quote className="h-8 w-8 text-violet-300" />
-                <p className="text-lg font-medium leading-relaxed text-textdark sm:text-xl">
+                <Quote className="h-8 w-8 text-violet-400" />
+                <p className="text-lg font-medium leading-relaxed text-white sm:text-xl">
                   “{current.quote}”
                 </p>
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`h-4 w-4 ${i < current.rating ? 'fill-amber-400 text-amber-400' : 'text-slate-200'}`}
+                      className={`h-4 w-4 ${i < current.rating ? 'fill-amber-400 text-amber-400' : 'text-slate-600'}`}
                     />
                   ))}
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-bluebrand-500 text-sm font-bold text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 text-sm font-bold text-white shadow-md">
                     {current.initials}
                   </span>
                   <div className="text-left">
-                    <p className="text-sm font-bold text-textdark">{current.name}</p>
-                    <p className="text-xs text-muted">{current.role}</p>
+                    <p className="text-sm font-bold text-white">{current.name}</p>
+                    <p className="text-xs text-slate-400">{current.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -80,7 +89,7 @@ export function Testimonials() {
               type="button"
               aria-label="Previous testimonial"
               onClick={() => go(-1)}
-              className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-muted transition-colors hover:border-violet-300 hover:text-violet-600"
+              className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-slate-300 transition-colors hover:border-violet-400 hover:text-white hover:bg-white/10"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -94,7 +103,7 @@ export function Testimonials() {
                     setIndex(i)
                   }}
                   className={`h-1.5 rounded-full transition-all ${
-                    i === index ? 'w-6 bg-violet-500' : 'w-1.5 bg-slate-300'
+                    i === index ? 'w-6 bg-violet-500 shadow-glow' : 'w-1.5 bg-white/20'
                   }`}
                 />
               ))}
@@ -103,7 +112,7 @@ export function Testimonials() {
               type="button"
               aria-label="Next testimonial"
               onClick={() => go(1)}
-              className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-muted transition-colors hover:border-violet-300 hover:text-violet-600"
+              className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-slate-300 transition-colors hover:border-violet-400 hover:text-white hover:bg-white/10"
             >
               <ChevronRight className="h-4 w-4" />
             </button>

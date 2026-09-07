@@ -10,9 +10,8 @@ const navTabs = [
   { label: 'How It Works', path: '/how-it-works' },
   { label: 'Features', path: '/features' },
   { label: 'For Shops', path: '/for-shops' },
-  { label: 'For Customers', hasDropdown: true, path: '/for-customers' },
+  { label: 'For Customers', path: '/for-customers' },
   { label: 'Pricing', path: '/pricing' },
-  { label: 'FAQ', path: '/faq' },
 ]
 
 export function Navbar() {
@@ -75,7 +74,6 @@ export function Navbar() {
                     )}
                     <span className="relative z-10 flex items-center gap-1">
                       {tab.label}
-                      {tab.hasDropdown && <span className="text-[10px] opacity-70">▾</span>}
                     </span>
 
                     {/* Active Bottom Illuminated Dot */}
