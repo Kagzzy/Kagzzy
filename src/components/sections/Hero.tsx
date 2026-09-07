@@ -147,7 +147,7 @@ export function Hero() {
 
       <div className="container-kagzzy relative z-10">
         {/* ============ Two-Column Grid ============ */}
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.5fr] lg:gap-6">
 
           {/* ---------- LEFT COLUMN ---------- */}
           <div className="flex flex-col items-start gap-5 lg:gap-6 z-20">
@@ -168,7 +168,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.12, duration: 0.6 }}
-              className="text-4xl font-black leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.8rem]"
+              className="text-3xl font-black leading-[1.1] tracking-tight sm:text-4xl lg:text-[3.2rem]"
             >
               <span className="block text-white">Your Documents.</span>
               <span className="block text-white">Our Technology.</span>
@@ -273,35 +273,26 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.7 }}
             className="relative flex items-end justify-center min-h-[420px] sm:min-h-[480px] lg:min-h-[520px]"
           >
-
-            {/* Handwritten flow — top right */}
-            <div className="absolute top-0 right-0 sm:right-4 z-30 hidden sm:block">
-              <HandwrittenFlow />
-            </div>
-
-            {/* Phone on pedestal — center */}
+            {/* Phone on pedestal — center-left */}
             <div className="relative z-20 mx-auto mb-2">
               <motion.div
                 animate={reducedMotion ? undefined : { y: [0, -5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
                 className="flex flex-col items-center"
               >
-                {/* Phone */}
                 <div className="relative z-20">
                   <PhoneMockup />
                 </div>
-                {/* Pedestal */}
-                <div className="relative z-10 -mt-5 w-[19rem] sm:w-[21rem] rounded-2xl border border-white/15 bg-gradient-to-b from-slate-800 via-slate-950 to-black p-3 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.9)]">
+                <div className="relative z-10 -mt-5 w-[18rem] sm:w-[20rem] rounded-2xl border border-white/15 bg-gradient-to-b from-slate-800 via-slate-950 to-black p-3 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.9)]">
                   <div className="absolute inset-x-2 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent" />
                   <div className="absolute inset-x-1 bottom-0 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-violet-400 to-indigo-500 shadow-[0_0_18px_rgba(167,139,250,0.9),0_0_5px_rgba(236,72,153,0.8)]" />
                 </div>
-                {/* Ambient glow under pedestal */}
-                <div className="mx-auto -mt-1 h-5 w-[20rem] rounded-full bg-violet-600/35 blur-xl pointer-events-none" aria-hidden />
+                <div className="mx-auto -mt-1 h-5 w-[19rem] rounded-full bg-violet-600/35 blur-xl pointer-events-none" aria-hidden />
               </motion.div>
             </div>
 
             {/* QR Standee — right of phone */}
-            <div className="absolute right-0 sm:right-6 bottom-8 z-15 hidden sm:block">
+            <div className="absolute right-4 sm:right-10 lg:right-16 bottom-8 z-15 hidden sm:block">
               <motion.div
                 animate={reducedMotion ? undefined : { y: [0, -3, 0] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
@@ -310,13 +301,10 @@ export function Hero() {
               </motion.div>
             </div>
 
-            {/* Plant + books — far right */}
-            <div className="absolute -right-2 sm:right-0 top-8 z-10 hidden lg:block">
-              <MiniPlant />
-            </div>
+
 
             {/* "Better Printing Brighter Communities." card — bottom right */}
-            <div className="absolute right-0 sm:right-2 bottom-0 z-20 hidden md:block">
+            <div className="absolute right-2 sm:right-6 bottom-2 z-20 hidden md:block">
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
