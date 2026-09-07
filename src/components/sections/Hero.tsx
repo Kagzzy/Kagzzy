@@ -102,7 +102,7 @@ export function Hero() {
 
       <div className="container-kagzzy relative z-10">
         {/* ============ Two-Column Grid ============ */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.5fr] lg:gap-6">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-8">
 
           {/* ---------- LEFT COLUMN ---------- */}
           <div className="flex flex-col items-start gap-4 sm:gap-5 z-20">
@@ -267,54 +267,54 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ---------- RIGHT COLUMN: Clean Scene ---------- */}
+          {/* ---------- RIGHT COLUMN: Clean Scene (Scaled down for balance) ---------- */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="relative flex items-end justify-center min-h-[420px] sm:min-h-[480px] lg:min-h-[520px]"
+            className="relative flex items-end justify-center min-h-[350px] sm:min-h-[400px] lg:min-h-[430px]"
           >
-            {/* Phone on pedestal — center-left */}
-            <div className="relative z-20 mx-auto mb-2">
-              <motion.div
-                animate={reducedMotion ? undefined : { y: [0, -5, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="flex flex-col items-center"
-              >
-                <div className="relative z-20">
-                  <PhoneMockup />
-                </div>
-                <div className="relative z-10 -mt-5 w-[18rem] sm:w-[20rem] rounded-2xl border border-white/15 bg-gradient-to-b from-slate-800 via-slate-950 to-black p-3 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.9)]">
-                  <div className="absolute inset-x-2 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent" />
-                  <div className="absolute inset-x-1 bottom-0 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-violet-400 to-indigo-500 shadow-[0_0_18px_rgba(167,139,250,0.9),0_0_5px_rgba(236,72,153,0.8)]" />
-                </div>
-                <div className="mx-auto -mt-1 h-5 w-[19rem] rounded-full bg-violet-600/35 blur-xl pointer-events-none" aria-hidden />
-              </motion.div>
+            {/* Scaled-down visual container */}
+            <div className="relative w-full flex items-end justify-center origin-bottom scale-[0.82] sm:scale-[0.86] lg:scale-[0.88]">
+              {/* Phone on pedestal — center-left */}
+              <div className="relative z-20 mx-auto mb-2">
+                <motion.div
+                  animate={reducedMotion ? undefined : { y: [0, -5, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  className="flex flex-col items-center"
+                >
+                  <div className="relative z-20">
+                    <PhoneMockup />
+                  </div>
+                  <div className="relative z-10 -mt-5 w-[18rem] sm:w-[20rem] rounded-2xl border border-white/15 bg-gradient-to-b from-slate-800 via-slate-950 to-black p-3 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.9)]">
+                    <div className="absolute inset-x-2 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+                    <div className="absolute inset-x-1 bottom-0 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-violet-400 to-indigo-500 shadow-[0_0_18px_rgba(167,139,250,0.9),0_0_5px_rgba(236,72,153,0.8)]" />
+                  </div>
+                  <div className="mx-auto -mt-1 h-5 w-[19rem] rounded-full bg-violet-600/35 blur-xl pointer-events-none" aria-hidden />
+                </motion.div>
+              </div>
+
+              {/* QR Standee — right of phone */}
+              <div className="absolute right-4 sm:right-10 lg:right-16 bottom-8 z-15 hidden sm:block">
+                <motion.div
+                  animate={reducedMotion ? undefined : { y: [0, -3, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                >
+                  <QrStandee />
+                </motion.div>
+              </div>
+
+              {/* "Better Printing Brighter Communities." card — bottom right */}
+              <div className="absolute right-2 sm:right-6 bottom-2 z-20 hidden md:block">
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.5 }}
+                >
+                  <CommunityCard />
+                </motion.div>
+              </div>
             </div>
-
-            {/* QR Standee — right of phone */}
-            <div className="absolute right-4 sm:right-10 lg:right-16 bottom-8 z-15 hidden sm:block">
-              <motion.div
-                animate={reducedMotion ? undefined : { y: [0, -3, 0] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              >
-                <QrStandee />
-              </motion.div>
-            </div>
-
-
-
-            {/* "Better Printing Brighter Communities." card — bottom right */}
-            <div className="absolute right-2 sm:right-6 bottom-2 z-20 hidden md:block">
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9, duration: 0.5 }}
-              >
-                <CommunityCard />
-              </motion.div>
-            </div>
-
           </motion.div>
         </div>
 
@@ -323,7 +323,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-10 sm:mt-12 pb-8 sm:pb-10"
+          className="mt-6 sm:mt-8 pb-6 sm:pb-8"
         >
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4 sm:py-5 backdrop-blur-md">
             <div className="grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4">
