@@ -292,6 +292,7 @@ export function ProductDemo() {
                         <div className="flex flex-col sm:flex-row gap-2.5 w-full justify-center">
                           <Button
                             variant="primary"
+                            showArrow
                             onClick={runPaymentFlow}
                             disabled={paymentStage !== 'idle'}
                           >

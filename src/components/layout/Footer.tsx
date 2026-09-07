@@ -109,16 +109,16 @@ export function Footer() {
                 />
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-md hover:brightness-110 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:brightness-110 active:scale-[0.98] transition-all flex-shrink-0"
                 >
                   {subscribed ? (
-                    <span className="flex items-center gap-1 text-emerald-300">
-                      <CheckCircle2 className="h-3.5 w-3.5" /> Registered!
+                    <span className="flex items-center gap-1.5 text-emerald-300">
+                      <CheckCircle2 className="h-4 w-4" /> Registered!
                     </span>
                   ) : (
                     <>
                       <span>Partner With Us</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      <ArrowRight className="h-4 w-4" />
                     </>
                   )}
                 </button>

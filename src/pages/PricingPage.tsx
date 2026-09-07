@@ -174,14 +174,14 @@ export function PricingPage() {
                 <div className="mt-8 pt-4 border-t border-white/10">
                   <Link
                     to="/for-shops"
-                    className={`w-full py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center transition-all ${
+                    className={`w-full py-3.5 rounded-full text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all duration-300 ${
                       plan.highlighted
-                        ? 'bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white shadow-lg shadow-purple-600/30 hover:brightness-110'
-                        : 'bg-white/10 text-white hover:bg-white/20'
+                        ? 'bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:brightness-110'
+                        : 'bg-white/10 text-white border border-white/15 hover:bg-gradient-to-r hover:from-purple-600 hover:via-violet-600 hover:to-indigo-600 hover:shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:border-transparent'
                     }`}
                   >
                     <span>{plan.cta}</span>
-                    <ArrowRight className="h-3.5 w-3.5 ml-1.5" />
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>

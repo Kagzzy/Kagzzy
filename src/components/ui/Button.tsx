@@ -27,19 +27,19 @@ interface ButtonProps extends NativeButtonProps {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-purple-500 text-white shadow-glow hover:bg-violet-500 hover:shadow-glow',
+    'bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:brightness-110 active:scale-[0.98]',
   secondary:
-    'bg-white text-textdark border border-slate-200 hover:border-violet-300 hover:bg-violet-50',
-  dark: 'bg-bgdark2 text-white border border-white/10 hover:bg-bgdark2/80',
-  ghost: 'bg-transparent text-white border border-white/20 hover:bg-white/10',
+    'bg-white/[0.06] text-white border border-white/20 hover:bg-white/10 hover:border-white/35 active:scale-[0.98]',
+  dark: 'bg-white/[0.04] text-white border border-white/10 hover:bg-white/10 active:scale-[0.98]',
+  ghost: 'bg-transparent text-white border border-white/20 hover:bg-white/10 active:scale-[0.98]',
   gradient:
-    'text-white bg-[linear-gradient(135deg,#7C3AED,#4F46E5,#2563EB)] bg-[length:200%_200%] shadow-glow hover:bg-right',
+    'bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:brightness-110 active:scale-[0.98]',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'px-4 py-2 text-sm gap-1.5',
-  md: 'px-6 py-3 text-sm sm:text-base gap-2',
-  lg: 'px-8 py-4 text-base sm:text-lg gap-2.5',
+  sm: 'px-5 py-2 text-xs font-bold gap-1.5',
+  md: 'px-7 py-3 text-xs sm:text-sm font-bold gap-2',
+  lg: 'px-8 py-3.5 text-sm sm:text-base font-bold gap-2.5',
 }
 
 /**

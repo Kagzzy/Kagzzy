@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PageHero } from '../components/ui/PageHero'
-import { Search, ChevronDown } from 'lucide-react'
+import { Search, ChevronDown, ArrowRight } from 'lucide-react'
 
 interface FAQItem {
   id: string
@@ -218,10 +218,10 @@ export function FAQPage() {
             <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
               Our merchant onboarding and support team is available on WhatsApp and email 7 days a week.
             </p>
-            <div className="mt-4 flex justify-center gap-3">
+            <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href="mailto:support@kagzzy.com"
-                className="rounded-xl border border-white/20 bg-white/[0.05] px-4 py-2 text-xs font-bold text-white hover:bg-white/10 transition-colors"
+                className="w-full sm:w-auto text-center rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs font-bold text-white hover:bg-white/10 transition-colors"
               >
                 support@kagzzy.com
               </a>
@@ -229,9 +229,10 @@ export function FAQPage() {
                 href="https://wa.me/"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-500 transition-colors shadow-md shadow-emerald-600/30"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-6 py-2.5 text-xs font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
               >
-                Chat on WhatsApp
+                <span>Chat on WhatsApp</span>
+                <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>

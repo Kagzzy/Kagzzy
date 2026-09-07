@@ -88,20 +88,11 @@ export function Navbar() {
             })}
           </ul>
 
-          {/* Right: Login & Get Started Buttons */}
-          <div className="hidden items-center gap-3 sm:flex">
-            {/* Login Button */}
-            <Link
-              to="/for-shops"
-              className="rounded-full border border-white/20 bg-white/[0.04] px-4 py-1.5 text-xs font-bold text-white transition-colors hover:bg-white/10 hover:border-white/35"
-            >
-              Login
-            </Link>
-
-            {/* Get Started Primary CTA */}
+          {/* Right: Get Started Primary CTA (Login removed per user request) */}
+          <div className="hidden items-center sm:flex">
             <Link
               to="/how-it-works"
-              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-4.5 py-1.5 text-xs font-bold text-white shadow-md shadow-purple-600/40 hover:brightness-110 transition-transform hover:scale-[1.03] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-5 py-2 text-xs font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:brightness-110 active:scale-[0.98] transition-all"
             >
               <span>Get Started</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -165,18 +156,11 @@ export function Navbar() {
 
             <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10">
               <Link
-                to="/for-shops"
-                onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center rounded-xl border border-white/20 bg-white/[0.05] py-3 text-sm font-bold text-white"
-              >
-                Shop Partner Login
-              </Link>
-              <Link
                 to="/how-it-works"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 py-3 text-sm font-bold text-white shadow-lg shadow-purple-600/30"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 py-3.5 text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all"
               >
-                Get Started
+                <span>Get Started</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

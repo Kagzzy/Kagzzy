@@ -425,9 +425,10 @@ export function Hero() {
                 <button
                   type="button"
                   onClick={() => setDemoOpen(false)}
-                  className="rounded-xl bg-violet-600 px-5 py-2 text-xs font-bold text-white hover:bg-violet-500 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-6 py-2.5 text-xs font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:brightness-110 active:scale-[0.98] transition-all"
                 >
-                  Got it, Let's Try!
+                  <span>Got it, Let's Try!</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               </div>
             </motion.div>
