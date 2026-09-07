@@ -49,16 +49,16 @@ export function HowItWorksPage() {
         bgImage="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1600&auto=format&fit=crop&q=80"
         accentColor="purple"
       >
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto px-4">
           <Link
             to="/for-customers"
-            className="rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-purple-600/30 hover:scale-105 transition-transform"
+            className="w-full sm:w-auto text-center rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-transform"
           >
             Try Printing a Document
           </Link>
           <a
             href="#printers"
-            className="rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            className="w-full sm:w-auto text-center rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-colors"
           >
             Explore Windows Agent
           </a>
@@ -72,12 +72,16 @@ export function HowItWorksPage() {
       <PrinterIntegration />
 
       {/* Comparison: Traditional Xerox vs Kagzzy */}
-      <section className="section-padding bg-[#070B18] relative overflow-hidden">
+      <section className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-indigo-700/15 blur-[150px]"
+          className="pointer-events-none absolute right-0 top-1/4 h-[35rem] w-[35rem] rounded-full bg-indigo-700/15 blur-[160px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-0 bottom-0 h-[28rem] w-[28rem] rounded-full bg-purple-700/15 blur-[140px]"
         />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-10">
@@ -127,7 +131,7 @@ export function HowItWorksPage() {
           <div className="mt-10 flex justify-center">
             <Link
               to="/for-customers"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-7 py-3 text-sm font-bold text-white shadow-lg shadow-purple-600/30 hover:scale-105 transition-transform"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3.5 text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all"
             >
               <span>Explore Customer Experience</span>
               <ArrowRight className="h-4 w-4" />

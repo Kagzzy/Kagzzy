@@ -48,7 +48,7 @@ export function PrinterIntegration() {
   }
 
   return (
-    <section className="section-padding relative overflow-hidden bg-[#070B18]">
+    <section className="section-padding relative overflow-hidden bg-[#070B18] border-t border-white/10">
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
       <div className="pointer-events-none absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-indigo-500/15 blur-[120px]" aria-hidden />

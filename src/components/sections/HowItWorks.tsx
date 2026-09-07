@@ -43,13 +43,17 @@ export function HowItWorks() {
   }, [reducedMotion])
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
+    <section id="how-it-works" ref={sectionRef} className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none border-t border-white/10">
       {/* Background: subtle grid + noise + ambient purple/indigo glow matching Hero */}
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/3 top-0 h-[35rem] w-[35rem] rounded-full bg-purple-700/15 blur-[160px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 bottom-0 h-[30rem] w-[30rem] rounded-full bg-indigo-700/15 blur-[150px]"
       />
 
       <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8 sm:gap-10">

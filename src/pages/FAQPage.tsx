@@ -153,9 +153,17 @@ export function FAQPage() {
       </PageHero>
 
       {/* Accordion Content */}
-      <section className="section-padding bg-[#070B18] relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
-        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
+      <section className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-1/4 h-[35rem] w-[35rem] rounded-full bg-indigo-700/15 blur-[160px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-0 bottom-0 h-[28rem] w-[28rem] rounded-full bg-purple-700/15 blur-[140px]"
+        />
         <div className="container-kagzzy max-w-3xl relative z-10">
           {filteredFaqs.length === 0 ? (
             <div className="text-center py-12 text-slate-400 text-sm">

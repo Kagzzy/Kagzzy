@@ -100,9 +100,17 @@ export function PricingPage() {
       </PageHero>
 
       {/* Main 3 Shop Owner Plans */}
-      <section id="plans" className="section-padding bg-[#070B18] relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
-        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
+      <section id="plans" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-1/4 h-[35rem] w-[35rem] rounded-full bg-indigo-700/15 blur-[160px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-0 bottom-0 h-[28rem] w-[28rem] rounded-full bg-purple-700/15 blur-[140px]"
+        />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-10 sm:mb-14 max-w-2xl mx-auto px-2">
             <Badge tone="dark" className="border-violet-500/30 bg-violet-500/15 text-violet-200">

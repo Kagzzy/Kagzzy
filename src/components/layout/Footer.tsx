@@ -73,9 +73,9 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative overflow-hidden bg-[#050813] border-t border-white/10 text-slate-300 select-none">
+    <footer className="relative overflow-hidden bg-[#070B18] border-t border-white/10 text-slate-300 select-none">
       {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[42rem] -translate-x-1/2 rounded-full bg-purple-600/10 blur-[130px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[42rem] -translate-x-1/2 rounded-full bg-purple-600/15 blur-[130px]" />
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
 

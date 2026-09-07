@@ -16,11 +16,19 @@ export function SecuritySection() {
   return (
     <section
       id="security"
-      className="section-padding relative overflow-hidden bg-[#070B18] bg-[radial-gradient(circle_at_20%_0%,#1a1042,transparent_55%),radial-gradient(circle_at_80%_100%,#0b1a3a,transparent_55%)]"
+      className="section-padding relative overflow-hidden bg-[#070B18] border-t border-white/10"
     >
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
-      <div className="container-kagzzy relative flex flex-col items-center gap-8">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-1/4 h-[35rem] w-[35rem] rounded-full bg-indigo-700/15 blur-[160px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 bottom-0 h-[28rem] w-[28rem] rounded-full bg-purple-700/15 blur-[140px]"
+      />
+      <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8">
         <SectionHeading tone="dark" eyebrow="Security & Trust" title="Built to protect every document and every order." />
 
         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

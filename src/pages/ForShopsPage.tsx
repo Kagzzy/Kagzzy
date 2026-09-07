@@ -225,7 +225,7 @@ export function ForShopsPage() {
       </PageHero>
 
       {/* Section 1: Business Benefits for Print Shops */}
-      <section id="shop-benefits" className="section-padding bg-[#070B18] relative overflow-hidden">
+      <section id="shop-benefits" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div

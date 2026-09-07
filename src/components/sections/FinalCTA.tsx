@@ -14,7 +14,7 @@ const flowSteps = [
 export function FinalCTA() {
 
   return (
-    <section className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
+    <section className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none border-t border-white/10">
       {/* Background: subtle grid + noise + ambient purple/indigo glow matching Hero */}
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />

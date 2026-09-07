@@ -82,7 +82,7 @@ export function StepByStepArchitecture({
     <section
       id={id}
       className={clsx(
-        'section-padding relative overflow-hidden bg-[#070B18] text-white',
+        'section-padding relative overflow-hidden bg-[#070B18] text-white border-t border-white/10',
         className,
       )}
     >
