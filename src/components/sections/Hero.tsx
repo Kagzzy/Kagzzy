@@ -86,7 +86,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#070B18] pt-16 sm:pt-20 lg:pt-22 pb-0 text-white select-none"
+      className="relative overflow-hidden bg-[#070B18] pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 text-white select-none min-h-screen flex flex-col justify-between"
     >
       {/* ---- Background: subtle grid + noise + purple glow ---- */}
       <div className="absolute inset-0 bg-grid opacity-15" aria-hidden />
@@ -100,12 +100,12 @@ export function Hero() {
         className="pointer-events-none absolute left-1/3 -top-16 h-[30rem] w-[30rem] rounded-full bg-purple-700/15 blur-[140px]"
       />
 
-      <div className="container-kagzzy relative z-10">
+      <div className="container-kagzzy relative z-10 flex-1 flex flex-col justify-between w-full">
         {/* ============ Two-Column Grid ============ */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12 w-full my-auto py-6 sm:py-8">
 
           {/* ---------- LEFT COLUMN ---------- */}
-          <div className="flex flex-col items-start gap-4 sm:gap-5 z-20">
+          <div className="flex flex-col items-start gap-5 sm:gap-6 lg:gap-7 z-20 w-full">
 
             {/* Pill Badge */}
             <motion.div
@@ -121,8 +121,8 @@ export function Hero() {
               LOCAL SHOPS &times; SMARTER PRINTING
             </motion.div>
 
-            {/* Headline with cinematic line-by-line reveal and animated gradient text */}
-            <h1 className="text-3xl font-black leading-[1.08] tracking-tight sm:text-4xl lg:text-[3.25rem]">
+            {/* Headline with cinematic line-by-line reveal, generous line spacing, and animated gradient text */}
+            <h1 className="flex flex-col gap-2 sm:gap-2.5 lg:gap-3 text-3xl font-black leading-[1.2] tracking-tight sm:text-4xl lg:text-[3.25rem] xl:text-[3.5rem]">
               <motion.span
                 initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -161,7 +161,7 @@ export function Hero() {
                     ease: 'linear',
                   },
                 }}
-                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)]"
+                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)] leading-[1.2]"
               >
                 A Simpler Way to Print.
               </motion.span>
@@ -172,7 +172,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.48, duration: 0.55 }}
-              className="max-w-md text-sm leading-relaxed text-slate-300/90 sm:text-[15px]"
+              className="max-w-xl text-sm sm:text-base lg:text-[17px] leading-relaxed sm:leading-7 lg:leading-8 text-slate-300/90"
             >
               Kagzzy connects you with local print shops, making document
               printing as simple as scanning, uploading, paying and picking up.
@@ -249,7 +249,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.85, duration: 0.6 }}
-              className="flex items-center gap-3 pt-1"
+              className="flex items-center gap-3 pt-1.5"
             >
               <div className="flex -space-x-2 overflow-hidden">
                 {trustAvatars.map((a, i) => (
@@ -261,7 +261,7 @@ export function Hero() {
                   />
                 ))}
               </div>
-              <p className="text-xs sm:text-sm font-medium text-slate-400 leading-snug">
+              <p className="text-xs sm:text-sm font-medium text-slate-400 leading-relaxed">
                 Trusted by students, professionals<br className="hidden sm:inline" /> and local businesses.
               </p>
             </motion.div>
@@ -272,10 +272,10 @@ export function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="relative flex items-end justify-center min-h-[350px] sm:min-h-[400px] lg:min-h-[430px]"
+            className="relative flex items-end justify-center min-h-[350px] sm:min-h-[400px] lg:min-h-[440px] w-full"
           >
             {/* Scaled-down visual container */}
-            <div className="relative w-full flex items-end justify-center origin-bottom scale-[0.82] sm:scale-[0.86] lg:scale-[0.88]">
+            <div className="relative w-full flex items-end justify-center origin-bottom scale-[0.83] sm:scale-[0.86] lg:scale-[0.88]">
               {/* Phone on pedestal — center-left */}
               <div className="relative z-20 mx-auto mb-2">
                 <motion.div
@@ -323,7 +323,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-6 sm:mt-8 pb-6 sm:pb-8"
+          className="w-full mt-auto pt-6 sm:pt-8 pb-4 sm:pb-6"
         >
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4 sm:py-5 backdrop-blur-md">
             <div className="grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4">
