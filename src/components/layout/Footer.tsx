@@ -127,11 +127,11 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Main Footer Links Grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 pb-10">
+        {/* Main Footer Links Grid — 2 columns on mobile, 5 on desktop */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-5 pb-10">
           
-          {/* Brand Info Column */}
-          <div className="lg:col-span-2">
+          {/* Brand Info Column (spans full width on mobile) */}
+          <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(124,58,237,0.5)]">
                 <Printer className="h-5 w-5" />
@@ -171,7 +171,7 @@ export function Footer() {
           </div>
 
           {/* Product Column */}
-          <div>
+          <div className="col-span-1">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">Product</h4>
             <ul className="mt-3.5 flex flex-col gap-2.5 text-xs">
               {productLinks.map((link) => (
@@ -188,7 +188,7 @@ export function Footer() {
           </div>
 
           {/* Resources Column */}
-          <div>
+          <div className="col-span-1">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">Resources</h4>
             <ul className="mt-3.5 flex flex-col gap-2.5 text-xs">
               {resourceLinks.map((link) => (
@@ -205,8 +205,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company & Legal Column */}
-          <div>
+          {/* Company Column */}
+          <div className="col-span-1">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">Company</h4>
             <ul className="mt-3.5 flex flex-col gap-2.5 text-xs">
               {companyLinks.map((link) => (
@@ -222,6 +222,23 @@ export function Footer() {
                       </span>
                     )}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Column on Mobile / Desktop */}
+          <div className="col-span-1 lg:hidden">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Legal &amp; Terms</h4>
+            <ul className="mt-3.5 flex flex-col gap-2.5 text-xs">
+              {legalLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-slate-400 transition-colors hover:text-white hover:underline"
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>

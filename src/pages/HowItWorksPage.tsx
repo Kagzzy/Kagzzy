@@ -92,12 +92,38 @@ export function HowItWorksPage() {
             </p>
           </div>
 
-          {/* Mobile Swipe Hint */}
-          <div className="sm:hidden flex items-center justify-center gap-1.5 text-[11px] font-medium text-slate-400 mb-3 bg-white/[0.04] py-1.5 px-3 rounded-lg border border-white/10 w-fit mx-auto">
-            <span className="text-violet-400">↔</span> Swipe horizontally to compare
+          {/* Mobile Card-based Comparison (Responsive, no horizontal scroll, no thick scrollbar) */}
+          <div className="flex flex-col gap-3.5 sm:hidden">
+            {comparisonData.map((row) => (
+              <div
+                key={row.factor}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl"
+              >
+                <h3 className="text-xs font-bold uppercase tracking-wider text-white pb-2.5 mb-2.5 border-b border-white/10">
+                  {row.factor}
+                </h3>
+                <div className="flex flex-col gap-2 text-xs">
+                  <div className="flex items-start gap-2 rounded-xl bg-rose-500/[0.08] border border-rose-500/20 p-2.5 text-slate-300">
+                    <XCircle className="h-4 w-4 text-rose-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300 block mb-0.5">Traditional Xerox</span>
+                      <span>{row.traditional}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 p-2.5 text-slate-200">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-0.5">Kagzzy Smart Printing</span>
+                      <span>{row.kagzzy}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-5 px-5 sm:mx-0 sm:px-0">
+          {/* Desktop & Tablet Table View */}
+          <div className="hidden sm:block overflow-x-auto no-scrollbar rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl">
             <table className="w-full min-w-[540px] text-left text-xs sm:text-sm">
               <thead className="border-b border-white/10 bg-white/[0.04] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
                 <tr>

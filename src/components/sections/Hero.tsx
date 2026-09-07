@@ -269,15 +269,15 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ---------- RIGHT COLUMN: Clean Scene ---------- */}
+          {/* ---------- RIGHT COLUMN: Clean Scene (Desktop only) ---------- */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="relative flex items-start sm:items-end justify-center min-h-0 sm:min-h-[400px] lg:min-h-[440px] w-full mt-2 sm:mt-0"
+            className="relative hidden lg:flex items-end justify-center min-h-[440px] w-full"
           >
-            {/* Visual container: natural 1:1 on mobile, scaled on tablet/desktop */}
-            <div className="relative w-full flex items-start sm:items-end justify-center origin-top sm:origin-bottom scale-100 sm:scale-[0.86] lg:scale-[0.88]">
+            {/* Visual container */}
+            <div className="relative w-full flex items-end justify-center origin-bottom scale-[0.88]">
               {/* Phone on pedestal — center-left */}
               <div className="relative z-20 mx-auto mb-2">
                 <motion.div

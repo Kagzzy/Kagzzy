@@ -230,8 +230,8 @@ export function PricingPage() {
             <span className="text-violet-400">↔</span> Swipe horizontally to compare all features
           </div>
 
-          {/* Table Container with safe horizontal overflow */}
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-5 px-5 sm:mx-0 sm:px-0">
+          {/* Table Container with safe horizontal overflow & hidden scrollbar */}
+          <div className="overflow-x-auto no-scrollbar rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-5 px-5 sm:mx-0 sm:px-0">
             <table className="w-full min-w-[620px] text-left text-xs sm:text-sm">
               <thead className="border-b border-white/10 bg-white/[0.04] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
                 <tr>

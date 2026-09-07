@@ -24,21 +24,16 @@ export function FeatureGrid() {
       <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8">
         <SectionHeading tone="dark" eyebrow="Features" title="Everything you need for modern printing." />
 
-        {/* Mobile Swipe Hint */}
-        <div className="sm:hidden -mt-4 flex items-center justify-center gap-1.5 text-[11px] font-medium text-slate-400 bg-white/[0.04] py-1.5 px-3 rounded-lg border border-white/10 w-fit">
-          <span className="text-violet-400">↔</span> Swipe horizontally to browse features
-        </div>
-
-        <div className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto pb-3 -mx-5 px-5 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           {features.map((feature, i) => (
             <motion.div
               key={feature.id}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: '-40px' }}
               transition={{ delay: (i % 4) * 0.08, duration: 0.5 }}
               whileHover={{ y: -6 }}
-              className="group relative min-w-[250px] flex-shrink-0 snap-start rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-5 backdrop-blur-xl transition-all duration-300 hover:border-violet-500/40 hover:bg-white/[0.06] shadow-xl sm:min-w-0"
+              className="group relative rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl transition-all duration-300 hover:border-violet-500/40 hover:bg-white/[0.06] shadow-xl"
             >
               <motion.div
                 whileHover={{ scale: 1.12, rotate: -6 }}

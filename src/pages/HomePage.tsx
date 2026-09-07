@@ -9,8 +9,13 @@ import { FinalCTA } from '../components/sections/FinalCTA'
 export function HomePage() {
   return (
     <div>
-      <Hero />
-      <ProblemSection />
+      {/* Hero section hidden on mobile devices as requested */}
+      <div className="hidden sm:block">
+        <Hero />
+      </div>
+      <div className="pt-20 sm:pt-0">
+        <ProblemSection />
+      </div>
       <StepByStepArchitecture />
       <ProductDemo />
       <Testimonials />
