@@ -1,0 +1,78 @@
+import {
+  Radio,
+  ShieldCheck,
+  Wallet,
+  LayoutDashboard,
+  MapPin,
+  Users,
+  Printer,
+  Gauge,
+} from 'lucide-react'
+import type { FeatureCard } from '../types'
+
+export const features: FeatureCard[] = [
+  {
+    id: 'realtime-orders',
+    title: 'Real-time orders',
+    description: 'Orders flow instantly from customer to shop dashboard, no refreshing needed.',
+    icon: <Radio className="h-6 w-6" />,
+    colorFrom: '#7C3AED',
+    colorTo: '#4F46E5',
+  },
+  {
+    id: 'secure-uploads',
+    title: 'Secure uploads',
+    description: 'Documents are encrypted in transit and access is scoped to your order only.',
+    icon: <ShieldCheck className="h-6 w-6" />,
+    colorFrom: '#06B6D4',
+    colorTo: '#2563EB',
+  },
+  {
+    id: 'upi-payments',
+    title: 'UPI payments',
+    description: 'Pay with any UPI app you already use — Google Pay, PhonePe, Paytm and more.',
+    icon: <Wallet className="h-6 w-6" />,
+    colorFrom: '#10B981',
+    colorTo: '#06B6D4',
+  },
+  {
+    id: 'shop-dashboard',
+    title: 'Shop dashboard',
+    description: 'A clean, focused dashboard to manage every incoming order from one screen.',
+    icon: <LayoutDashboard className="h-6 w-6" />,
+    colorFrom: '#8B5CF6',
+    colorTo: '#7C3AED',
+  },
+  {
+    id: 'order-tracking',
+    title: 'Order tracking',
+    description: 'Live status from payment to pickup, so nobody has to guess what’s happening.',
+    icon: <MapPin className="h-6 w-6" />,
+    colorFrom: '#2563EB',
+    colorTo: '#06B6D4',
+  },
+  {
+    id: 'role-based-access',
+    title: 'Role-based access',
+    description: 'Shop owners and staff get exactly the access they need, nothing more.',
+    icon: <Users className="h-6 w-6" />,
+    colorFrom: '#4F46E5',
+    colorTo: '#8B5CF6',
+  },
+  {
+    id: 'multi-printer',
+    title: 'Multiple printer support',
+    description: 'Connect several existing printers and route jobs to the right one automatically.',
+    icon: <Printer className="h-6 w-6" />,
+    colorFrom: '#7C3AED',
+    colorTo: '#06B6D4',
+  },
+  {
+    id: 'reliable-scalable',
+    title: 'Reliable & scalable',
+    description: 'Built to handle busy hours at a single shop or across a growing network.',
+    icon: <Gauge className="h-6 w-6" />,
+    colorFrom: '#10B981',
+    colorTo: '#4F46E5',
+  },
+]
