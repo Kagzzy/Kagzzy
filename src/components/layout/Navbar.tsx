@@ -140,7 +140,7 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-[#070B18]/95 backdrop-blur-2xl lg:hidden flex flex-col justify-between p-6 pt-24"
+            className="fixed inset-0 z-40 bg-[#070B18]/95 backdrop-blur-2xl lg:hidden flex flex-col justify-between p-6 pt-24 overflow-y-auto"
           >
             <div className="flex flex-col gap-2">
               <div className="pb-3 border-b border-white/10 flex items-center justify-between">

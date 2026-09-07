@@ -86,8 +86,8 @@ export function HowItWorksPage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl">
-            <table className="w-full text-left text-xs sm:text-sm">
+          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl -mx-2 sm:mx-0">
+            <table className="w-full min-w-[540px] text-left text-xs sm:text-sm">
               <thead className="border-b border-white/10 bg-white/[0.04] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
                 <tr>
                   <th className="p-4 sm:p-5">Feature / Experience</th>

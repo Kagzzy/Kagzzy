@@ -158,22 +158,22 @@ export function ForCustomersPage() {
         bgImage="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600&auto=format&fit=crop&q=80"
         accentColor="blue"
       >
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto px-4">
           <a
             href="#customer-benefits"
-            className="rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-7 py-2.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:scale-105 transition-transform"
+            className="w-full sm:w-auto text-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:scale-105 transition-transform"
           >
             Explore Benefits
           </a>
           <a
             href="#customer-features"
-            className="rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            className="w-full sm:w-auto text-center rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
           >
             Explore Features
           </a>
           <Link
             to="/how-it-works"
-            className="rounded-full bg-white/10 px-6 py-2.5 text-xs sm:text-sm font-bold text-slate-200 hover:bg-white/20 transition-colors inline-flex items-center gap-1.5"
+            className="w-full sm:w-auto text-center rounded-full bg-white/10 px-6 py-3 text-xs sm:text-sm font-bold text-slate-200 hover:bg-white/20 transition-colors inline-flex items-center justify-center gap-1.5"
           >
             <span>See Step-by-Step Flow</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -328,17 +328,17 @@ export function ForCustomersPage() {
           <p className="text-xs sm:text-sm text-slate-400 mt-2">
             Walk into any Kagzzy partner shop, scan the counter standee QR, and print with total ease.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none mx-auto">
             <Link
               to="/how-it-works"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-8 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:scale-105 transition-transform"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-8 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:scale-105 transition-transform text-center"
             >
               <span>See How It Works</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors text-center"
             >
               <span>Explore Home</span>
             </Link>

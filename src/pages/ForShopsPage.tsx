@@ -139,22 +139,22 @@ export function ForShopsPage() {
         bgImage="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1600&auto=format&fit=crop&q=80"
         accentColor="emerald"
       >
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto px-4">
           <a
             href="#shop-benefits"
-            className="rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-emerald-600/30 hover:scale-105 transition-transform"
+            className="w-full sm:w-auto text-center rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-emerald-600/30 hover:scale-105 transition-transform"
           >
             Explore Shop Benefits
           </a>
           <a
             href="#shop-features"
-            className="rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            className="w-full sm:w-auto text-center rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
           >
             Explore Features
           </a>
           <Link
             to="/pricing"
-            className="rounded-full bg-white/10 px-6 py-2.5 text-xs sm:text-sm font-bold text-slate-200 hover:bg-white/20 transition-colors inline-flex items-center gap-1.5"
+            className="w-full sm:w-auto text-center rounded-full bg-white/10 px-6 py-3 text-xs sm:text-sm font-bold text-slate-200 hover:bg-white/20 transition-colors inline-flex items-center justify-center gap-1.5"
           >
             <span>View Pricing Plans</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -277,17 +277,17 @@ export function ForShopsPage() {
           <p className="text-xs sm:text-sm text-slate-400 mt-2">
             Start with our 100% free Starter Shop plan or choose a high-capacity tier with multi-printer load balancing.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none mx-auto">
             <Link
               to="/pricing"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 px-8 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-emerald-600/30 hover:scale-105 transition-transform"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 px-8 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-emerald-600/30 hover:scale-105 transition-transform text-center"
             >
               <span>Explore Shop Owner Plans</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/how-it-works"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors text-center"
             >
               <span>See How It Works</span>
             </Link>
