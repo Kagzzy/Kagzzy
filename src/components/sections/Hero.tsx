@@ -327,8 +327,8 @@ export function Hero() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="w-full mt-auto pt-6 sm:pt-8 pb-4 sm:pb-6"
         >
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4 sm:py-5 backdrop-blur-md">
-            <div className="grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 sm:px-6 py-4 sm:py-5 backdrop-blur-md">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
               {heroStats.map((stat, i) => (
                 <div
                   key={stat.label}
