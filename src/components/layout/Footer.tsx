@@ -76,7 +76,8 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-[#050813] border-t border-white/10 text-slate-300 select-none">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[42rem] -translate-x-1/2 rounded-full bg-purple-600/10 blur-[130px]" />
-      <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
 
       <div className="container-kagzzy relative pt-12 pb-8 sm:pt-14 sm:pb-10">
         

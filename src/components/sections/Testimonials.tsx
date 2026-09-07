@@ -27,7 +27,7 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="section-padding relative overflow-hidden bg-[#070B18] text-white select-none">
       {/* Background: subtle grid + noise + ambient purple/indigo glow matching Hero */}
-      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
       <div
         aria-hidden

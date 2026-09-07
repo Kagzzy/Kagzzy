@@ -87,7 +87,7 @@ export function StepByStepArchitecture({
       )}
     >
       {/* Background ambient lighting and grid pattern */}
-      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
       <div
         className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[32rem] w-[50rem] rounded-full bg-violet-600/10 blur-[130px]"
@@ -100,7 +100,7 @@ export function StepByStepArchitecture({
 
       <div className="container-kagzzy relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

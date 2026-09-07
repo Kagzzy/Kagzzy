@@ -73,6 +73,12 @@ export function HowItWorksPage() {
 
       {/* Comparison: Traditional Xerox vs Kagzzy */}
       <section className="section-padding bg-[#070B18] relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-0 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-indigo-700/15 blur-[150px]"
+        />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-10">
             <Badge tone="dark">THE TRANSFORMATION</Badge>

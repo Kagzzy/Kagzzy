@@ -164,7 +164,8 @@ export function ForShopsPage() {
 
       {/* Section 1: Business Benefits for Print Shops */}
       <section id="shop-benefits" className="section-padding bg-[#090E24]/70 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-12 max-w-2xl mx-auto">
             <Badge tone="dark">BUSINESS BENEFITS</Badge>
@@ -202,6 +203,12 @@ export function ForShopsPage() {
 
       {/* Section 2: Platform Features for Print Shops */}
       <section id="shop-features" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-1/3 h-[30rem] w-[30rem] rounded-full bg-cyan-700/15 blur-[150px]"
+        />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-12 max-w-2xl mx-auto">
             <Badge tone="dark">PLATFORM FEATURES</Badge>
@@ -248,8 +255,10 @@ export function ForShopsPage() {
       </section>
 
       {/* Section 3: Supported Printer Brands */}
-      <section className="py-14 bg-[#090E24]/60 border-t border-white/10 text-center">
-        <div className="container-kagzzy">
+      <section className="py-14 bg-[#090E24]/60 relative overflow-hidden border-t border-white/10 text-center">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div className="container-kagzzy relative z-10">
           <Badge tone="dark">ZERO HARDWARE UPGRADE</Badge>
           <h2 className="heading-sm text-white mt-2 mb-2">Compatible with 100% of Existing Printers</h2>
           <p className="text-xs text-slate-400 mb-8 max-w-lg mx-auto">
@@ -271,8 +280,14 @@ export function ForShopsPage() {
       </section>
 
       {/* Section 4: Call to Action to Pricing Plans */}
-      <section className="py-16 bg-[#070B18] border-t border-white/10 text-center">
-        <div className="container-kagzzy max-w-3xl">
+      <section className="py-14 bg-[#070B18] relative overflow-hidden border-t border-white/10 text-center">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[26rem] w-[26rem] rounded-full bg-emerald-700/15 blur-[140px]"
+        />
+        <div className="container-kagzzy max-w-3xl relative z-10">
           <h2 className="heading-md text-white">Ready to Modernize Your Print Shop?</h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-2">
             Start with our 100% free Starter Shop plan or choose a high-capacity tier with multi-printer load balancing.

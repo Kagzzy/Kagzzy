@@ -26,11 +26,14 @@ function ScrollProgressBar() {
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#070B18] text-slate-100 flex flex-col justify-between">
+      <div className="min-h-screen bg-[#070B18] text-slate-100 flex flex-col justify-between relative selection:bg-purple-600 selection:text-white">
+        {/* Persistent Boxy Grid Background across all pages */}
+        <div className="fixed inset-0 bg-grid opacity-30 pointer-events-none z-0" aria-hidden />
+        <div className="noise-bg fixed inset-0 opacity-20 pointer-events-none z-0" aria-hidden />
         <ScrollToTop />
         <ScrollProgressBar />
         <Navbar />
-        <main className="flex-1">
+        <main className="flex-1 relative z-10">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />

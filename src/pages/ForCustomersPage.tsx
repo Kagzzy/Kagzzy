@@ -183,7 +183,8 @@ export function ForCustomersPage() {
 
       {/* Section 1: Customer Benefits */}
       <section id="customer-benefits" className="section-padding bg-[#090E24]/70 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-12 max-w-2xl mx-auto">
             <Badge tone="dark">CUSTOMER BENEFITS</Badge>
@@ -249,6 +250,12 @@ export function ForCustomersPage() {
 
       {/* Section 2: Customer Features */}
       <section id="customer-features" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-1/3 h-[30rem] w-[30rem] rounded-full bg-indigo-700/15 blur-[150px]"
+        />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-12 max-w-2xl mx-auto">
             <Badge tone="dark">PLATFORM CAPABILITIES</Badge>
@@ -295,8 +302,10 @@ export function ForCustomersPage() {
       </section>
 
       {/* Section 3: Universal File Formats */}
-      <section className="section-padding bg-[#090E24]/60 border-t border-white/10">
-        <div className="container-kagzzy">
+      <section className="section-padding bg-[#090E24]/60 relative overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div className="container-kagzzy relative z-10">
           <div className="text-center mb-8 max-w-xl mx-auto">
             <Badge tone="dark">UNIVERSAL COMPATIBILITY</Badge>
             <h2 className="heading-md text-white mt-2">Compatible with All Standard File Formats</h2>
@@ -322,8 +331,14 @@ export function ForCustomersPage() {
       </section>
 
       {/* Section 4: Call to Action */}
-      <section className="py-16 bg-[#070B18] border-t border-white/10 text-center">
-        <div className="container-kagzzy max-w-3xl">
+      <section className="py-14 bg-[#070B18] relative overflow-hidden border-t border-white/10 text-center">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[26rem] w-[26rem] rounded-full bg-purple-700/15 blur-[140px]"
+        />
+        <div className="container-kagzzy max-w-3xl relative z-10">
           <h2 className="heading-md text-white">Experience Seamless Digital Printing Today</h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-2">
             Walk into any Kagzzy partner shop, scan the counter standee QR, and print with total ease.

@@ -154,7 +154,8 @@ export function FAQPage() {
 
       {/* Accordion Content */}
       <section className="section-padding bg-[#090E24]/70 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy max-w-3xl relative z-10">
           {filteredFaqs.length === 0 ? (
             <div className="text-center py-12 text-slate-400 text-sm">

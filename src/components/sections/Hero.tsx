@@ -86,11 +86,11 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#070B18] pt-16 sm:pt-18 lg:pt-20 pb-4 sm:pb-6 text-white select-none min-h-screen flex flex-col justify-between"
+      className="relative overflow-hidden bg-[#070B18] pt-14 sm:pt-16 lg:pt-16 pb-8 sm:pb-10 text-white select-none"
     >
       {/* ---- Background: subtle grid + noise + purple glow ---- */}
-      <div className="absolute inset-0 bg-grid opacity-15" aria-hidden />
-      <div className="noise-bg absolute inset-0 opacity-20" aria-hidden />
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+      <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-0 h-[40rem] w-[40rem] rounded-full bg-indigo-700/20 blur-[180px]"
@@ -100,12 +100,12 @@ export function Hero() {
         className="pointer-events-none absolute left-1/3 -top-16 h-[30rem] w-[30rem] rounded-full bg-purple-700/15 blur-[140px]"
       />
 
-      <div className="container-kagzzy relative z-10 flex-1 flex flex-col justify-between w-full">
+      <div className="container-kagzzy relative z-10 flex flex-col w-full">
         {/* ============ Two-Column Grid ============ */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12 w-full pt-2 sm:pt-4 pb-6 sm:pb-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12 w-full pt-1 sm:pt-3 pb-4 sm:pb-6">
 
           {/* ---------- LEFT COLUMN ---------- */}
-          <div className="flex flex-col items-start gap-5 sm:gap-6 lg:gap-7 z-20 w-full">
+          <div className="flex flex-col items-start gap-4 sm:gap-4.5 lg:gap-5 z-20 w-full">
 
             {/* Pill Badge */}
             <motion.div
@@ -121,13 +121,13 @@ export function Hero() {
               LOCAL SHOPS &times; SMARTER PRINTING
             </motion.div>
 
-            {/* Headline with cinematic line-by-line reveal, generous line spacing, and animated gradient text */}
-            <h1 className="flex flex-col gap-4 sm:gap-5 lg:gap-6 text-3xl font-black leading-[1.3] sm:leading-[1.35] tracking-normal sm:text-4xl lg:text-[3.25rem] xl:text-[3.5rem]">
+            {/* Headline with cinematic line-by-line reveal and animated gradient text */}
+            <h1 className="flex flex-col gap-1 sm:gap-1.5 text-3xl font-black leading-[1.12] sm:leading-[1.15] tracking-tight sm:text-4xl lg:text-[3.25rem] xl:text-[3.5rem]">
               <motion.span
                 initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ duration: 0.55, delay: 0.1 }}
-                className="block text-white pb-1 sm:pb-1.5"
+                className="block text-white"
               >
                 Your Documents.
               </motion.span>
@@ -135,7 +135,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ duration: 0.55, delay: 0.22 }}
-                className="block text-white pb-1 sm:pb-1.5"
+                className="block text-white"
               >
                 Our Technology.
               </motion.span>
@@ -161,7 +161,7 @@ export function Hero() {
                     ease: 'linear',
                   },
                 }}
-                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)] leading-[1.3] sm:leading-[1.35] py-1"
+                className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.4)]"
               >
                 A Simpler Way to Print.
               </motion.span>

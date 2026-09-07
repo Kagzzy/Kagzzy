@@ -87,7 +87,7 @@ export function PageHero({
         {/* Multilayer gradient masks so text is 100% crystal clear */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#070B18]/70 via-[#070B18]/85 to-[#070B18]" />
         <div className="absolute inset-0 bg-radial-at-c from-transparent via-[#070B18]/50 to-[#070B18]" />
-        <div className="bg-grid absolute inset-0 opacity-20" />
+        <div className="bg-grid absolute inset-0 opacity-30" />
         <div className="noise-bg absolute inset-0 opacity-25" />
       </div>
 

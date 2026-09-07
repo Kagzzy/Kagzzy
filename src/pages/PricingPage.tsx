@@ -101,7 +101,8 @@ export function PricingPage() {
 
       {/* Main 3 Shop Owner Plans */}
       <section id="plans" className="section-padding bg-[#090E24]/70 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" />
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-10 sm:mb-14 max-w-2xl mx-auto px-2">
             <Badge tone="dark" className="border-violet-500/30 bg-violet-500/15 text-violet-200">
@@ -202,6 +203,12 @@ export function PricingPage() {
 
       {/* Feature Comparison Table — Mobile Horizontal Scroll Optimized */}
       <section className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-1/4 top-0 h-[30rem] w-[30rem] rounded-full bg-violet-700/15 blur-[150px]"
+        />
         <div className="container-kagzzy max-w-5xl relative z-10">
           <div className="text-center mb-8 sm:mb-10 px-2">
             <h2 className="heading-md text-white">Detailed Plan Comparison</h2>
@@ -242,8 +249,14 @@ export function PricingPage() {
       </section>
 
       {/* Enterprise / College Campus Inquiries */}
-      <section className="section-padding bg-[#090E24]/60 text-center border-t border-white/10">
-        <div className="container-kagzzy max-w-3xl px-4">
+      <section className="section-padding bg-[#090E24]/60 relative overflow-hidden text-center border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[26rem] w-[26rem] rounded-full bg-purple-700/15 blur-[140px]"
+        />
+        <div className="container-kagzzy max-w-3xl px-4 relative z-10">
           <h2 className="heading-md text-white">Need a Custom Setup for Your College or Chain?</h2>
           <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl mx-auto leading-relaxed">
             We offer bespoke installations with campus card integration, automated billing, and localized support.
