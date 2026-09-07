@@ -26,7 +26,7 @@ function ScrollProgressBar() {
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#070B18] text-slate-100 flex flex-col justify-between relative selection:bg-purple-600 selection:text-white">
+      <div className="min-h-screen bg-[#070B18] text-slate-100 flex flex-col justify-between relative selection:bg-purple-600 selection:text-white overflow-x-hidden">
         {/* Persistent Boxy Grid Background across all pages */}
         <div className="fixed inset-0 bg-grid opacity-30 pointer-events-none z-0" aria-hidden />
         <div className="noise-bg fixed inset-0 opacity-20 pointer-events-none z-0" aria-hidden />

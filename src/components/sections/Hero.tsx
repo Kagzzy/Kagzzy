@@ -86,7 +86,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#070B18] pt-14 sm:pt-16 lg:pt-16 pb-8 sm:pb-10 text-white select-none"
+      className="relative overflow-hidden bg-[#070B18] pt-24 sm:pt-28 lg:pt-28 pb-8 sm:pb-10 text-white select-none"
     >
       {/* ---- Background: subtle grid + noise + purple glow ---- */}
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
@@ -102,7 +102,7 @@ export function Hero() {
 
       <div className="container-kagzzy relative z-10 flex flex-col w-full">
         {/* ============ Two-Column Grid ============ */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12 w-full pt-1 sm:pt-3 pb-4 sm:pb-6">
+        <div className="grid grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12 w-full pt-1 sm:pt-3 pb-4 sm:pb-6">
 
           {/* ---------- LEFT COLUMN ---------- */}
           <div className="flex flex-col items-start gap-4 sm:gap-4.5 lg:gap-5 z-20 w-full">
@@ -269,15 +269,15 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ---------- RIGHT COLUMN: Clean Scene (Scaled down for balance) ---------- */}
+          {/* ---------- RIGHT COLUMN: Clean Scene ---------- */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="relative flex items-end justify-center min-h-[350px] sm:min-h-[400px] lg:min-h-[440px] w-full"
+            className="relative flex items-start sm:items-end justify-center min-h-0 sm:min-h-[400px] lg:min-h-[440px] w-full mt-2 sm:mt-0"
           >
-            {/* Scaled-down visual container */}
-            <div className="relative w-full flex items-end justify-center origin-bottom scale-[0.83] sm:scale-[0.86] lg:scale-[0.88]">
+            {/* Visual container: natural 1:1 on mobile, scaled on tablet/desktop */}
+            <div className="relative w-full flex items-start sm:items-end justify-center origin-top sm:origin-bottom scale-100 sm:scale-[0.86] lg:scale-[0.88]">
               {/* Phone on pedestal — center-left */}
               <div className="relative z-20 mx-auto mb-2">
                 <motion.div
