@@ -28,7 +28,7 @@ export const pricingPlans: PricingPlan[] = [
       'Connect up to 4 parallel printers',
       'Unlimited digital orders with zero cap',
       'Automated job load-balancing',
-      'Daily automated GST accounting exports',
+      'Daily order and revenue reports',
       'Priority 1-hour merchant phone support',
     ],
     cta: 'Choose Pro Merchant',

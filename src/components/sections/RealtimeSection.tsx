@@ -6,14 +6,14 @@ import { useReducedMotion } from '../../hooks/useReducedMotion'
 import type { RealtimeEvent } from '../../types'
 
 const eventStream: (RealtimeEvent & { customerStatus: string; shopStatus: string })[] = [
-  { id: 'e1', type: 'ORDER_CREATED', label: 'ORDER_CREATED', customerStatus: 'Order placed via WebApp', shopStatus: 'New order queued' },
-  { id: 'e2', type: 'PAYMENT_CAPTURED', label: 'PAYMENT_CAPTURED', customerStatus: 'UPI payment webhook verified', shopStatus: 'Escrow locked & verified' },
-  { id: 'e3', type: 'SHOP_ACCEPTED', label: 'SHOP_ACCEPTED', customerStatus: 'Shop accepted order', shopStatus: 'Compatible printer auto-matched' },
-  { id: 'e4', type: 'PRINT_JOB_ASSIGNED', label: 'PRINT_JOB_ASSIGNED', customerStatus: 'Routed to Print Agent', shopStatus: 'Operator clicked PRINT NOW' },
-  { id: 'e5', type: 'PRINTING_STARTED', label: 'PRINTING_STARTED', customerStatus: 'Laser printing in progress', shopStatus: 'Driver spooling at hardware speed' },
-  { id: 'e6', type: 'PRINT_COMPLETED', label: 'PRINT_COMPLETED', customerStatus: 'Printing complete', shopStatus: 'Shop collation & stapling' },
-  { id: 'e7', type: 'ORDER_READY_FOR_PICKUP', label: 'ORDER_READY_FOR_PICKUP', customerStatus: 'PRINT_ID: KAG-82X91 ready', shopStatus: 'Awaiting counter handshake' },
-  { id: 'e8', type: 'ORDER_COLLECTED', label: 'ORDER_COLLECTED', customerStatus: 'Order collected', shopStatus: 'Temporary files auto-shredded' },
+  { id: 'e1', type: 'ORDER_CREATED', label: 'Order Placed', customerStatus: 'Order placed via WebApp', shopStatus: 'New order queued' },
+  { id: 'e2', type: 'PAYMENT_CAPTURED', label: 'Payment Confirmed', customerStatus: 'Payment verified & recorded', shopStatus: 'Payment confirmed' },
+  { id: 'e3', type: 'SHOP_ACCEPTED', label: 'Shop Accepted', customerStatus: 'Shop accepted order', shopStatus: 'Sent to print queue' },
+  { id: 'e4', type: 'PRINT_JOB_ASSIGNED', label: 'Sent to Printer', customerStatus: 'Sent to Kagzzy Print Agent', shopStatus: 'Assigned to selected printer' },
+  { id: 'e5', type: 'PRINTING_STARTED', label: 'Printing Started', customerStatus: 'Printing in progress', shopStatus: 'Printer active' },
+  { id: 'e6', type: 'PRINT_COMPLETED', label: 'Print Complete', customerStatus: 'Printing completed', shopStatus: 'Collated and checked' },
+  { id: 'e7', type: 'ORDER_READY_FOR_PICKUP', label: 'Ready for Pickup', customerStatus: 'Ready for counter pickup', shopStatus: 'Awaiting customer pickup' },
+  { id: 'e8', type: 'ORDER_COLLECTED', label: 'Order Collected', customerStatus: 'Order picked up', shopStatus: 'Order marked completed' },
 ]
 
 /**
@@ -49,9 +49,9 @@ export function RealtimeSection() {
       <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8 sm:gap-10">
         <SectionHeading
           tone="dark"
-          eyebrow="Real-Time Experience"
-          title="Every order, live from payment to pickup."
-          description="Customers and shops both see the same order move through its lifecycle, in real time."
+          eyebrow="ORDER VISIBILITY"
+          title="Know what is happening with your order."
+          description="Kagzzy keeps customers and shop staff updated as an order moves through its journey."
         />
 
         <div className="grid w-full grid-cols-1 items-center gap-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-4">
@@ -80,12 +80,17 @@ export function RealtimeSection() {
               </motion.p>
             </AnimatePresence>
             <div className="flex flex-col gap-2">
-              {['Payment received', 'Shop accepted', 'Printing', 'Ready for pickup'].map((s) => {
-                const reached = eventStream.findIndex((e) => e.customerStatus === s) <= index
+              {[
+                { label: 'Payment Confirmed', key: 'e2' },
+                { label: 'Shop Accepted', key: 'e3' },
+                { label: 'Printing Started', key: 'e5' },
+                { label: 'Ready for Pickup', key: 'e7' },
+              ].map((s) => {
+                const reached = eventStream.findIndex((e) => e.id === s.key) <= index
                 return (
-                  <div key={s} className="flex items-center gap-2 text-xs">
+                  <div key={s.key} className="flex items-center gap-2 text-xs">
                     <CheckCircle2 className={`h-3.5 w-3.5 ${reached ? 'text-mint-400' : 'text-slate-600'}`} />
-                    <span className={reached ? 'text-slate-200' : 'text-slate-500'}>{s}</span>
+                    <span className={reached ? 'text-slate-200' : 'text-slate-500'}>{s.label}</span>
                   </div>
                 )
               })}

@@ -131,8 +131,8 @@ export function StepByStepArchitecture({
             transition={{ delay: 0.2, duration: 0.55 }}
             className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed"
           >
-            Engineered for absolute speed, bank-grade file security, and effortless counter operation.
-            From instant mobile QR scan to native hardware spooling in 6 automated steps.
+            Engineered for speed, private file security, and effortless counter operation.
+            From instant mobile QR scan to native hardware spooling in 6 simple steps.
           </motion.p>
         </div>
 

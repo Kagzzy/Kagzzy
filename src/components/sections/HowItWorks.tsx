@@ -61,7 +61,7 @@ export function HowItWorks() {
           tone="dark"
           eyebrow="How Kagzzy Works"
           title="From scan to pickup — just a few simple steps."
-          description="Six simple steps take you from a shop’s QR code to a finished, ready-to-collect print."
+          description="Start from a participating shop’s QR code and complete your print order in a few simple steps."
         />
 
         {/* Desktop horizontal timeline */}

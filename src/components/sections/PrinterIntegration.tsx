@@ -17,38 +17,54 @@ import { Button } from '../ui/Button'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 const benefits = [
-  { icon: Printer, label: 'Supports multiple printers' },
-  { icon: Workflow, label: 'Automatic job routing' },
-  { icon: Zap, label: 'Works in the background' },
-  { icon: ShieldCheck, label: 'Secure and reliable' },
+  {
+    icon: Printer,
+    title: 'Works with your existing printers',
+    description: 'No printer replacement required.',
+  },
+  {
+    icon: Layers,
+    title: 'One or multiple printers',
+    description: 'Start with one printer and add more when you need them.',
+  },
+  {
+    icon: Workflow,
+    title: 'Automatic printer selection',
+    description: 'For multiple printers, Kagzzy checks compatibility and availability before assigning a print job.',
+  },
+  {
+    icon: Zap,
+    title: 'Background printing',
+    description: 'Accepted orders can be sent to the Print Agent without manual file handling.',
+  },
 ]
 
-const shopFlowSteps = ['Order received', 'Reviewed by shop', 'Printer selected', 'PRINT NOW', 'Printing']
+const printLifecycleSteps = [
+  'Order Received',
+  'Shop Accepts',
+  'Print Agent Receives Job',
+  'Printer Selected',
+  'Printing',
+  'Print Complete',
+  'Ready for Pickup',
+]
 
 const connectedPrinters = [
-  { id: 'p1', name: 'Canon imageRUNNER', model: 'iR-ADV 4545', type: 'High-Volume A4/A3', toner: 94, tray: '88% Full', status: 'Online' },
-  { id: 'p2', name: 'HP LaserJet Pro', model: 'M404dn', type: 'Fast Monochrome', toner: 86, tray: '95% Full', status: 'Online' },
-  { id: 'p3', name: 'Epson EcoTank', model: 'L15150', type: 'Color & Photo', toner: 91, tray: '70% Full', status: 'Standby' },
+  { id: 'p1', name: 'Canon imageRUNNER', model: 'iR-ADV 4545', type: 'High-Volume A4', toner: 94, tray: '88% Full', status: 'Online' },
+  { id: 'p2', name: 'HP LaserJet Pro', model: 'M404dn', type: 'Monochrome Laser', toner: 86, tray: '95% Full', status: 'Online' },
+  { id: 'p3', name: 'Epson EcoTank', model: 'L15150', type: 'Color InkTank', toner: 91, tray: '70% Full', status: 'Standby' },
 ]
 
 export function PrinterIntegration() {
   const reducedMotion = useReducedMotion()
   const [selectedPrinterIndex, setSelectedPrinterIndex] = useState(0)
-  const [printerSelected, setPrinterSelected] = useState(true)
-  const [printing, setPrinting] = useState(false)
+  const [currentFlowIndex, setCurrentFlowIndex] = useState(3)
 
   const activePrinter = connectedPrinters[selectedPrinterIndex]
-
-  const handlePrintNow = () => {
-    if (!printerSelected) return
-    setPrinting(true)
-    setTimeout(() => {
-      setPrinting(false)
-    }, 4500)
-  }
+  const printing = currentFlowIndex === 4
 
   return (
-    <section className="section-padding relative overflow-hidden bg-[#070B18] border-t border-white/10">
+    <section id="printers" className="section-padding relative overflow-hidden bg-[#070B18] border-t border-white/10">
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
       <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
       <div className="pointer-events-none absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-indigo-500/15 blur-[120px]" aria-hidden />
@@ -58,9 +74,8 @@ export function PrinterIntegration() {
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-3 text-center">
           <Badge tone="dark">Existing Printer Integration</Badge>
           <h2 className="heading-lg text-white">Works with your existing printers.</h2>
-          <p className="text-sm text-slate-300 sm:text-base">
-            No need to replace your equipment. Kagzzy works through a lightweight Windows Print
-            Agent and supports multiple printers.
+          <p className="text-sm text-slate-300 sm:text-base leading-relaxed">
+            No need to replace your existing printers. Kagzzy connects to your shop through the Kagzzy Print Agent and works with compatible printers already installed on your Windows PC.
           </p>
         </div>
 
@@ -204,23 +219,26 @@ export function PrinterIntegration() {
             </div>
           </motion.div>
 
-          {/* CENTER: Cloud -> Agent -> Printers Flow */}
+          {/* CENTER: Kagzzy -> Kagzzy Print Agent -> Your Printers Flow */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col items-center gap-2.5"
+            className="flex flex-col items-center gap-2.5 text-center"
           >
-            <FlowNode icon={Cloud} label="Kagzzy Cloud" color="#7C3AED" />
+            <FlowNode icon={Cloud} label="Kagzzy" color="#7C3AED" />
             <ConnectorLine />
-            <FlowNode icon={MonitorCog} label="Windows Print Agent" color="#06B6D4" />
+            <FlowNode icon={MonitorCog} label="Kagzzy Print Agent" color="#06B6D4" />
             <ConnectorLine />
             <div className="flex flex-wrap items-center justify-center gap-2.5">
               {['Printer 1', 'Printer 2', 'Printer 3'].map((p, i) => (
-                <FlowNode key={p} icon={Printer} label={p} color="#10B981" small delay={i * 0.15} />
+                <FlowNode key={p} icon={Printer} label={i === 1 ? 'Your Printers' : p} color="#10B981" small delay={i * 0.15} />
               ))}
             </div>
+            <p className="mt-3 text-xs text-slate-400 max-w-xs leading-relaxed">
+              One printer? Print directly. Multiple printers? Kagzzy selects a suitable available printer based on the order requirements.
+            </p>
           </motion.div>
 
           {/* RIGHT: Benefits */}
@@ -229,69 +247,65 @@ export function PrinterIntegration() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-3"
+            className="flex flex-col gap-2.5"
           >
             {benefits.map((b) => (
               <div
-                key={b.label}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-2.5 transition-colors hover:bg-white/[0.08]"
+                key={b.title}
+                className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3 transition-colors hover:bg-white/[0.08]"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-cyan-300">
+                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-violet-600/20 text-violet-300 border border-violet-500/30 mt-0.5">
                   <b.icon className="h-4 w-4" />
                 </span>
-                <span className="text-sm font-medium text-slate-200">{b.label}</span>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-bold text-white">{b.title}</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">{b.description}</p>
+                </div>
               </div>
             ))}
-            <p className="font-handwritten mt-1 text-2xl text-violet-300">Your setup. Our technology.</p>
           </motion.div>
         </div>
 
-        {/* Shop Confirmation Workflow Bar */}
+        {/* Explain Single vs Multiple Printers */}
+        <div className="mt-2 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl max-w-3xl mx-auto w-full text-center">
+          <h3 className="text-lg font-bold text-white">One printer or many — Kagzzy handles both.</h3>
+          <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            If your shop has one compatible printer, the job is sent directly to it. If you have multiple printers, the Kagzzy Print Agent checks each printer’s availability and supported capabilities before selecting the right one.
+          </p>
+        </div>
+
+        {/* Printing Workflow Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5 }}
-          className="glass-card mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-2xl p-4 sm:p-5"
+          className="glass-card mx-auto flex w-full max-w-4xl flex-col gap-4 rounded-2xl p-5 sm:p-6"
         >
-          <p className="text-center text-xs text-slate-400">
-            Kagzzy never prints automatically &mdash; the shop operator always confirms before printing.
-          </p>
+          <div className="text-center">
+            <span className="text-xs font-bold uppercase tracking-wider text-violet-300">PRINT WORKFLOW</span>
+            <p className="text-xs text-slate-400 mt-0.5">
+              How orders flow from customer placement to physical pickup
+            </p>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            {shopFlowSteps.map((step, i) => {
-              const isPrintNow = step === 'PRINT NOW'
-              const isDone =
-                (step === 'Order received' && true) ||
-                (step === 'Reviewed by shop' && true) ||
-                (step === 'Printer selected' && printerSelected) ||
-                (isPrintNow && printing) ||
-                (step === 'Printing' && printing)
+            {printLifecycleSteps.map((step, i) => {
+              const isDone = i <= currentFlowIndex
               return (
                 <div key={step} className="flex items-center gap-2 sm:gap-2.5">
-                  {isPrintNow ? (
-                    <Button
-                      variant={printing ? 'secondary' : 'primary'}
-                      size="sm"
-                      onClick={handlePrintNow}
-                      disabled={!printerSelected || printing}
-                    >
-                      {printing ? 'Printing...' : 'PRINT NOW'}
-                    </Button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => step === 'Printer selected' && setPrinterSelected(true)}
-                      className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
-                        isDone
-                          ? 'border-mint-400/40 bg-mint-500/10 text-mint-300'
-                          : 'border-white/15 text-slate-400 hover:text-white'
-                      }`}
-                    >
-                      {isDone && <CheckCircle2 className="h-3 w-3" />}
-                      {step}
-                    </button>
-                  )}
-                  {i < shopFlowSteps.length - 1 && <span className="hidden sm:inline text-slate-600 text-xs">&rarr;</span>}
+                  <button
+                    type="button"
+                    onClick={() => setCurrentFlowIndex(i)}
+                    className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
+                      isDone
+                        ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300'
+                        : 'border-white/15 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    {isDone && <CheckCircle2 className="h-3 w-3" />}
+                    {step}
+                  </button>
+                  {i < printLifecycleSteps.length - 1 && <span className="hidden sm:inline text-slate-600 text-xs">&rarr;</span>}
                 </div>
               )
             })}

@@ -18,33 +18,31 @@ import {
 const productLinks = [
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Features', href: '/features' },
-  { label: 'For Customers', href: '/for-customers' },
-  { label: 'For Print Shops', href: '/for-shops' },
-  { label: 'Windows Print Agent', href: '/how-it-works' },
-  { label: 'Pricing Plans', href: '/pricing' },
+  { label: 'For Shops', href: '/for-shops' },
+  { label: 'Pricing', href: '/pricing' },
 ]
 
-const resourceLinks = [
-  { label: 'Help Center', href: '/faq' },
-  { label: 'Shop Setup Guide', href: '/for-shops' },
-  { label: 'Print Options (A4/A3/Duplex)', href: '/for-customers' },
-  { label: 'UPI Payment Support', href: '/pricing' },
-  { label: 'System Status: All Systems Operational', href: '/features', live: true },
+const customerLinks = [
+  { label: 'How to Print', href: '/how-it-works' },
+  { label: 'Order Tracking', href: '/features' },
+  { label: 'FAQs', href: '/faq' },
+]
+
+const shopOwnerLinks = [
+  { label: 'Partner With Us', href: '/for-shops' },
+  { label: 'Shop Login', href: '/for-shops#login' },
+  { label: 'Print Agent', href: '/how-it-works#printers' },
+  { label: 'Pricing', href: '/pricing' },
 ]
 
 const companyLinks = [
-  { label: 'About Kagzzy', href: '/' },
-  { label: 'Careers', href: '/for-shops', badge: 'Hiring' },
-  { label: 'Community Stories', href: '/' },
-  { label: 'Merchant Partner Program', href: '/for-shops' },
-  { label: 'Contact Support', href: '/faq' },
+  { label: 'About Us', href: '/#about' },
+  { label: 'Contact', href: '/faq' },
 ]
 
 const legalLinks = [
   { label: 'Privacy Policy', href: '#' },
   { label: 'Terms of Service', href: '#' },
-  { label: 'Refund Policy', href: '#' },
-  { label: 'Merchant Agreement', href: '#' },
 ]
 
 const socials = [
@@ -82,6 +80,7 @@ export function Footer() {
       <div className="container-kagzzy relative pt-12 pb-8 sm:pt-14 sm:pb-10">
         
         {/* Top Shop Onboarding / Newsletter Card */}
+        {/* Top Shop Onboarding / Newsletter Card */}
         <div className="relative mb-12 overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-r from-purple-950/40 via-slate-900/60 to-indigo-950/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-7">
@@ -90,10 +89,10 @@ export function Footer() {
                 FOR PRINT SHOP OWNERS
               </span>
               <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white">
-                Bring Kagzzy to your Xerox &amp; print counter
+                Bring Kagzzy to your print shop.
               </h3>
               <p className="mt-1.5 text-xs sm:text-sm text-slate-300/90 max-w-xl">
-                Eliminate WhatsApp clutter, USB virus risks, and manual UPI tallying. Get your counter QR standee delivered in 48 hours.
+                Receive digital print orders, manage them from your shop dashboard, and print through your existing printers with the Kagzzy Print Agent.
               </p>
             </div>
 
@@ -104,7 +103,7 @@ export function Footer() {
                   inputMode="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter shop phone or email"
+                  placeholder="Enter your shop phone or email"
                   className="flex-1 rounded-xl border border-white/20 bg-black/40 px-4 py-2.5 text-xs font-medium text-white placeholder-slate-400 outline-none focus:border-violet-400 transition-colors"
                 />
                 <button
@@ -127,10 +126,10 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Main Footer Links Grid — 2 columns on mobile, 5 on desktop */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-5 pb-10">
+        {/* Main Footer Links Grid — 2 columns on mobile, 6 on desktop */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-6 pb-10">
           
-          {/* Brand Info Column (spans full width on mobile) */}
+          {/* Brand Info Column (spans 2 columns on desktop) */}
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(124,58,237,0.5)]">
@@ -139,21 +138,12 @@ export function Footer() {
               <span className="text-xl font-black tracking-tight text-white">Kagzzy</span>
             </div>
 
-            <p className="mt-3.5 max-w-sm text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Kagzzy connects local print shops with students and professionals. Making document printing as seamless as scanning, uploading, paying, and picking up.
+            <p className="mt-2 text-xs sm:text-sm font-bold text-violet-300">
+              Your Print, Your Way.
             </p>
-
-            {/* Credibility & Coverage Badges */}
-            <div className="mt-4 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-xs text-slate-300 font-medium">
-                <MapPin className="h-3.5 w-3.5 text-violet-400" />
-                <span>Live across 500+ print shops in Maharashtra &amp; NCR</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-slate-300 font-medium">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-                <span>Zero-storage file security &bull; Instant UPI settlement</span>
-              </div>
-            </div>
+            <p className="mt-1 max-w-sm text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Kagzzy connects customers with local print shops, making it easier to upload, configure, pay, track, and collect printed documents.
+            </p>
 
             {/* Social Icons */}
             <div className="mt-5 flex items-center gap-2.5">
@@ -187,18 +177,34 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Resources Column */}
+          {/* Customers Column */}
           <div className="col-span-1">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Resources</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Customers</h4>
             <ul className="mt-3.5 flex flex-col gap-2.5 text-xs">
-              {resourceLinks.map((link) => (
+              {customerLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="flex items-center gap-1.5 text-slate-400 transition-colors hover:text-white hover:underline"
+                    className="text-slate-400 transition-colors hover:text-white hover:underline"
                   >
-                    {link.live && <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />}
-                    <span>{link.label}</span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Shop Owners Column */}
+          <div className="col-span-1">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Shop Owners</h4>
+            <ul className="mt-3.5 flex flex-col gap-2.5 text-xs">
+              {shopOwnerLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-400 transition-colors hover:text-white hover:underline"
+                  >
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -213,14 +219,9 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="inline-flex items-center gap-1.5 text-slate-400 transition-colors hover:text-white hover:underline"
+                    className="text-slate-400 transition-colors hover:text-white hover:underline"
                   >
-                    <span>{link.label}</span>
-                    {link.badge && (
-                      <span className="rounded-md bg-violet-600/30 border border-violet-500/40 px-1.5 py-0.2 text-[9px] font-bold text-violet-300">
-                        {link.badge}
-                      </span>
-                    )}
+                    {link.label}
                   </Link>
                 </li>
               ))}

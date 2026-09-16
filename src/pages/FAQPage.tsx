@@ -24,7 +24,7 @@ const allFaqs: FAQItem[] = [
     category: 'customer',
     question: 'Which file formats does Kagzzy support?',
     answer:
-      'Kagzzy supports PDF, Microsoft Word (DOC, DOCX), Excel (XLS, XLSX), PowerPoint (PPT, PPTX), as well as high-resolution image files (JPG, PNG, WEBP, TIFF). Vector and font fidelity are strictly maintained during conversion.',
+      'Kagzzy supports PDF, JPG, and PNG formats in Phase 1. You can upload high-resolution documents and images directly from your phone or computer.',
   },
   {
     id: 'f3',
@@ -47,7 +47,7 @@ const allFaqs: FAQItem[] = [
     category: 'merchant',
     question: 'Do I need to buy a new printer or specific hardware?',
     answer:
-      'No! Kagzzy works with 100% of existing printers that connect to a Windows 10 or 11 PC via USB or local network (Canon, HP, Epson, Ricoh, Konica Minolta, Brother, etc.). You install our lightweight Windows Print Agent (15MB) and you are ready to receive jobs.',
+      'No! Kagzzy works with compatible printers that connect to a Windows 10 or 11 PC via USB or local network (including Canon, HP, Epson, Brother, Xerox, Ricoh, and Konica Minolta). You simply install our lightweight Kagzzy Print Agent and you are ready to receive jobs.',
   },
   {
     id: 'f6',
@@ -86,7 +86,7 @@ const allFaqs: FAQItem[] = [
     category: 'security',
     question: 'Is my personal document safe? Can anyone else see it?',
     answer:
-      'Kagzzy is built on a zero-storage security architecture. Files are encrypted with AES-256 in transit. Documents are never stored in public folders or shared across WhatsApp. Once printed and marked collected, files are permanently shredded from temporary cache.',
+      'Yes. Kagzzy uses private storage with automatic cleanup. Documents are encrypted during transfer, accessible only to the authorized print shop to fulfill your order, and automatically removed from active storage after 24 hours.',
   },
 ]
 

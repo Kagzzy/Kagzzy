@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
-import { Scan, UploadCloud, Wallet, Printer, PackageCheck, ArrowRight, Store } from 'lucide-react'
+import { QrCode, UploadCloud, SlidersHorizontal, CreditCard, PackageCheck, ArrowRight, Store } from 'lucide-react'
 import { Badge } from '../ui/Badge'
 
 const flowSteps = [
-  { icon: Scan, label: '1. Scan Standee' },
-  { icon: UploadCloud, label: '2. Direct Upload' },
-  { icon: Wallet, label: '3. 1-Tap UPI' },
-  { icon: Printer, label: '4. Operator Prints' },
-  { icon: PackageCheck, label: '5. PRINT_ID Pickup' },
+  { icon: QrCode, label: '01  Scan Shop QR' },
+  { icon: UploadCloud, label: '02  Upload Document' },
+  { icon: SlidersHorizontal, label: '03  Choose Print Options' },
+  { icon: CreditCard, label: '04  Pay' },
+  { icon: PackageCheck, label: '05  Track & Pick Up' },
 ]
 
 /** High-converting closing CTA banner for the marketing homepage, styled in dark hero theme. */
@@ -29,20 +29,20 @@ export function FinalCTA() {
             <Badge tone="dark">GET STARTED TODAY</Badge>
             
             <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-[2.85rem] leading-[1.2]">
-              Ready to make document printing simpler?
+              Ready to make printing simpler?
             </h2>
             
             <p className="text-base sm:text-lg leading-relaxed text-slate-300/90 max-w-xl">
-              Whether you are a student rushing between lectures or a print shop owner looking to eliminate WhatsApp clutter, Kagzzy has you covered.
+              Whether you need a document printed or run a local print shop, Kagzzy makes the process simpler.
             </p>
 
             {/* Action Buttons */}
             <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto">
               <Link
-                to="/how-it-works"
+                to="/for-customers"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3.5 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
               >
-                <span>Try Printing a Document</span>
+                <span>Start Printing</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
@@ -51,7 +51,7 @@ export function FinalCTA() {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-7 py-3.5 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98] w-full sm:w-auto"
               >
                 <Store className="h-4 w-4 text-violet-400" />
-                <span>Partner Your Print Shop</span>
+                <span>For Shop Owners</span>
               </Link>
             </div>
 

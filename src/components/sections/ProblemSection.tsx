@@ -6,22 +6,22 @@ import { TiltCard } from '../ui/TiltCard'
 const problems = [
   {
     icon: MessageCircleWarning,
-    title: 'WhatsApp chaos',
-    description: 'Send files, make calls, repeat instructions, still not sure.',
+    title: '01 — WhatsApp Chaos',
+    description: 'Files, messages, print instructions, and payment details get mixed together.',
     glow: 'from-rose-500/20 to-pink-500/10 border-rose-500/30 text-rose-400',
     iconBg: 'bg-rose-500/15 text-rose-400 border border-rose-500/30',
   },
   {
     icon: EyeOff,
-    title: 'No visibility',
-    description: 'Customers don’t know what’s happening with their orders.',
+    title: '02 — No Visibility',
+    description: 'Customers don’t always know whether their order was received, accepted, or ready.',
     glow: 'from-amber-500/20 to-yellow-500/10 border-amber-500/30 text-amber-400',
     iconBg: 'bg-amber-500/15 text-amber-400 border border-amber-500/30',
   },
   {
     icon: ClipboardList,
-    title: 'Manual workflow',
-    description: 'Shops manage everything manually, wasting valuable time.',
+    title: '03 — Manual Workflow',
+    description: 'Shop staff spend time managing files and orders instead of serving customers.',
     glow: 'from-cyan-500/20 to-blue-500/10 border-cyan-500/30 text-cyan-400',
     iconBg: 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30',
   },
@@ -56,7 +56,10 @@ export function ProblemSection() {
             Printing shouldn’t feel complicated.
           </h2>
           <p className="text-base leading-relaxed text-slate-300/90 sm:text-lg max-w-md">
-            Too many steps. Too much back-and-forth. Kagzzy brings the entire workflow together.
+            Printing is still often a back-and-forth process — send files on WhatsApp, explain your requirements, wait for confirmation, and wonder when your prints will be ready.
+          </p>
+          <p className="text-sm leading-relaxed text-violet-300 font-semibold max-w-md">
+            Kagzzy brings the process into one simple workflow.
           </p>
         </motion.div>
 

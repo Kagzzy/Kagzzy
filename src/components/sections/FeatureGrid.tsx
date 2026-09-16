@@ -22,7 +22,7 @@ export function FeatureGrid() {
       />
 
       <div className="container-kagzzy relative z-10 flex flex-col items-center gap-8">
-        <SectionHeading tone="dark" eyebrow="Features" title="Everything you need for modern printing." />
+        <SectionHeading tone="dark" eyebrow="Features" title="Everything you need for simpler printing." />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           {features.map((feature, i) => (

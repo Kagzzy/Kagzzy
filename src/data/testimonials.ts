@@ -4,46 +4,37 @@ export const testimonials: Testimonial[] = [
   {
     id: 't1',
     name: 'Priya S.',
-    role: 'Student, Pune',
+    role: 'Student',
     quote:
-      'Kagzzy made printing so simple. I just scanned the QR, uploaded my file and it was ready in minutes.',
+      'I didn’t have to send files back and forth on WhatsApp. I uploaded my document, paid, and picked it up when it was ready.',
     rating: 5,
     initials: 'PS',
   },
   {
     id: 't2',
-    name: 'Rohan M.',
-    role: 'Software Engineer, Bengaluru',
+    name: 'Rajesh K.',
+    role: 'Shop Owner, Local Print Shop',
     quote:
-      'No more WhatsApp back-and-forth with the shop. I configure everything on my phone and just walk in to collect.',
+      'Kagzzy gives us a much cleaner way to receive and manage print orders without confusion at the counter.',
+    rating: 5,
+    initials: 'RK',
+  },
+  {
+    id: 't3',
+    name: 'Rohan M.',
+    role: 'Professional',
+    quote:
+      'Upload, configure page settings, pay online, and pick up. It makes everyday document printing completely hassle-free.',
     rating: 5,
     initials: 'RM',
   },
   {
-    id: 't3',
-    name: 'Ananya K.',
-    role: 'Shop Owner, Xerox Point',
-    quote:
-      'Our shop finally feels digital. Orders come in clearly, and my staff know exactly what to print and when.',
-    rating: 5,
-    initials: 'AK',
-  },
-  {
     id: 't4',
-    name: 'Farhan A.',
-    role: 'MBA Aspirant, Mumbai',
+    name: 'Amit P.',
+    role: 'Shop Owner, Print & Xerox Center',
     quote:
-      'Paid with UPI in two taps and tracked my documents printing live. Felt like ordering food, but for prints.',
-    rating: 4,
-    initials: 'FA',
-  },
-  {
-    id: 't5',
-    name: 'Meera T.',
-    role: 'Shop Owner, Cyber Studio',
-    quote:
-      'The Windows Print Agent connected our existing printers in minutes. We didn’t have to buy any new hardware.',
+      'Connecting our existing Windows PC and printers was simple. Orders show up organized and ready to print.',
     rating: 5,
-    initials: 'MT',
+    initials: 'AP',
   },
 ]

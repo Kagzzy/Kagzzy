@@ -8,10 +8,10 @@ import { KagzzyLogo } from '../ui/KagzzyLogo'
 const navTabs = [
   { label: 'Home', path: '/' },
   { label: 'How It Works', path: '/how-it-works' },
-  { label: 'Features', path: '/features' },
   { label: 'For Shops', path: '/for-shops' },
-  { label: 'For Customers', path: '/for-customers' },
   { label: 'Pricing', path: '/pricing' },
+  { label: 'About Us', path: '/#about' },
+  { label: 'Login for Shop Owners', path: '/for-shops#login' },
 ]
 
 export function Navbar() {
@@ -122,11 +122,7 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-2">
               <div className="pb-3 border-b border-white/10 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Pages</span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9.5px] font-bold text-emerald-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  500+ Shops Live
-                </span>
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Navigation</span>
               </div>
 
               {navTabs.map((tab) => {

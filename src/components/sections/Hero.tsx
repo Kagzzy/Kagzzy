@@ -2,20 +2,19 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight,
-  FileText,
   Play,
-  Star,
-  Users,
   X,
   Zap,
   Store,
-  BarChart2,
   Sparkles,
+  QrCode,
+  ShieldCheck,
+  SlidersHorizontal,
+  Compass,
 } from 'lucide-react'
 import { PhoneMockup } from '../ui/PhoneMockup'
 import { QrStandee } from '../ui/QrStandee'
 import { UpiChevronIcon } from '../ui/UpiIcon'
-import { AnimatedCounter } from '../ui/AnimatedCounter'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 /* ------------------------------------------------------------------ */
@@ -41,11 +40,27 @@ const trustAvatars = [
   },
 ]
 
-const heroStats = [
-  { icon: Store, value: 500, suffix: '+', label: 'Print shops' },
-  { icon: Users, value: 50, suffix: 'K+', label: 'Happy users' },
-  { icon: FileText, value: 1, suffix: 'M+', label: 'Documents printed' },
-  { icon: Star, value: 4.9, suffix: '/5', label: 'Shop rating', decimals: 1, star: true },
+const heroBenefits = [
+  {
+    icon: QrCode,
+    title: 'QR-Based Ordering',
+    description: 'Start from your shop’s QR code',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Secure Payments',
+    description: 'Pay online before printing',
+  },
+  {
+    icon: SlidersHorizontal,
+    title: 'Simple Print Options',
+    description: 'Choose copies, color, sides & pages',
+  },
+  {
+    icon: Store,
+    title: 'Local Pickup',
+    description: 'Collect from the shop when ready',
+  },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -118,7 +133,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
               </span>
-              LOCAL SHOPS &times; SMARTER PRINTING
+              LOCAL SHOPS &bull; SMARTER PRINTING
             </motion.div>
 
             {/* Headline with cinematic line-by-line reveal and animated gradient text */}
@@ -129,7 +144,7 @@ export function Hero() {
                 transition={{ duration: 0.55, delay: 0.1 }}
                 className="block text-white"
               >
-                Your Documents.
+                Print from your local shop,
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
@@ -137,7 +152,7 @@ export function Hero() {
                 transition={{ duration: 0.55, delay: 0.22 }}
                 className="block text-white"
               >
-                Our Technology.
+                without the hassle.
               </motion.span>
               <span className="block drop-shadow-[0_0_35px_rgba(168,85,247,0.4)]">
                 <motion.span
@@ -164,7 +179,7 @@ export function Hero() {
                   }}
                   className="block bg-gradient-to-r from-violet-400 via-fuchsia-300 via-cyan-300 to-indigo-400 bg-[length:250%_auto] bg-clip-text text-transparent"
                 >
-                  A Simpler Way to Print.
+                  Upload. Pay. Pick up.
                 </motion.span>
               </span>
             </h1>
@@ -176,8 +191,7 @@ export function Hero() {
               transition={{ delay: 0.48, duration: 0.55 }}
               className="max-w-xl text-sm sm:text-base lg:text-[17px] leading-relaxed sm:leading-7 lg:leading-8 text-slate-300/90"
             >
-              Kagzzy connects you with local print shops, making document
-              printing as simple as scanning, uploading, paying and picking up.
+              Kagzzy makes local printing simple. Scan a shop's QR code, upload your document, choose how you want it printed, pay securely, and pick it up when it's ready.
             </motion.p>
 
             {/* Feature Pills */}
@@ -204,7 +218,7 @@ export function Hero() {
                 <span className="grid h-5 w-5 place-items-center rounded-full bg-indigo-600/30 text-indigo-300 border border-indigo-500/30">
                   <UpiChevronIcon className="h-3 w-3" />
                 </span>
-                UPI payments
+                Secure UPI payments
               </motion.span>
 
               <motion.span
@@ -212,9 +226,9 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-md hover:border-cyan-500/40 hover:bg-white/[0.08] transition-all shadow-xs"
               >
                 <span className="grid h-5 w-5 place-items-center rounded-full bg-cyan-600/30 text-cyan-300 border border-cyan-500/30">
-                  <BarChart2 className="h-3 w-3" />
+                  <ShieldCheck className="h-3 w-3" />
                 </span>
-                Real-time tracking
+                Order tracking
               </motion.span>
             </motion.div>
 
@@ -227,22 +241,24 @@ export function Hero() {
             >
               <button
                 type="button"
-                onClick={handleScrollToHowItWorks}
+                onClick={() => {
+                  window.location.href = '/for-customers'
+                }}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
               >
-                Get Started
+                Start Printing
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 
               <button
                 type="button"
-                onClick={() => setDemoOpen(true)}
+                onClick={handleScrollToHowItWorks}
                 className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98] w-full sm:w-auto"
               >
                 <span className="grid h-5 w-5 place-items-center rounded-full bg-white/20 text-white group-hover:bg-white group-hover:text-slate-900 transition-colors">
-                  <Play className="h-2.5 w-2.5 fill-current ml-0.5" />
+                  <Compass className="h-3 w-3 ml-0.5" />
                 </span>
-                Watch Demo
+                See How It Works
               </button>
             </motion.div>
 
@@ -264,7 +280,7 @@ export function Hero() {
                 ))}
               </div>
               <p className="text-xs sm:text-sm font-medium text-slate-400 leading-relaxed">
-                Trusted by students, professionals<br className="hidden sm:inline" /> and local businesses.
+                Built for students, professionals,<br className="hidden sm:inline" /> and anyone who needs to print.
               </p>
             </motion.div>
           </div>
@@ -328,28 +344,21 @@ export function Hero() {
           className="w-full mt-auto pt-6 sm:pt-8 pb-4 sm:pb-6"
         >
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 sm:px-6 py-4 sm:py-5 backdrop-blur-md">
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
-              {heroStats.map((stat, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {heroBenefits.map((benefit, i) => (
                 <div
-                  key={stat.label}
-                  className={`flex items-center gap-3 ${i > 0 ? 'lg:border-l lg:border-white/10 lg:pl-6' : ''}`}
+                  key={benefit.title}
+                  className={`flex items-center gap-3.5 ${i > 0 ? 'lg:border-l lg:border-white/10 lg:pl-6' : ''}`}
                 >
-                  <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.06] text-violet-300">
-                    <stat.icon className="h-4 w-4" />
+                  <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.06] text-violet-300 shadow-sm">
+                    <benefit.icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xl sm:text-2xl font-black text-white tracking-tight leading-none flex items-center gap-1">
-                      <AnimatedCounter
-                        value={stat.value}
-                        suffix={stat.suffix}
-                        decimals={stat.decimals ?? 0}
-                      />
-                      {stat.star && (
-                        <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                      )}
+                    <p className="text-sm font-bold text-white tracking-tight leading-snug">
+                      {benefit.title}
                     </p>
-                    <p className="mt-0.5 text-xs sm:text-sm font-medium text-slate-400">
-                      {stat.label}
+                    <p className="mt-0.5 text-xs font-medium text-slate-400">
+                      {benefit.description}
                     </p>
                   </div>
                 </div>
@@ -401,22 +410,22 @@ export function Hero() {
                 <div className="flex items-start gap-3.5 rounded-xl border border-white/10 bg-white/[0.04] p-3.5">
                   <span className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-violet-600 font-bold text-white text-xs">1</span>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Scan Shop QR Stand</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Walk up to any participating print shop and point your camera at their counter QR standee.</p>
+                    <h4 className="text-sm font-bold text-white">Scan the Shop QR</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Scan the QR code at a participating print shop to open that shop’s ordering page.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3.5 rounded-xl border border-white/10 bg-white/[0.04] p-3.5">
                   <span className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-violet-600 font-bold text-white text-xs">2</span>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Upload &amp; Configure Settings</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Select your PDF/DOCX, choose duplex, color or B&amp;W, and preview transparent live pricing.</p>
+                    <h4 className="text-sm font-bold text-white">Upload &amp; Choose Print Options</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Upload your PDF, JPG, or PNG, choose copies, color, sides, and preview your total before paying.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3.5 rounded-xl border border-white/10 bg-white/[0.04] p-3.5">
                   <span className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-violet-600 font-bold text-white text-xs">3</span>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Instant UPI Pay &amp; Pickup</h4>
-                    <p className="text-xs text-slate-400 mt-0.5">Pay directly via GPay, PhonePe, or Paytm. The shop operator reviews your file and taps PRINT NOW on their Windows Print Agent.</p>
+                    <h4 className="text-sm font-bold text-white">Pay Online &amp; Pick Up</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Pay securely online. The shop accepts and prints your order, and you collect it when it’s ready.</p>
                   </div>
                 </div>
               </div>

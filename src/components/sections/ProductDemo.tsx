@@ -24,12 +24,12 @@ const tabs: { id: DemoTab; label: string; icon: typeof UploadCloud }[] = [
 ]
 
 const trackingSteps = [
-  { label: 'Payment captured (Webhook verified)', done: true },
+  { label: 'Payment confirmed & order received', done: true },
   { label: 'Shop accepted order', done: true },
-  { label: 'Printer selected & operator approved', done: true },
+  { label: 'Kagzzy Print Agent assigned', done: true },
   { label: 'Printing in progress', done: true },
-  { label: 'Shop preparing & collation', done: false },
-  { label: 'Ready for pickup (PRINT_ID: KAG-82X91)', done: false },
+  { label: 'Ready for pickup (Order #KAG-82X91)', done: false },
+  { label: 'Order collected by customer', done: false },
 ]
 
 /**
@@ -70,11 +70,11 @@ export function ProductDemo() {
       <div className="container-kagzzy relative z-10 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
         <div className="flex flex-col items-start gap-4 lg:sticky lg:top-24 lg:self-start">
           <SectionHeading
-            eyebrow="Live Demo"
+            eyebrow="LIVE DEMO"
             align="left"
             tone="dark"
-            title="See Kagzzy in action."
-            description="This is a real, interactive walkthrough of the customer experience — click through the tabs to try uploading, configuring, paying and tracking a print order."
+            title="See how simple printing can be."
+            description="Follow the same steps a customer takes with Kagzzy — choose a shop, upload a document, select your print options, pay, and track the order."
           />
           <Button
             variant="primary"
@@ -82,7 +82,7 @@ export function ProductDemo() {
             showArrow
             onClick={() => setActiveTab('upload')}
           >
-            Try Live Demo
+            Try the Demo
           </Button>
         </div>
 
@@ -126,7 +126,7 @@ export function ProductDemo() {
                     <div className="mt-5 flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-violet-500/30 bg-violet-950/20 px-6 py-10 text-center hover:border-violet-400/50 transition-colors">
                       <UploadCloud className="h-9 w-9 text-violet-400" />
                       <p className="text-sm font-medium text-white">Drag & drop your file here</p>
-                      <p className="text-xs text-slate-400">or click to browse (PDF, DOCX, JPG)</p>
+                      <p className="text-xs text-slate-400">or click to browse (PDF, JPG, PNG)</p>
                     </div>
                     <div className="mt-4 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/30">
@@ -283,7 +283,7 @@ export function ProductDemo() {
                         )}
                         {paymentStage === 'confirmed' && (
                           <span className="flex items-center gap-2 text-emerald-400">
-                            <CheckCircle2 className="h-4 w-4" /> Webhook verified — Order PAID (KAG-82X91)
+                            <CheckCircle2 className="h-4 w-4" /> Payment confirmed — Order sent to shop
                           </span>
                         )}
                       </div>
@@ -296,7 +296,7 @@ export function ProductDemo() {
                             onClick={runPaymentFlow}
                             disabled={paymentStage !== 'idle'}
                           >
-                            Pay via UPI Intent (Mobile)
+                            Pay Online
                           </Button>
                           <button
                             type="button"
@@ -304,12 +304,12 @@ export function ProductDemo() {
                             disabled={paymentStage !== 'idle'}
                             className="rounded-full border border-white/20 bg-white/[0.05] px-5 py-2.5 text-xs font-bold text-white hover:bg-white/10 transition-colors"
                           >
-                            Scan Dynamic QR (Desktop)
+                            Scan UPI QR
                           </button>
                         </div>
                       ) : (
                         <Button variant="primary" showArrow onClick={() => setActiveTab('tracking')}>
-                          View Order Tracking (PRINT_ID: KAG-82X91)
+                          View Order Tracking
                         </Button>
                       )}
                     </div>
@@ -349,7 +349,7 @@ export function ProductDemo() {
                     </div>
                     <div className="mt-6 flex items-start gap-2.5 rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-sm text-violet-200">
                       <ArrowRight className="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5" />
-                      <span>Shop will tap PRINT NOW once your job is queued on the right printer.</span>
+                      <span>Orders are received by the shop, printed via the Kagzzy Print Agent, and made ready for pickup.</span>
                     </div>
                   </motion.div>
                 )}

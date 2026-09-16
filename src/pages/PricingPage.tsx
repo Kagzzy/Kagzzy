@@ -35,7 +35,7 @@ const shopPlans = [
       'Connect up to 4 parallel laser printers',
       'Unlimited digital orders with zero monthly cap',
       'Automated job load-balancing across trays',
-      'Daily automated GST accounting exports',
+      'Daily order and revenue reports',
       'Priority 1-hour merchant phone support',
       'Custom per-page rate overrides by document type',
     ],
@@ -67,40 +67,48 @@ const comparisonRows = [
   { feature: 'Platform Commission on Orders', starter: '0% (Keep 100%)', pro: '0% (Keep 100%)', enterprise: '0% (Keep 100%)' },
   { feature: 'Official Counter QR Standee', starter: 'Free Included', pro: 'Free Included', enterprise: 'Custom Branded' },
   { feature: 'Parallel Job Load Balancing', starter: '—', pro: 'Included', enterprise: 'Advanced Multi-Queue' },
-  { feature: 'Daily GST Accounting Export', starter: '—', pro: 'Included', enterprise: 'Automated ERP Sync' },
+  { feature: 'Daily Order & Revenue Export', starter: '—', pro: 'Included', enterprise: 'Automated Sync' },
   { feature: 'Merchant Support Tier', starter: 'Standard (WhatsApp)', pro: 'Priority (1-Hour SLA)', enterprise: 'Dedicated Account Manager' },
 ]
 
 export function PricingPage() {
   return (
     <div className="bg-[#070B18] text-white select-none">
-      {/* Rich Photographic Themed Hero Header — Matching Purple/Violet Brand Palette */}
+      {/* Rich Photographic Themed Hero Header */}
       <PageHero
-        badge="PRINT SHOP OWNER PLANS"
-        title="Simple, Transparent Plans for"
-        titleAccent="Print Shop Owners"
-        description="Supercharge your counter capacity with 0% commission on orders. Choose a predictable monthly plan that scales with your daily print volume."
-        bgImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&auto=format&fit=crop&q=80"
+        badge="FAIR & TRANSPARENT"
+        title="Zero Commissions."
+        titleAccent="Zero Upfront Costs."
+        description="Pick a simple subscription that matches your daily print capacity. Every rupee from customer prints goes 100% directly to your shop UPI."
+        bgImage="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1600&auto=format&fit=crop&q=80"
         accentColor="purple"
       >
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-sm sm:max-w-none mx-auto px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto px-4">
           <a
-            href="#plans"
-            className="w-full sm:w-auto rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-purple-600/30 hover:scale-105 transition-transform text-center"
+            href="#pricing-cards"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
           >
-            Explore Plans
+            <span>Explore Plans</span>
+            <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href="#plan-comparison"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-colors text-center"
+          >
+            <span>Compare Features</span>
           </a>
           <Link
             to="/for-shops"
-            className="w-full sm:w-auto rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 transition-colors text-center"
+            className="w-full sm:w-auto text-center rounded-full border border-violet-500/30 bg-violet-500/10 px-6 py-3 text-xs sm:text-sm font-bold text-violet-200 hover:bg-violet-500/20 hover:border-violet-500/50 transition-colors inline-flex items-center justify-center gap-1.5"
           >
-            See Shop Benefits &amp; Features
+            <span>For Shop Owners</span>
+            <ArrowRight className="h-3.5 w-3.5 text-violet-400" />
           </Link>
         </div>
       </PageHero>
 
-      {/* Main 3 Shop Owner Plans */}
-      <section id="plans" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
+      {/* Pricing Tier Cards */}
+      <section id="pricing-cards" className="section-padding bg-[#070B18] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div
@@ -118,7 +126,7 @@ export function PricingPage() {
             </Badge>
             <h2 className="heading-lg text-white mt-2">Pick the Right Plan for Your Counter</h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-              Every plan includes 100% pre-paid UPI verification, our lightweight Windows print agent, and free counter standee delivery.
+              Every plan includes verified UPI payments, our lightweight Windows print agent, and free counter standee delivery.
             </p>
           </div>
 

@@ -38,13 +38,7 @@ export function Testimonials() {
         <SectionHeading
           tone="dark"
           eyebrow="Testimonials"
-          title={
-            <>
-              Loved by students,
-              <br />
-              professionals and shop owners.
-            </>
-          }
+          title="What people say about Kagzzy"
         />
 
         <div className="relative w-full max-w-2xl">

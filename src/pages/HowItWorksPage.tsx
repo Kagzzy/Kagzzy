@@ -11,29 +11,34 @@ import { Link } from 'react-router-dom'
 
 const comparisonData = [
   {
-    factor: 'File Sharing Method',
-    traditional: 'WhatsApp forward / USB drive virus risk',
-    kagzzy: 'Direct encrypted browser upload via QR scan',
+    factor: 'File Sharing',
+    traditional: 'Send files through WhatsApp, USB, or other methods',
+    kagzzy: 'Upload your document directly through Kagzzy',
   },
   {
-    factor: 'Time Spent at Counter',
-    traditional: '10 to 25 minutes standing in queue',
-    kagzzy: 'Under 2 minutes for immediate pickup',
+    factor: 'Time at Counter',
+    traditional: 'Wait to share files and explain requirements',
+    kagzzy: 'Place your order before reaching the counter',
   },
   {
-    factor: 'Pricing Transparency',
-    traditional: 'Manual verbal quotes, unexpected surge',
-    kagzzy: 'Real-time per-page calculator with exact total',
+    factor: 'Pricing',
+    traditional: 'Ask for the price manually',
+    kagzzy: 'See your total before you pay',
   },
   {
-    factor: 'Payment Experience',
-    traditional: 'Cash change trouble or screenshot verification',
-    kagzzy: 'Automated 1-click UPI verification with token',
+    factor: 'Payment',
+    traditional: 'Cash or manual payment handling',
+    kagzzy: 'Pay securely online',
   },
   {
-    factor: 'Privacy & Security',
-    traditional: 'Files stay in shopkeeper WhatsApp & PC gallery',
-    kagzzy: 'Auto-shredded immediately upon print completion',
+    factor: 'Order Status',
+    traditional: 'Limited visibility',
+    kagzzy: 'Track your order status',
+  },
+  {
+    factor: 'Document Handling',
+    traditional: 'Files may remain in chats or devices',
+    kagzzy: 'Private storage with automatic cleanup',
   },
 ]
 
@@ -42,10 +47,10 @@ export function HowItWorksPage() {
     <div className="bg-[#070B18] text-white select-none">
       {/* Rich Photographic Themed Hero Header */}
       <PageHero
-        badge="THE COMPLETE PROCESS"
-        title="How Kagzzy Works"
-        titleAccent="End-to-End"
-        description="From the moment you scan the counter QR standee to picking up your neatly printed pages, discover how our smart technology bridges local shops with digital convenience."
+        badge="HOW KAGZZY WORKS"
+        title="From upload to pickup,"
+        titleAccent="printing made simple."
+        description="Choose a local print shop, upload your document, select your print settings, pay, and pick it up when it's ready."
         bgImage="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1600&auto=format&fit=crop&q=80"
         accentColor="purple"
       >
@@ -54,15 +59,15 @@ export function HowItWorksPage() {
             to="/for-customers"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
           >
-            <span>Try Printing a Document</span>
+            <span>Start Printing</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <a
-            href="#printers"
+          <Link
+            to="/for-shops"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-colors text-center"
           >
-            <span>Explore Windows Agent</span>
-          </a>
+            <span>For Shop Owners</span>
+          </Link>
         </div>
       </PageHero>
 
@@ -87,9 +92,9 @@ export function HowItWorksPage() {
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-10">
             <Badge tone="dark">THE TRANSFORMATION</Badge>
-            <h2 className="heading-lg text-white mt-2">Traditional Xerox vs. Kagzzy</h2>
+            <h2 className="heading-lg text-white mt-2">Traditional Printing vs. Kagzzy</h2>
             <p className="text-sm text-slate-400 mt-1 max-w-xl mx-auto">
-              See why thousands of students and shopkeepers are retiring outdated WhatsApp printing.
+              See how Kagzzy simplifies the everyday print-shop experience.
             </p>
           </div>
 
@@ -107,14 +112,14 @@ export function HowItWorksPage() {
                   <div className="flex items-start gap-2 rounded-xl bg-rose-500/[0.08] border border-rose-500/20 p-2.5 text-slate-300">
                     <XCircle className="h-4 w-4 text-rose-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300 block mb-0.5">Traditional Xerox</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300 block mb-0.5">Traditional Printing</span>
                       <span>{row.traditional}</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-2 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 p-2.5 text-slate-200">
                     <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-0.5">Kagzzy Smart Printing</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-0.5">Kagzzy</span>
                       <span>{row.kagzzy}</span>
                     </div>
                   </div>
@@ -129,8 +134,8 @@ export function HowItWorksPage() {
               <thead className="border-b border-white/10 bg-white/[0.04] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
                 <tr>
                   <th className="p-4 sm:p-5">Feature / Experience</th>
-                  <th className="p-4 sm:p-5 text-rose-300">Traditional Xerox Counter</th>
-                  <th className="p-4 sm:p-5 text-emerald-300">Kagzzy Smart Printing</th>
+                  <th className="p-4 sm:p-5 text-rose-300">Traditional Printing</th>
+                  <th className="p-4 sm:p-5 text-emerald-300">Kagzzy</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
@@ -160,7 +165,7 @@ export function HowItWorksPage() {
               to="/for-customers"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3.5 text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all"
             >
-              <span>Explore Customer Experience</span>
+              <span>Start Printing</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

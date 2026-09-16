@@ -11,10 +11,10 @@ export function FeaturesPage() {
     <div className="bg-[#070B18] text-white select-none">
       {/* Hero Header — Unified Purple Brand Theme */}
       <PageHero
-        badge="POWERFUL CAPABILITIES"
-        title="Features Built for Fast,"
-        titleAccent="Modern Printing"
-        description="Engineered from the ground up to eliminate store queues, eradicate WhatsApp file sharing, and deliver bank-grade encryption with direct hardware-level printer speeds."
+        badge="KAGZZY FEATURES"
+        title="Everything you need"
+        titleAccent="for simpler printing."
+        description="From uploading your document to collecting your printed pages, Kagzzy keeps the printing process simple for customers and organized for local print shops."
         bgImage="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&auto=format&fit=crop&q=80"
         accentColor="purple"
       >
@@ -23,15 +23,16 @@ export function FeaturesPage() {
             to="/how-it-works"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
           >
-            <span>See System Workflow</span>
+            <span>See How It Works</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <a
-            href="#features"
+          <Link
+            to="/for-shops"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-colors text-center"
           >
-            <span>Explore Core Architecture</span>
-          </a>
+            <span>For Shop Owners</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </PageHero>
 

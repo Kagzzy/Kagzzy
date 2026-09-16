@@ -3,12 +3,12 @@ import { ShieldCheck, Clock, BadgeCheck, Users, Store, Lock } from 'lucide-react
 import { SectionHeading } from '../ui/SectionHeading'
 
 const items = [
-  { icon: Lock, title: 'Secure document uploads', description: 'Files are encrypted in transit and stored with strict access controls.' },
-  { icon: Clock, title: 'Short-lived access', description: 'Document access links expire automatically once an order is complete.' },
-  { icon: BadgeCheck, title: 'Verified payments', description: 'Orders unlock only after payment is independently verified and confirmed.' },
-  { icon: Users, title: 'Role-based access', description: 'Shop staff see only what their role permits — nothing more.' },
-  { icon: Store, title: 'Shop-specific order visibility', description: 'Each shop only ever sees the orders placed with them.' },
-  { icon: ShieldCheck, title: 'Protected print workflow', description: 'Every print job requires explicit shop confirmation before printing.' },
+  { icon: Lock, title: 'Secure Document Uploads', description: 'Files are securely transferred and stored with protected access.' },
+  { icon: Clock, title: 'Automatic Document Cleanup', description: 'Documents are automatically removed from active storage after 24 hours.' },
+  { icon: BadgeCheck, title: 'Verified Payments', description: 'Orders proceed only after payment confirmation.' },
+  { icon: Users, title: 'Private File Access', description: 'Only the authorized shop receives access to print your order.' },
+  { icon: Store, title: 'Shop-Specific Order Isolation', description: 'Shops only access orders directed to their location.' },
+  { icon: ShieldCheck, title: 'Protected Print Workflow', description: 'Jobs are sent to printers only after shop acceptance.' },
 ]
 
 /** Trust and security section presented as glowing glass cards on a dark gradient. */

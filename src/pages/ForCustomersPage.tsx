@@ -14,8 +14,10 @@ import {
   SlidersHorizontal,
   FileCheck,
   QrCode,
-  Receipt,
   Sparkles,
+  Lock,
+  Clock,
+  Store,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -75,170 +77,158 @@ const accentMap: Record<
 
 const customerBenefits = [
   {
-    icon: Zap,
-    badge: 'ZERO WAITING',
-    title: 'Instant Zero-Wait Pickup',
-    desc: 'Skip crowded photocopy queues. Send your document while walking to the shop and collect it right as it exits the printer tray.',
+    icon: Smartphone,
+    badge: 'DIRECT UPLOAD',
+    title: 'Upload From Your Phone',
+    desc: 'No need to email files or share your personal phone number on WhatsApp.',
     accent: 'blue',
   },
   {
-    icon: ShieldCheck,
-    badge: '100% CONFIDENTIAL',
-    title: 'Bank-Grade Privacy & Auto-Shred',
-    desc: 'No sharing files over WhatsApp or giving USB sticks to strangers. Files are encrypted with AES-256 and permanently deleted after pickup.',
-    accent: 'emerald',
-  },
-  {
-    icon: Percent,
-    badge: 'SAVE UP TO 40%',
-    title: 'Duplex Paper Cost Savings',
-    desc: 'Easily toggle two-sided printing to cut thesis, syllabus, and document printing costs nearly in half. Zero hidden platform surcharges.',
+    icon: SlidersHorizontal,
+    badge: 'FLEXIBLE CONTROLS',
+    title: 'Choose Your Print Settings',
+    desc: 'Select black & white or color, single or double-sided, and number of copies.',
     accent: 'purple',
   },
   {
-    icon: Smartphone,
-    badge: 'NO APP DOWNLOAD',
-    title: 'Zero-Install Mobile Browser WebApp',
-    desc: 'Simply point your standard phone camera at the shop standee QR code. The digital print portal opens in under 2 seconds.',
-    accent: 'amber',
+    icon: Percent,
+    badge: 'TRANSPARENT PRICING',
+    title: 'Know Your Price Before Paying',
+    desc: 'See exact costs calculated automatically before completing payment.',
+    accent: 'emerald',
   },
   {
     icon: CheckCircle2,
-    badge: '1-TAP UPI & QR',
-    title: 'UPI Intent & Dynamic QR',
-    desc: 'Pay in 1 tap with UPI Intent (Google Pay, PhonePe, Paytm, CRED) on mobile or scan the order-specific Dynamic QR on desktop. Zero manual screenshot verification.',
+    badge: 'SECURE PAYMENTS',
+    title: 'Pay Online',
+    desc: 'Fast, verified online payment via UPI and modern payment methods.',
     accent: 'cyan',
   },
   {
     icon: Sparkles,
-    badge: 'REAL-TIME STATUS',
-    title: 'Live Order Tracking',
-    desc: 'Watch your order move smoothly from "Payment Verified" to "Shop Accepted", "Printing", "Collation" and "Ready for Counter Pickup" in real time.',
+    badge: 'LIVE STATUS',
+    title: 'Track Your Order',
+    desc: 'Follow your print job through every stage so you know exactly when it is ready.',
     accent: 'violet',
+  },
+  {
+    icon: Zap,
+    badge: 'ZERO WAITING',
+    title: 'Pick Up When Ready',
+    desc: 'Collect your printed documents at the counter without waiting in line.',
+    accent: 'amber',
   },
 ]
 
 const customerFeatures = [
   {
     icon: SlidersHorizontal,
-    title: 'Granular Print Customization',
-    subtitle: 'Full Control in Seconds',
-    description:
-      'Customize page ranges (e.g. 1-5, 8, 12-20), single vs. double-sided (duplex), black & white laser vs. high-DPI color, copies, and spiral binding.',
-    tags: ['Duplex Toggle', 'Custom Page Subsets', 'Paper Orientation'],
+    title: 'Print Options Control',
+    subtitle: 'Clear Settings',
+    description: 'Choose color, orientation, copies, and duplex settings easily from any device.',
+    tags: ['Color & B/W', 'Single / Double Sided', 'Copies & Sizing'],
   },
   {
     icon: FileCheck,
-    title: 'Pre-Flight File Inspection Engine',
+    title: 'File Validation',
     subtitle: 'Automated Accuracy',
-    description:
-      'Our client-side parser automatically calculates exact page counts, verifies dimensions (A4, A3, Legal), and inspects DPI to prevent printing errors.',
-    tags: ['Auto Page Count', 'Resolution Validation', 'Zero Misprints'],
+    description: 'Automatic page count and format checking before you pay to eliminate surprises.',
+    tags: ['Auto Page Count', 'Format Verification', 'Instant Preview'],
+  },
+  {
+    icon: Percent,
+    title: 'Upfront Pricing',
+    subtitle: 'Zero Hidden Fees',
+    description: 'Clear pricing calculation based on your exact file and selected print options.',
+    tags: ['Real-Time Calculator', 'Exact Breakdown', 'Rate Transparency'],
   },
   {
     icon: QrCode,
-    title: 'PRINT_ID & Pickup QR Handshake',
-    subtitle: 'Orderly Counter Collection',
-    description:
-      'Receive an official PRINT_ID (e.g. KAG-82X91) and secure pickup QR token upon payment. Walk up to the counter, flash your token or pickup QR code, and collect your organized pages. Supports optional OTP for sensitive prints.',
-    tags: ['PRINT_ID (e.g. KAG-82X91)', 'Pickup QR Token', 'Optional OTP Security'],
+    title: 'Order Identification',
+    subtitle: 'Fast Counter Handshake',
+    description: 'Simple pickup identifiers so the shop operator hands you the right document immediately.',
+    tags: ['Pickup ID', 'Counter Verification', 'No Confusion'],
   },
   {
-    icon: Receipt,
-    title: 'Instant GST Receipts & Billing',
-    subtitle: 'Expense Filing Made Easy',
-    description:
-      'Instant digital payment receipts with GST breakdown delivered right to your screen or email for seamless corporate expense reimbursement.',
-    tags: ['GST Breakdown', 'Digital Invoices', 'Instant Download'],
-  },
-  {
-    icon: Layers,
-    title: 'Universal Document Preservation',
-    subtitle: 'Pixel-Perfect Layouts',
-    description:
-      'Advanced serverless rendering guarantees that font styles, tables, engineering schematics, and complex math equations render identically to your screen.',
-    tags: ['Font Embedding', 'Vector Preservation', 'High-DPI Output'],
-  },
-  {
-    icon: Briefcase,
-    title: 'Multi-Role Optimization',
-    subtitle: 'Tailored for You',
-    description:
-      'Optimized presets for university exam admit cards, academic thesis bundles, legal court briefs, and corporate pitch decks.',
-    tags: ['Student Hall Tickets', 'Legal Briefs', 'Thesis Binding'],
+    icon: ShieldCheck,
+    title: 'Privacy-First Handling',
+    subtitle: 'Safe & Temporary',
+    description: 'Files are only accessed for printing and automatically removed after 24 hours.',
+    tags: ['Private Storage', '24-Hour Cleanup', 'Restricted Access'],
   },
 ]
 
 const targetRoles = [
   {
-    role: 'College & University Students',
-    subtitle: 'Assignments, Thesis, Notes & Hall Tickets',
+    role: 'Students',
+    subtitle: 'Assignments, Notes & Admit Cards',
     icon: GraduationCap,
-    points: [
-      'Upload hall tickets and laboratory manuals right outside the exam center in seconds.',
-      'Instant duplex toggle cuts thick semester syllabus and project expenses nearly in half.',
-      'Keep your personal phone number private — never add stranger shopkeepers on WhatsApp.',
-    ],
+    desc: 'Print assignments, study material, admit cards, notes, and projects quickly between classes.',
   },
   {
-    role: 'Professionals & Advocates',
-    subtitle: 'Legal Briefs, Client Proposals & Contracts',
+    role: 'Professionals',
+    subtitle: 'Reports, Proposals & Contracts',
     icon: Briefcase,
-    points: [
-      'Zero-storage guarantee: confidential legal petitions and financial records are auto-shredded after printing.',
-      'Exact vector and high-DPI preservation for contracts, spreadsheets, and architectural blueprints.',
-      'Automated GST digital invoice generated on every transaction for corporate expense reporting.',
-    ],
+    desc: 'Print reports, contracts, presentations, and documents for meetings with total privacy.',
+  },
+  {
+    role: 'Small Businesses',
+    subtitle: 'Invoices, Flyers & Notices',
+    icon: Layers,
+    desc: 'Print invoices, flyers, menus, notices, and everyday business materials on demand.',
+  },
+  {
+    role: 'Everyday Users',
+    subtitle: 'Forms, Tickets & Personal Documents',
+    icon: Smartphone,
+    desc: 'Print boarding passes, government forms, utility bills, and personal documents without the hassle.',
   },
 ]
 
 const formats = [
-  { ext: 'PDF', label: 'Adobe Acrobat Documents', color: 'from-rose-500 to-red-600' },
-  { ext: 'DOCX', label: 'Microsoft Word Reports', color: 'from-blue-500 to-indigo-600' },
-  { ext: 'XLSX', label: 'Excel Spreadsheets & Sheets', color: 'from-emerald-500 to-green-600' },
-  { ext: 'PPTX', label: 'PowerPoint Presentations', color: 'from-amber-500 to-orange-600' },
-  { ext: 'IMG', label: 'High-Res JPG, PNG & Scans', color: 'from-purple-500 to-violet-600' },
-  { ext: 'CAD', label: 'Engineering Blueprints & Plans', color: 'from-cyan-500 to-blue-600' },
+  { ext: 'PDF', label: 'Portable Document Format', desc: 'Standard documents, multi-page reports, assignments', color: 'from-rose-500 to-red-600' },
+  { ext: 'JPG', label: 'High-Resolution Images', desc: 'Photographs, ID cards, scanned notes', color: 'from-amber-500 to-orange-600' },
+  { ext: 'PNG', label: 'Crisp Graphics & Scans', desc: 'Digital drawings, forms, transparent graphics', color: 'from-purple-500 to-violet-600' },
 ]
 
 export function ForCustomersPage() {
   return (
     <div className="bg-[#070B18] text-white select-none">
-      {/* Rich Photographic Themed Hero Header — Unified Purple/Violet Brand Theme */}
+      {/* Hero Header */}
       <PageHero
         badge="FOR STUDENTS & PROFESSIONALS"
-        title="Print Anything in Minutes"
-        titleAccent="Without Waiting in Line"
-        description="No awkward WhatsApp file forwards. No virus-infected USB thumb drives. Discover how Kagzzy gives you instant, private, and customizable printing at any local shop."
+        title="Print your documents"
+        titleAccent="without the queue."
+        description="Upload directly from your phone, choose your print settings, pay securely, and pick up your documents when they are ready. No WhatsApp sharing. No waiting around."
         bgImage="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600&auto=format&fit=crop&q=80"
         accentColor="purple"
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto px-4">
-          <a
-            href="#customer-benefits"
+          <Link
+            to="/how-it-works"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
           >
-            <span>Explore Benefits</span>
+            <span>See How It Works</span>
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
           <a
             href="#customer-features"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-colors text-center"
           >
             <span>Explore Features</span>
           </a>
-          <Link
-            to="/how-it-works"
+          <a
+            href="#customer-benefits"
             className="w-full sm:w-auto text-center rounded-full border border-violet-500/30 bg-violet-500/10 px-6 py-3 text-xs sm:text-sm font-bold text-violet-200 hover:bg-violet-500/20 hover:border-violet-500/50 transition-colors inline-flex items-center justify-center gap-1.5"
           >
-            <span>See Step-by-Step Flow</span>
+            <span>Explore Benefits</span>
             <ArrowRight className="h-3.5 w-3.5 text-violet-400" />
-          </Link>
+          </a>
         </div>
       </PageHero>
 
       {/* Section 1: Customer Benefits */}
-      <section id="customer-benefits" className="section-padding bg-[#070B18] relative overflow-hidden">
+      <section id="customer-benefits" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div
@@ -252,9 +242,9 @@ export function ForCustomersPage() {
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-12 max-w-2xl mx-auto">
             <Badge tone="dark">CUSTOMER BENEFITS</Badge>
-            <h2 className="heading-lg text-white mt-2">Why Customers Love Printing with Kagzzy</h2>
+            <h2 className="heading-lg text-white mt-2">Why Print with Kagzzy</h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-              Faster counter pickup, rock-solid file privacy, transparent low rates, and 1-tap UPI convenience.
+              A simpler, more organized way to print at your local shop.
             </p>
           </div>
 
@@ -290,37 +280,38 @@ export function ForCustomersPage() {
             })}
           </div>
 
-          {/* Persona Benefits: Students vs Professionals */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-12">
-            {targetRoles.map((role) => (
-              <div
-                key={role.role}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 backdrop-blur-xl hover:border-violet-500/40 hover:bg-white/[0.05] transition-all shadow-lg"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-violet-600/20 text-violet-300 border border-violet-500/30">
-                    <role.icon className="h-5 w-5" />
-                  </span>
+          {/* Section: Built for everyday printing */}
+          <div className="mt-20">
+            <div className="text-center mb-10 max-w-xl mx-auto">
+              <Badge tone="dark">EVERYDAY USE CASES</Badge>
+              <h3 className="heading-md text-white mt-2">Built for everyday printing</h3>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Whether it's one page or an entire project, Kagzzy makes printing straightforward.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+              {targetRoles.map((role) => (
+                <div
+                  key={role.role}
+                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl hover:border-violet-500/40 hover:bg-white/[0.05] transition-all shadow-lg flex flex-col justify-between"
+                >
                   <div>
-                    <h3 className="text-lg font-bold text-white">{role.role}</h3>
-                    <p className="text-xs text-slate-400">{role.subtitle}</p>
+                    <span className="grid h-10 w-10 place-items-center rounded-xl bg-violet-600/20 text-violet-300 border border-violet-500/30 mb-3">
+                      <role.icon className="h-5 w-5" />
+                    </span>
+                    <h4 className="text-base font-bold text-white">{role.role}</h4>
+                    <p className="text-[11px] font-medium text-violet-300 mb-2">{role.subtitle}</p>
+                    <p className="text-xs text-slate-300 leading-relaxed">{role.desc}</p>
                   </div>
                 </div>
-                <ul className="space-y-3 text-xs text-slate-300">
-                  {role.points.map((pt, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Customer Features */}
+      {/* Section 2: Platform Capabilities */}
       <section id="customer-features" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
@@ -335,13 +326,13 @@ export function ForCustomersPage() {
         <div className="container-kagzzy relative z-10">
           <div className="text-center mb-12 max-w-2xl mx-auto">
             <Badge tone="dark">PLATFORM CAPABILITIES</Badge>
-            <h2 className="heading-lg text-white mt-2">Self-Serve Features at Your Fingertips</h2>
+            <h2 className="heading-lg text-white mt-2">Self-Service Features for Everyday Printing</h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-              Intuitive controls that let you customize, preview, pay, and collect without relying on counter staff.
+              Simple controls that give you complete clarity over your print orders.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {customerFeatures.map((feat, i) => (
               <motion.div
                 key={feat.title}
@@ -382,7 +373,7 @@ export function ForCustomersPage() {
         </div>
       </section>
 
-      {/* Section 3: Universal File Formats */}
+      {/* Section 3: Supported File Formats */}
       <section className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
@@ -391,32 +382,76 @@ export function ForCustomersPage() {
           className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[26rem] w-[26rem] rounded-full bg-indigo-700/15 blur-[140px]"
         />
         <div className="container-kagzzy relative z-10">
-          <div className="text-center mb-8 max-w-xl mx-auto">
-            <Badge tone="dark">UNIVERSAL COMPATIBILITY</Badge>
-            <h2 className="heading-md text-white mt-2">Compatible with All Standard File Formats</h2>
+          <div className="text-center mb-10 max-w-xl mx-auto">
+            <Badge tone="dark">SUPPORTED FORMATS</Badge>
+            <h2 className="heading-md text-white mt-2">Supported File Formats</h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1">
-              Upload seamlessly from Android, iPhone, Mac, or Windows. Pixel-perfect layout preservation guaranteed.
+              Upload common document and image formats directly from your phone or laptop.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {formats.map((fmt) => (
               <div
                 key={fmt.ext}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center hover:border-violet-500/40 hover:bg-white/[0.06] transition-all shadow-md"
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-center hover:border-violet-500/40 hover:bg-white/[0.06] transition-all shadow-md flex flex-col items-center justify-center"
               >
-                <span className={`inline-block rounded-lg bg-gradient-to-br ${fmt.color} px-3 py-1 text-xs font-black text-white shadow-sm mb-2`}>
+                <span className={`inline-block rounded-lg bg-gradient-to-br ${fmt.color} px-4 py-1.5 text-sm font-black text-white shadow-sm mb-3`}>
                   {fmt.ext}
                 </span>
-                <p className="text-[11px] font-medium text-slate-300">{fmt.label}</p>
+                <h4 className="text-sm font-bold text-white mb-1">{fmt.label}</h4>
+                <p className="text-xs text-slate-400">{fmt.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 4: Call to Action */}
-      <section className="py-14 bg-[#070B18] relative overflow-hidden border-t border-white/10 text-center">
+      {/* Section 4: Privacy & Security Promises */}
+      <section className="py-16 bg-[#070B18] relative overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
+        <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-1/4 h-[28rem] w-[28rem] rounded-full bg-violet-700/15 blur-[140px]"
+        />
+        <div className="container-kagzzy relative z-10">
+          <div className="text-center mb-12 max-w-xl mx-auto">
+            <Badge tone="dark">DATA PRIVACY</Badge>
+            <h2 className="heading-md text-white mt-2">Your documents stay private.</h2>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+              Files are securely transferred, accessed only for printing, and automatically removed after 24 hours.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            <div className="glass-card rounded-2xl p-5 border border-white/10 text-center">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-600/20 text-violet-300 border border-violet-500/30 mb-3">
+                <Lock className="h-5 w-5" />
+              </span>
+              <h4 className="text-sm font-bold text-white mb-1">Secure transfer in transit</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">Protected end-to-end data transfer from your browser directly to the print service.</p>
+            </div>
+            <div className="glass-card rounded-2xl p-5 border border-white/10 text-center">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-600/20 text-violet-300 border border-violet-500/30 mb-3">
+                <Store className="h-5 w-5" />
+              </span>
+              <h4 className="text-sm font-bold text-white mb-1">Private access for print shop only</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">Only the shop you specifically order from is granted access to print your file.</p>
+            </div>
+            <div className="glass-card rounded-2xl p-5 border border-white/10 text-center">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-600/20 text-violet-300 border border-violet-500/30 mb-3">
+                <Clock className="h-5 w-5" />
+              </span>
+              <h4 className="text-sm font-bold text-white mb-1">Automatic 24-hour cleanup</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">Documents are automatically removed from active storage after 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Bottom Call to Action Banner */}
+      <section className="py-16 bg-[#070B18] relative overflow-hidden border-t border-white/10 text-center">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
         <div
@@ -424,24 +459,25 @@ export function ForCustomersPage() {
           className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-purple-700/20 via-indigo-700/20 to-cyan-500/10 blur-[150px]"
         />
         <div className="container-kagzzy max-w-3xl relative z-10">
-          <Badge tone="dark">GET STARTED</Badge>
-          <h2 className="heading-md text-white mt-2">Experience Seamless Digital Printing Today</h2>
+          <Badge tone="dark">FOR SHOP OWNERS</Badge>
+          <h2 className="heading-md text-white mt-2">Own a Print Shop?</h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-2">
-            Walk into any Kagzzy partner shop, scan the counter standee QR, and print with total ease.
+            Bring digital ordering to your existing print setup with Kagzzy.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none mx-auto">
             <Link
-              to="/how-it-works"
+              to="/for-shops"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
             >
-              <span>See How It Works</span>
+              <span>Partner With Kagzzy</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              to="/"
+              to="/how-it-works"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-7 py-3.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-all text-center"
             >
-              <span>Explore Home</span>
+              <span>See How It Works</span>
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
