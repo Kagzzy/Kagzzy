@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { PageHero } from '../components/ui/PageHero'
 import { Badge } from '../components/ui/Badge'
 import { PrinterIntegration } from '../components/sections/PrinterIntegration'
+import { ShopOnboardingSection } from '../components/sections/ShopOnboardingSection'
+import { GetStartedModal } from '../components/modals/GetStartedModal'
+import { LoginModal } from '../components/modals/LoginModal'
 import {
   TrendingUp,
   Clock,
@@ -16,6 +20,7 @@ import {
   Zap,
   ArrowRight,
   CheckCircle2,
+  LogIn,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -83,7 +88,7 @@ const shopBenefits = [
   },
   {
     icon: Clock,
-    badge: 'ZERO MESSAGING CHAOS',
+    badge: 'ZERO MESSAGING CLUTTER',
     title: 'No WhatsApp Clutter',
     desc: 'Stop downloading files manually from messaging apps, shared drives, and chats.',
     accent: 'cyan',
@@ -92,7 +97,7 @@ const shopBenefits = [
     icon: ShieldCheck,
     badge: 'CONFIRMED PAYMENTS',
     title: 'Upfront Payment Confirmation',
-    desc: 'Orders proceed after payment is confirmed, reducing wasted prints and abandoned jobs.',
+    desc: 'Orders proceed after payment is confirmed via authoritative webhook, eliminating wasted prints.',
     accent: 'emerald',
   },
   {
@@ -153,9 +158,9 @@ const shopFeatures = [
   },
   {
     icon: Cpu,
-    title: 'Print Queue',
+    title: 'Print Queue & Routing',
     subtitle: 'Organized Workflow',
-    description: 'Keep orders organized and move them smoothly from initial review to completion.',
+    description: 'Keep orders organized and route them to designated laser or color machines.',
     tags: ['Order Sequencing', 'Prioritized Output', 'Status Progression'],
     accent: 'blue',
   },
@@ -169,9 +174,9 @@ const shopFeatures = [
   },
   {
     icon: FileSpreadsheet,
-    title: 'Order History',
+    title: 'Order History & Analytics',
     subtitle: 'Historical Records',
-    description: 'Keep track of completed prints, daily volume trends, and past customer orders.',
+    description: 'Keep track of completed prints, daily volume trends, peak hours, and exportable logs.',
     tags: ['Daily Summaries', 'Archived Jobs', 'Exportable Logs'],
     accent: 'emerald',
   },
@@ -196,6 +201,9 @@ const supportedBrands = [
 ]
 
 export function ForShopsPage() {
+  const [getStartedOpen, setGetStartedOpen] = useState(false)
+  const [loginOpen, setLoginOpen] = useState(false)
+
   return (
     <div className="bg-[#070B18] text-white select-none">
       {/* Hero Header */}
@@ -208,20 +216,20 @@ export function ForShopsPage() {
         accentColor="purple"
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto px-4">
+          <button
+            type="button"
+            onClick={() => setGetStartedOpen(true)}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 active:scale-[0.98] transition-all text-center"
+          >
+            <span>Get Started</span>
+            <ArrowRight className="h-4 w-4" />
+          </button>
           <a
             href="#shop-benefits"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
-          >
-            <span>Explore Shop Benefits</span>
-            <ArrowRight className="h-4 w-4" />
-          </a>
-          <Link
-            to="/how-it-works"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-colors text-center"
           >
-            <span>See How It Works</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+            <span>Explore Shop Benefits</span>
+          </a>
           <Link
             to="/pricing"
             className="w-full sm:w-auto text-center rounded-full border border-violet-500/30 bg-violet-500/10 px-6 py-3 text-xs sm:text-sm font-bold text-violet-200 hover:bg-violet-500/20 hover:border-violet-500/50 transition-colors inline-flex items-center justify-center gap-1.5"
@@ -357,7 +365,7 @@ export function ForShopsPage() {
         <PrinterIntegration />
       </div>
 
-      {/* Section 3: Supported Printer Brands */}
+      {/* Supported Printer Brands */}
       <section className="py-14 bg-[#070B18] relative overflow-hidden border-t border-white/10 text-center">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
@@ -386,7 +394,10 @@ export function ForShopsPage() {
         </div>
       </section>
 
-      {/* Section 4: Call to Action & Shop Owner Portal Anchor */}
+      {/* 4-Step Shop Onboarding Walkthrough */}
+      <ShopOnboardingSection onGetStarted={() => setGetStartedOpen(true)} />
+
+      {/* Section: Shop Owner Portal & Authentication Entry */}
       <section id="login" className="py-16 bg-[#070B18] relative overflow-hidden border-t border-white/10 text-center">
         <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden />
         <div className="noise-bg absolute inset-0 opacity-20 pointer-events-none" aria-hidden />
@@ -395,29 +406,46 @@ export function ForShopsPage() {
           className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-purple-700/20 via-indigo-700/20 to-cyan-500/10 blur-[150px]"
         />
         <div className="container-kagzzy max-w-3xl relative z-10">
-          <Badge tone="dark">SHOP OWNER PORTAL</Badge>
-          <h2 className="heading-md text-white mt-2">Ready to make your print shop more efficient?</h2>
+          <Badge tone="dark">KAGZZY PLATFORM ENTRY</Badge>
+          <h2 className="heading-md text-white mt-2">Sign In to Your Shop Console</h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-xl mx-auto">
-            Join Kagzzy and bring simple digital ordering to your counter. Sign in to your shop dashboard or explore our pricing plans to get started.
+            Already registered with Kagzzy? Sign in to manage your active orders, print queues, rates, and counter operator settings.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none mx-auto">
-            <Link
-              to="/pricing"
+            <button
+              type="button"
+              onClick={() => setLoginOpen(true)}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-8 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all text-center"
             >
-              <span>View Pricing Plans</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/how-it-works"
+              <LogIn className="h-4 w-4" />
+              <span>Login for Shop Owners</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setGetStartedOpen(true)}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-7 py-3.5 text-xs sm:text-sm font-bold text-white hover:bg-white/10 hover:border-white/35 transition-all text-center"
             >
-              <span>See How It Works</span>
+              <span>New Shop? Get Started</span>
               <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Modals */}
+      <GetStartedModal
+        isOpen={getStartedOpen}
+        onClose={() => setGetStartedOpen(false)}
+        initialRole="shop"
+      />
+      <LoginModal
+        isOpen={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onSwitchToSignup={() => {
+          setLoginOpen(false)
+          setGetStartedOpen(true)
+        }}
+      />
     </div>
   )
 }

@@ -8,10 +8,8 @@ import {
   Youtube,
   ArrowUp,
   ArrowRight,
-  ShieldCheck,
   CheckCircle2,
   Sparkles,
-  MapPin,
   Heart,
 } from 'lucide-react'
 
@@ -24,20 +22,21 @@ const productLinks = [
 
 const customerLinks = [
   { label: 'How to Print', href: '/how-it-works' },
+  { label: 'Customer Experience', href: '/for-customers' },
   { label: 'Order Tracking', href: '/features' },
   { label: 'FAQs', href: '/faq' },
 ]
 
 const shopOwnerLinks = [
   { label: 'Partner With Us', href: '/for-shops' },
-  { label: 'Shop Login', href: '/for-shops#login' },
-  { label: 'Print Agent', href: '/how-it-works#printers' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Shop Login', href: '/login' },
+  { label: 'Print Agent', href: '/for-shops#printer-integration' },
+  { label: 'Shop Pricing', href: '/pricing' },
 ]
 
 const companyLinks = [
   { label: 'About Us', href: '/#about' },
-  { label: 'Contact', href: '/faq' },
+  { label: 'Contact Us', href: '/contact' },
 ]
 
 const legalLinks = [

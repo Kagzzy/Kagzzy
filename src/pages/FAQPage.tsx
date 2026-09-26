@@ -2,100 +2,60 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PageHero } from '../components/ui/PageHero'
 import { Search, ChevronDown, ArrowRight } from 'lucide-react'
+import { faqItems } from '../data/faq'
 
-interface FAQItem {
+interface DetailedFAQItem {
   id: string
-  category: 'general' | 'customer' | 'merchant' | 'payment' | 'security'
+  category: 'customer' | 'shop' | 'payment' | 'security'
   question: string
   answer: string
 }
 
-const allFaqs: FAQItem[] = [
-  // General & Customer
+const comprehensiveFaqs: DetailedFAQItem[] = [
+  // Direct import from faqItems
+  ...faqItems.map((item) => ({
+    id: item.id,
+    category: (item.category === 'customer' ? 'customer' : 'shop') as 'customer' | 'shop',
+    question: item.question,
+    answer: item.answer,
+  })),
+  // Additional payment & security specific questions
   {
-    id: 'f1',
-    category: 'customer',
-    question: 'Do I need to download an app or register an account to print?',
-    answer:
-      'No app download is required! When you scan the Kagzzy QR standee with your phone camera, our fast web application opens instantly in your mobile browser (Chrome, Safari, etc.). You can upload, pay with UPI, and receive your print without creating an account.',
-  },
-  {
-    id: 'f2',
-    category: 'customer',
-    question: 'Which file formats does Kagzzy support?',
-    answer:
-      'Kagzzy supports PDF, JPG, and PNG formats in Phase 1. You can upload high-resolution documents and images directly from your phone or computer.',
-  },
-  {
-    id: 'f3',
-    category: 'customer',
-    question: 'How do I collect my print order after paying?',
-    answer:
-      'Immediately upon UPI payment, an on-screen token with a 4-digit code is generated. Walk up to the shop counter and show your token. The shop operator hands you your printed, stapled, or bound document directly.',
-  },
-  {
-    id: 'f4',
-    category: 'customer',
-    question: 'Can I choose double-sided (duplex) printing?',
-    answer:
-      'Yes! You can toggle "Duplex (Both sides)" with a single tap. Duplex printing is automatically calculated at an economical rate (typically ₹1.00/page instead of ₹1.50/page single-sided), saving you money and saving paper.',
-  },
-
-  // Merchant & Shop
-  {
-    id: 'f5',
-    category: 'merchant',
-    question: 'Do I need to buy a new printer or specific hardware?',
-    answer:
-      'No! Kagzzy works with compatible printers that connect to a Windows 10 or 11 PC via USB or local network (including Canon, HP, Epson, Brother, Xerox, Ricoh, and Konica Minolta). You simply install our lightweight Kagzzy Print Agent and you are ready to receive jobs.',
-  },
-  {
-    id: 'f6',
-    category: 'merchant',
-    question: 'How do I get the official Kagzzy Counter QR Standee?',
-    answer:
-      'We deliver an official acrylic QR standee to your shop address free of charge upon signing up. You can also print a temporary high-resolution laminated standee directly from your merchant dashboard.',
-  },
-  {
-    id: 'f7',
-    category: 'merchant',
-    question: 'Can I still review orders before paper comes out of the machine?',
-    answer:
-      'Yes. Kagzzy never prints blindly. When an order arrives, it appears in your shop queue with the file name, page count, and settings. You select the target printer and click "PRINT NOW" when ready.',
-  },
-
-  // Payment & Refunds
-  {
-    id: 'f8',
+    id: 'faq-p1',
     category: 'payment',
-    question: 'What happens if a paper jam occurs or an order fails?',
+    question: 'Which payment methods are accepted on Kagzzy?',
     answer:
-      'If an order is cancelled by the shop due to paper jam, power outage, or out-of-stock paper, an automated 100% instant refund is credited back to your source UPI account within 5 to 15 minutes.',
+      'Kagzzy supports UPI Intent payments (Google Pay, PhonePe, Paytm, BHIM, and bank UPI apps) on mobile, as well as Dynamic QR codes for scanning on desktop or counter displays. Payments are verified instantly via authoritative webhook.',
   },
   {
-    id: 'f9',
+    id: 'faq-p2',
     category: 'payment',
-    question: 'Which payment methods are accepted?',
+    question: 'What happens if a paper jam or print issue occurs?',
     answer:
-      'We accept all major UPI apps including Google Pay, PhonePe, Paytm, CRED, BHIM, and direct bank UPI apps. Credit and debit cards are also supported via our secure checkout gateway.',
+      'If an order is rejected or cancelled by the shop due to paper jam, power interruption, or out-of-stock paper before completion, the shop records the issue and the payment is reconciled or refunded back to the source account.',
   },
-
-  // Security
   {
-    id: 'f10',
+    id: 'faq-sec1',
     category: 'security',
-    question: 'Is my personal document safe? Can anyone else see it?',
+    question: 'Are my personal and confidential documents safe?',
     answer:
-      'Yes. Kagzzy uses private storage with automatic cleanup. Documents are encrypted during transfer, accessible only to the authorized print shop to fulfill your order, and automatically removed from active storage after 24 hours.',
+      'Yes. Documents are transferred over encrypted HTTPS/TLS connections into private storage. Only the specific print shop you placed the order with is granted temporary access to spool the document to their printer. Files are automatically removed from active storage after 24 hours.',
+  },
+  {
+    id: 'faq-sec2',
+    category: 'security',
+    question: 'Does Kagzzy retain my files permanently?',
+    answer:
+      'No. Kagzzy does not permanently store customer documents. Documents are retained in private temporary storage strictly for fulfillment and order inspection, and are automatically purged from active storage 24 hours after completion.',
   },
 ]
 
 export function FAQPage() {
   const [search, setSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
-  const [openId, setOpenId] = useState<string | null>('f1')
+  const [openId, setOpenId] = useState<string | null>('faq-c1')
 
-  const filteredFaqs = allFaqs.filter((faq) => {
+  const filteredFaqs = comprehensiveFaqs.filter((faq) => {
     const matchesSearch =
       faq.question.toLowerCase().includes(search.toLowerCase()) ||
       faq.answer.toLowerCase().includes(search.toLowerCase())
@@ -111,7 +71,7 @@ export function FAQPage() {
         badge="HELP & ANSWERS"
         title="Frequently Asked"
         titleAccent="Questions"
-        description="Everything you need to know about scanning, uploading, printer integration, and payment security."
+        description="Everything you need to know about scanning, uploading, printer integration, payments, and document security."
         bgImage="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1600&auto=format&fit=crop&q=80"
         accentColor="purple"
       >
@@ -122,7 +82,7 @@ export function FAQPage() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search questions (e.g. duplex, refund, printer models...)"
+            placeholder="Search questions (e.g. duplex, printer agent, UPI, pickup...)"
             className="w-full rounded-2xl border border-white/20 bg-slate-900/90 pl-11 pr-4 py-3.5 text-xs sm:text-sm text-white placeholder-slate-400 outline-none focus:border-violet-500 shadow-2xl backdrop-blur-md"
           />
         </div>
@@ -131,9 +91,9 @@ export function FAQPage() {
         <div className="flex flex-wrap items-center justify-center gap-2">
           {[
             { id: 'all', label: 'All Questions' },
-            { id: 'customer', label: 'Students & Customers' },
-            { id: 'merchant', label: 'Print Shop Owners' },
-            { id: 'payment', label: 'Payments & Refunds' },
+            { id: 'customer', label: 'Customers & Students' },
+            { id: 'shop', label: 'Print Shop Owners' },
+            { id: 'payment', label: 'Payments & Pricing' },
             { id: 'security', label: 'Security & Privacy' },
           ].map((cat) => (
             <button

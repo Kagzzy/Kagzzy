@@ -50,6 +50,7 @@ export interface FAQItem {
   id: string
   question: string
   answer: string
+  category?: 'customer' | 'shop' | 'general'
 }
 
 export type OrderStatus =

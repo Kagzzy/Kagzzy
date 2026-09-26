@@ -10,6 +10,10 @@ import { ForShopsPage } from './pages/ForShopsPage'
 import { ForCustomersPage } from './pages/ForCustomersPage'
 import { PricingPage } from './pages/PricingPage'
 import { FAQPage } from './pages/FAQPage'
+import { ContactPage } from './pages/ContactPage'
+import { LoginPage } from './pages/LoginPage'
+import { GetStartedPage } from './pages/GetStartedPage'
+import { AboutPage } from './pages/AboutPage'
 import { useScrollProgress } from './hooks/useScrollProgress'
 
 /** Top-of-page scroll progress indicator. */
@@ -42,6 +46,10 @@ function App() {
             <Route path="/for-customers" element={<ForCustomersPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/get-started" element={<GetStartedPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

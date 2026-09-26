@@ -7,9 +7,30 @@ import {
   Cpu,
   Layers,
   CheckCircle2,
+  QrCode,
+  Files,
+  FileText,
+  Palette,
+  Copy,
+  Calculator,
+  ShieldCheck,
+  PackageCheck,
+  History,
+  Inbox,
+  UserCheck,
+  Printer,
+  Sparkles,
+  Users,
+  LineChart,
+  Lock,
+  Workflow,
+  ClipboardCheck,
+  Store,
+  type LucideIcon,
 } from 'lucide-react'
 import type { FeatureCard } from '../types'
 
+/** Core 8 features summary array for general overview cards */
 export const features: FeatureCard[] = [
   {
     id: 'document-upload',
@@ -22,7 +43,7 @@ export const features: FeatureCard[] = [
   {
     id: 'print-options',
     title: 'Flexible Print Options',
-    description: 'Choose the settings you need, including paper size, color, single or double-sided printing, copies, and page range.',
+    description: 'Choose paper size, color, single or double-sided printing, copies, and page range.',
     icon: <SlidersHorizontal className="h-6 w-6" />,
     colorFrom: '#06B6D4',
     colorTo: '#2563EB',
@@ -38,7 +59,7 @@ export const features: FeatureCard[] = [
   {
     id: 'secure-payments',
     title: 'Secure Online Payments',
-    description: 'Pay for your print order online through the available payment options.',
+    description: 'Pay via UPI Intent on mobile or Dynamic QR on desktop with instant verification.',
     icon: <CreditCard className="h-6 w-6" />,
     colorFrom: '#8B5CF6',
     colorTo: '#7C3AED',
@@ -54,7 +75,7 @@ export const features: FeatureCard[] = [
   {
     id: 'shop-dashboard',
     title: 'Shop Dashboard',
-    description: 'Shop owners can receive, review, accept, reject, and manage print orders from one place.',
+    description: 'Shop owners receive, review, accept, reject, and manage print orders in one place.',
     icon: <LayoutDashboard className="h-6 w-6" />,
     colorFrom: '#4F46E5',
     colorTo: '#8B5CF6',
@@ -62,17 +83,289 @@ export const features: FeatureCard[] = [
   {
     id: 'print-agent',
     title: 'Kagzzy Print Agent',
-    description: 'Connect your Windows PC and existing compatible printers to Kagzzy for digital print job processing.',
+    description: 'Connect Windows PCs and existing printers to Kagzzy for secure, authorized physical printing.',
     icon: <Cpu className="h-6 w-6" />,
     colorFrom: '#7C3AED',
     colorTo: '#06B6D4',
   },
   {
     id: 'printer-selection',
-    title: 'Smart Printer Selection',
-    description: 'Shops with multiple printers can automatically select a suitable available printer based on the order’s print requirements.',
+    title: 'Smart Printer Selection & PRINT NOW',
+    description: 'Route jobs to available printers with explicit operator authorization before printing.',
     icon: <Layers className="h-6 w-6" />,
     colorFrom: '#10B981',
     colorTo: '#4F46E5',
+  },
+]
+
+export interface DetailedFeatureItem {
+  id: string
+  title: string
+  description: string
+  icon: LucideIcon
+  tag: string
+}
+
+/** Comprehensive Customer Features (15 items) */
+export const customerFeaturesList: DetailedFeatureItem[] = [
+  {
+    id: 'c-qr',
+    title: 'Shop QR / Shop Link',
+    description: 'Scan the counter standee QR code or open the unique shop link directly in any mobile browser without installing an app.',
+    icon: QrCode,
+    tag: 'Access',
+  },
+  {
+    id: 'c-upload',
+    title: 'Document Upload',
+    description: 'Upload documents from your phone, laptop, Google Drive, or camera roll in seconds.',
+    icon: UploadCloud,
+    tag: 'Files',
+  },
+  {
+    id: 'c-multi-doc',
+    title: 'Multiple Documents',
+    description: 'Bundle multiple files (PDFs, JPGs, PNGs) into a single order with individualized print configurations.',
+    icon: Files,
+    tag: 'Files',
+  },
+  {
+    id: 'c-config',
+    title: 'Print Configuration',
+    description: 'Full custom control over how each document is prepared and printed at the local shop.',
+    icon: SlidersHorizontal,
+    tag: 'Settings',
+  },
+  {
+    id: 'c-paper-size',
+    title: 'Paper Size Selection',
+    description: 'Select standard A4, A3, Legal, or custom sheet sizes supported by the target print shop.',
+    icon: FileText,
+    tag: 'Settings',
+  },
+  {
+    id: 'c-color',
+    title: 'B&W / Color Modes',
+    description: 'Choose economical black & white laser printing or vibrant high-resolution color inkjet/laser prints.',
+    icon: Palette,
+    tag: 'Color',
+  },
+  {
+    id: 'c-duplex',
+    title: 'Single / Duplex (Double-Sided)',
+    description: 'Save paper and cost with 1-tap double-sided (duplex) printing, calculated dynamically.',
+    icon: Layers,
+    tag: 'Eco',
+  },
+  {
+    id: 'c-copies',
+    title: 'Number of Copies',
+    description: 'Set exact copy counts for handouts, resumes, assignments, or legal paperwork.',
+    icon: Copy,
+    tag: 'Quantity',
+  },
+  {
+    id: 'c-page-range',
+    title: 'Custom Page Range',
+    description: 'Print all pages or specify exact page ranges (e.g., pages 1-5, 8, 12-14) to avoid printing unwanted pages.',
+    icon: FileText,
+    tag: 'Selective',
+  },
+  {
+    id: 'c-price-calc',
+    title: 'Dynamic Price Calculation',
+    description: 'Real-time upfront total calculation before payment with zero hidden charges or surprises.',
+    icon: Calculator,
+    tag: 'Pricing',
+  },
+  {
+    id: 'c-upi',
+    title: 'UPI Intent Payment',
+    description: '1-tap payment launching Google Pay, PhonePe, Paytm, or BHIM directly from your mobile browser.',
+    icon: CreditCard,
+    tag: 'Payments',
+  },
+  {
+    id: 'c-dynamic-qr',
+    title: 'Dynamic QR Payment',
+    description: 'On-screen dynamic UPI QR code with pre-filled order amount and transaction reference for desktop ordering.',
+    icon: QrCode,
+    tag: 'Payments',
+  },
+  {
+    id: 'c-tracking',
+    title: 'Realtime Order Tracking',
+    description: 'Live status progression: Payment Confirmed → Shop Accepted → Printing → Ready for Pickup.',
+    icon: Radar,
+    tag: 'Live Status',
+  },
+  {
+    id: 'c-pickup-id',
+    title: 'Pickup Identification',
+    description: 'Unique order identifier code to show at the counter for instant, mistake-free document handover.',
+    icon: PackageCheck,
+    tag: 'Fulfillment',
+  },
+  {
+    id: 'c-history',
+    title: 'Order History',
+    description: 'Review recent orders, receipts, and pickup codes directly from your browser session.',
+    icon: History,
+    tag: 'Records',
+  },
+]
+
+/** Comprehensive Shop Features (13 items) */
+export const shopFeaturesList: DetailedFeatureItem[] = [
+  {
+    id: 's-dashboard',
+    title: 'Shop Dashboard',
+    description: 'Unified command center showing live queues, active print jobs, printer status, and daily totals.',
+    icon: LayoutDashboard,
+    tag: 'Management',
+  },
+  {
+    id: 's-new-orders',
+    title: 'New Orders Stream',
+    description: 'Instant visual and audio notification when a new pre-paid order arrives from a customer.',
+    icon: Inbox,
+    tag: 'Queue',
+  },
+  {
+    id: 's-accept-reject',
+    title: 'Accept / Reject Control',
+    description: 'Full operator discretion to accept compatible orders or reject jobs with automated customer refund.',
+    icon: UserCheck,
+    tag: 'Control',
+  },
+  {
+    id: 's-review',
+    title: 'Order & Document Review',
+    description: 'Inspect file page count, duplex requirements, color needs, and special notes before committing paper.',
+    icon: ClipboardCheck,
+    tag: 'Verification',
+  },
+  {
+    id: 's-print-jobs',
+    title: 'Print Job Pipeline',
+    description: 'Prioritize, sequence, and manage incoming print jobs across your counter workflow.',
+    icon: Layers,
+    tag: 'Workflow',
+  },
+  {
+    id: 's-printer-mgmt',
+    title: 'Printer Management',
+    description: 'Monitor connected printers, paper tray levels, toner levels, and online/offline status.',
+    icon: Printer,
+    tag: 'Hardware',
+  },
+  {
+    id: 's-printer-select',
+    title: 'Printer Selection',
+    description: 'Assign jobs to specific machines (e.g. B&W laser vs. heavy-duty copier vs. color tank).',
+    icon: Workflow,
+    tag: 'Routing',
+  },
+  {
+    id: 's-print-now',
+    title: 'Explicit "PRINT NOW" Action',
+    description: 'Operators trigger physical printing explicitly with "PRINT NOW". Browser never prints automatically without authorization.',
+    icon: Sparkles,
+    tag: 'Security & Waste-Lock',
+  },
+  {
+    id: 's-print-status',
+    title: 'Live Print Status',
+    description: 'Monitor spooling, pages completed, and printer output in real-time from the console.',
+    icon: Radar,
+    tag: 'Monitoring',
+  },
+  {
+    id: 's-ready-pickup',
+    title: 'Ready for Pickup Trigger',
+    description: '1-click notification marking jobs as ready and signaling the customer to collect at counter.',
+    icon: PackageCheck,
+    tag: 'Handover',
+  },
+  {
+    id: 's-staff-mgmt',
+    title: 'Staff Management',
+    description: 'Add counter operators and floor technicians with role-based access to protect sensitive financial data.',
+    icon: Users,
+    tag: 'Team',
+  },
+  {
+    id: 's-pricing-mgmt',
+    title: 'Pricing Management',
+    description: 'Set custom per-page rate cards for B&W, Color, Duplex, A4, A3, Legal, and spiral binding.',
+    icon: Calculator,
+    tag: 'Rates',
+  },
+  {
+    id: 's-analytics',
+    title: 'Daily Analytics & Reports',
+    description: 'Track daily page volume, completed order counts, peak printing hours, and revenue export.',
+    icon: LineChart,
+    tag: 'Analytics',
+  },
+]
+
+/** Comprehensive Platform Features (8 items) */
+export const platformFeaturesList: DetailedFeatureItem[] = [
+  {
+    id: 'p-realtime',
+    title: 'Realtime Updates',
+    description: 'Low-latency bidirectional status synchronization across customer browser, shop console, and print agent.',
+    icon: Radar,
+    tag: 'Telemetry',
+  },
+  {
+    id: 'p-rbac',
+    title: 'Role-Based Access Control',
+    description: 'Distinct security boundaries for Customers, Counter Staff, Shop Owners, and Multi-Branch Administrators.',
+    icon: Users,
+    tag: 'Security',
+  },
+  {
+    id: 'p-secure-docs',
+    title: 'Secure Document Handling',
+    description: 'TLS encrypted transport, private isolated storage, signed URLs, and automatic 24-hour cleanup.',
+    icon: Lock,
+    tag: 'Privacy',
+  },
+  {
+    id: 'p-payment-verification',
+    title: 'Payment Verification',
+    description: 'Authoritative webhook reconciliation ensures jobs are queued only after verified UPI confirmation.',
+    icon: ShieldCheck,
+    tag: 'Payments',
+  },
+  {
+    id: 'p-agent-connectivity',
+    title: 'Printer / Agent Connectivity',
+    description: 'Encrypted persistent connection between Kagzzy Cloud and the lightweight Windows Print Agent.',
+    icon: Cpu,
+    tag: 'Integration',
+  },
+  {
+    id: 'p-multi-printer',
+    title: 'Multiple Printer Support',
+    description: 'Seamless discovery and load-balancing across multiple USB and networked printers.',
+    icon: Printer,
+    tag: 'Scalability',
+  },
+  {
+    id: 'p-auditability',
+    title: 'Auditability & Logs',
+    description: 'Full order lifecycle audit trail, transaction reference tracking, and operator action history.',
+    icon: ClipboardCheck,
+    tag: 'Compliance',
+  },
+  {
+    id: 'p-onboarding',
+    title: 'Shop Onboarding',
+    description: 'Simple guided setup: register shop, set pricing, install Windows Print Agent, receive acrylic standee.',
+    icon: Store,
+    tag: 'Onboarding',
   },
 ]

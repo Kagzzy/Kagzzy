@@ -1,4 +1,5 @@
 import { HowItWorks } from '../components/sections/HowItWorks'
+import { OperationalWorkflow12Steps } from '../components/sections/OperationalWorkflow12Steps'
 import { PrinterIntegration } from '../components/sections/PrinterIntegration'
 import { PageHero } from '../components/ui/PageHero'
 import { Badge } from '../components/ui/Badge'
@@ -73,6 +74,9 @@ export function HowItWorksPage() {
 
       {/* Main 6-Step Visual Timeline */}
       <HowItWorks />
+
+      {/* Complete 12-Step Operational Workflow */}
+      <OperationalWorkflow12Steps />
 
       {/* Printer Integration Terminal Component */}
       <PrinterIntegration />

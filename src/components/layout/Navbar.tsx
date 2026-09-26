@@ -1,22 +1,32 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, LogIn } from 'lucide-react'
 import clsx from 'clsx'
 import { KagzzyLogo } from '../ui/KagzzyLogo'
+import { GetStartedModal } from '../modals/GetStartedModal'
+import { LoginModal } from '../modals/LoginModal'
 
-const navTabs = [
+interface NavTabItem {
+  label: string
+  path: string
+  isAction?: 'login'
+}
+
+const navTabs: NavTabItem[] = [
   { label: 'Home', path: '/' },
   { label: 'How It Works', path: '/how-it-works' },
   { label: 'For Shops', path: '/for-shops' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'About Us', path: '/#about' },
-  { label: 'Login for Shop Owners', path: '/for-shops#login' },
+  { label: 'Login for Shop Owners', path: '/login', isAction: 'login' },
 ]
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [getStartedOpen, setGetStartedOpen] = useState(false)
+  const [loginOpen, setLoginOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -30,6 +40,24 @@ export function Navbar() {
     setMobileOpen(false)
   }, [location.pathname])
 
+  const handleNavClick = (tab: NavTabItem, e: React.MouseEvent) => {
+    if (tab.isAction === 'login') {
+      e.preventDefault()
+      setLoginOpen(true)
+      return
+    }
+
+    if (tab.path === '/#about') {
+      if (location.pathname === '/') {
+        e.preventDefault()
+        const el = document.getElementById('about')
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }
+  }
+
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:px-6">
@@ -41,7 +69,7 @@ export function Navbar() {
               : 'border border-white/10 bg-[#070B18]/70 backdrop-blur-md',
           )}
         >
-          {/* Left: Kagzzy Brand Logo matching reference */}
+          {/* Left: Kagzzy Brand Logo */}
           <Link to="/" className="focus-ring group flex items-center">
             <KagzzyLogo size={32} />
           </Link>
@@ -52,18 +80,18 @@ export function Navbar() {
               const isActive =
                 tab.path === '/'
                   ? location.pathname === '/'
-                  : location.pathname.startsWith(tab.path)
+                  : location.pathname.startsWith(tab.path) && tab.path !== '/#about'
 
               return (
-                <li key={tab.path} className="relative">
+                <li key={tab.label} className="relative">
                   <NavLink
                     to={tab.path}
+                    onClick={(e) => handleNavClick(tab, e)}
                     className={clsx(
                       'relative flex flex-col items-center rounded-xl px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold transition-colors duration-200',
                       isActive ? 'text-white font-bold' : 'text-slate-300 hover:text-white',
                     )}
                   >
-                    {/* Active Pill Glow matching reference image */}
                     {isActive && (
                       <motion.div
                         layoutId="nav-active-glow"
@@ -71,11 +99,11 @@ export function Navbar() {
                         transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                       />
                     )}
-                    <span className="relative z-10 flex items-center gap-1">
-                      {tab.label}
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      {tab.isAction === 'login' && <LogIn className="h-3.5 w-3.5 text-violet-400" />}
+                      <span>{tab.label}</span>
                     </span>
 
-                    {/* Active Bottom Illuminated Dot */}
                     {isActive && (
                       <motion.span
                         layoutId="nav-active-dot"
@@ -88,18 +116,19 @@ export function Navbar() {
             })}
           </ul>
 
-          {/* Right: Get Started Primary CTA (Login removed per user request) */}
-          <div className="hidden items-center sm:flex">
-            <Link
-              to="/how-it-works"
+          {/* Right: Get Started Primary CTA */}
+          <div className="hidden items-center gap-2.5 sm:flex">
+            <button
+              type="button"
+              onClick={() => setGetStartedOpen(true)}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-5 py-2 text-xs font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 hover:brightness-110 active:scale-[0.98] transition-all"
             >
               <span>Get Started</span>
               <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+            </button>
           </div>
 
-          {/* Mobile Menu Toggle Button (Minimum 44px WCAG touch target) */}
+          {/* Mobile Menu Toggle Button */}
           <button
             type="button"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -129,13 +158,16 @@ export function Navbar() {
                 const isActive =
                   tab.path === '/'
                     ? location.pathname === '/'
-                    : location.pathname.startsWith(tab.path)
+                    : location.pathname.startsWith(tab.path) && tab.path !== '/#about'
 
                 return (
                   <NavLink
-                    key={tab.path}
+                    key={tab.label}
                     to={tab.path}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => {
+                      setMobileOpen(false)
+                      handleNavClick(tab, e)
+                    }}
                     className={clsx(
                       'flex items-center justify-between rounded-xl px-4 py-2.5 text-base font-bold transition-colors',
                       isActive
@@ -143,7 +175,10 @@ export function Navbar() {
                         : 'text-slate-300 hover:bg-white/5 hover:text-white',
                     )}
                   >
-                    <span>{tab.label}</span>
+                    <span className="flex items-center gap-2">
+                      {tab.isAction === 'login' && <LogIn className="h-4 w-4 text-violet-400" />}
+                      <span>{tab.label}</span>
+                    </span>
                     <ArrowRight className="h-4 w-4 text-violet-400" />
                   </NavLink>
                 )
@@ -151,18 +186,36 @@ export function Navbar() {
             </div>
 
             <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10">
-              <Link
-                to="/how-it-works"
-                onClick={() => setMobileOpen(false)}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false)
+                  setGetStartedOpen(true)
+                }}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 py-3.5 text-sm font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] hover:scale-105 transition-all"
               >
                 <span>Get Started</span>
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Global Modals */}
+      <GetStartedModal
+        isOpen={getStartedOpen}
+        onClose={() => setGetStartedOpen(false)}
+        initialRole="shop"
+      />
+      <LoginModal
+        isOpen={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onSwitchToSignup={() => {
+          setLoginOpen(false)
+          setGetStartedOpen(true)
+        }}
+      />
     </>
   )
 }

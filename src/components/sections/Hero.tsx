@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight,
-  Play,
   X,
   Zap,
   Store,
@@ -133,7 +132,9 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
               </span>
-              LOCAL SHOPS &bull; SMARTER PRINTING
+              <span>"Your Print... Your Way!"</span>
+              <span className="text-white/40">&bull;</span>
+              <span>LOCAL SHOPS DIGITIZED</span>
             </motion.div>
 
             {/* Headline with cinematic line-by-line reveal and animated gradient text */}
@@ -237,28 +238,39 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.72, duration: 0.5 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 w-full sm:w-auto"
             >
               <button
                 type="button"
                 onClick={() => {
                   window.location.href = '/for-customers'
                 }}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-7 py-3 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 px-6 py-3 text-sm sm:text-base font-bold text-white shadow-[0_8px_24px_-4px_rgba(124,58,237,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
               >
-                Start Printing
+                <span>Start Printing</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 
               <button
                 type="button"
+                onClick={() => {
+                  window.location.href = '/for-shops'
+                }}
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-violet-500/40 bg-violet-600/15 px-5 py-3 text-sm sm:text-base font-bold text-violet-200 backdrop-blur-md transition-all duration-300 hover:bg-violet-600/25 hover:border-violet-400 active:scale-[0.98] w-full sm:w-auto"
+              >
+                <Store className="h-4 w-4 text-violet-300" />
+                <span>For Print Shops</span>
+              </button>
+
+              <button
+                type="button"
                 onClick={handleScrollToHowItWorks}
-                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98] w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-5 py-3 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/35 active:scale-[0.98] w-full sm:w-auto"
               >
                 <span className="grid h-5 w-5 place-items-center rounded-full bg-white/20 text-white group-hover:bg-white group-hover:text-slate-900 transition-colors">
                   <Compass className="h-3 w-3 ml-0.5" />
                 </span>
-                See How It Works
+                <span>How It Works</span>
               </button>
             </motion.div>
 

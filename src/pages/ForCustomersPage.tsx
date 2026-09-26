@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { PageHero } from '../components/ui/PageHero'
 import { Badge } from '../components/ui/Badge'
+import { CustomerJourneySection } from '../components/sections/CustomerJourneySection'
 import {
   Zap,
   ShieldCheck,
@@ -226,6 +227,9 @@ export function ForCustomersPage() {
           </a>
         </div>
       </PageHero>
+
+      {/* Complete Customer Journey: Scan -> Upload -> Configure -> Pay -> Track -> Pickup */}
+      <CustomerJourneySection />
 
       {/* Section 1: Customer Benefits */}
       <section id="customer-benefits" className="section-padding bg-[#070B18] relative overflow-hidden border-t border-white/10">

@@ -1,22 +1,17 @@
-import { FeatureGrid } from '../components/sections/FeatureGrid'
-import { DetailedFeatureCategories } from '../components/sections/DetailedFeatureCategories'
-import { RealtimeSection } from '../components/sections/RealtimeSection'
-import { SecuritySection } from '../components/sections/SecuritySection'
-import { FinalCTA } from '../components/sections/FinalCTA'
 import { PageHero } from '../components/ui/PageHero'
+import { AboutSection } from '../components/sections/AboutSection'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
-export function FeaturesPage() {
+export function AboutPage() {
   return (
     <div className="bg-[#070B18] text-white select-none">
-      {/* Hero Header — Unified Purple Brand Theme */}
       <PageHero
-        badge="KAGZZY FEATURES"
-        title="Everything you need"
-        titleAccent="for simpler printing."
-        description="From uploading your document to collecting your printed pages, Kagzzy keeps the printing process simple for customers and organized for local print shops."
-        bgImage="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&auto=format&fit=crop&q=80"
+        badge="ABOUT KAGZZY"
+        title="Simplifying Local Printing,"
+        titleAccent="Empowering Local Shops."
+        description="Kagzzy is on a mission to bring digital simplicity to everyday printing by connecting customers with the local print shops they know and trust."
+        bgImage="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600&auto=format&fit=crop&q=80"
         accentColor="purple"
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto px-4">
@@ -37,20 +32,7 @@ export function FeaturesPage() {
         </div>
       </PageHero>
 
-      {/* Feature Grid Component (8 Core Capabilities Overview) */}
-      <FeatureGrid />
-
-      {/* Comprehensive Feature Breakdown (Customer, Shop, Platform) */}
-      <DetailedFeatureCategories />
-
-      {/* Real-time Order Telemetry Simulation */}
-      <RealtimeSection />
-
-      {/* Document Security Section */}
-      <SecuritySection />
-
-      {/* Conversion Final CTA */}
-      <FinalCTA />
+      <AboutSection />
     </div>
   )
 }
